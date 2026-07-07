@@ -1,0 +1,16 @@
+services:
+  studio313:
+    build: .
+    container_name: studio313
+    ports:
+      - "${PORT:-2187}:3000"
+    environment:
+      - PORT=3000
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-313}
+      - DATA_DIR=/app/data
+    volumes:
+      - studio313_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  studio313_data:

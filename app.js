@@ -1,0 +1,1894 @@
+const studioImages = [
+  '/media/photos/studio/tild3037-3233-4434-b932-353762623636__23.jpg',
+  '/media/photos/studio/tild3137-3062-4466-b565-373238343666__29.jpg',
+  '/media/photos/studio/tild3238-3930-4561-a439-356237643439__333.png',
+  '/media/photos/studio/tild3238-6165-4633-a230-336330613834__21.jpg',
+  '/media/photos/studio/tild3333-3863-4339-b566-653361613737__22.jpg',
+  '/media/photos/studio/tild3537-3266-4565-a432-636664383637__15.jpg',
+  '/media/photos/studio/tild3566-3764-4134-b534-343530653732__14.jpg',
+  '/media/photos/studio/tild3665-6438-4663-b836-356532326537__20.jpg',
+  '/media/photos/studio/tild3732-6661-4435-a536-666664643032__21.jpg',
+  '/media/photos/studio/tild3738-3939-4665-a136-636165303436__7-7.jpg',
+];
+
+const stathamQuotes = [
+  `Методом проб и ошибок - я пробовал и ошибался (с) Джейсон Стетхем`,
+  `Сколько говно не мни - шоколадкой не станет (с) Джейсон Стетхем`,
+  `Магическую атаку знаешь? Я атаковал (с) Джейсон Стетхем`,
+  `Лучшее чувство - когда никто не знает, чем ты занимаешься в жизни. Даже ты сам (с) Джейсон Стетхем`,
+  `Не понимаю, что сложного бросить пить? Я постоянно бросаю (с) Джейсон Стетхем`,
+  `Если обидели- не обижайся, Если ударили- не ударяйся (с) Джейсон Стетхем`,
+  `Если пьянка неизбежна, пей первым (с) Джейсон Стетхем`,
+  `Береги честь с молода, а яйца от холода (с) Джейсон Стетхем`,
+  `Зачем идти на похороны друга, если он на твои не придёт? (с) Джейсон Стетхем`,
+  `Когда я режу лук, плачу не я , а лук (с) Джейсон Стетхем`,
+  `Я падаю с 10го этажа сразу на одиннадцатый (с) Джейсон Стетхем`,
+  `Не можешь изменить мир? Измени хотя бы жене (с) Джейсон Стетхем`,
+  `Когда я падаю, звёзды загадывают желание (с) Джейсон Стетхем`,
+  `Военкомат скрывался от меня, пока мне не исполнилось 27 лет (с) Джейсон Стетхем`,
+  `Когда мне говорят ВАЛИМ, я спрашиваю - кого? (с) Джейсон Стетхем`,
+  `Как говорил мой дед - пол литра хорошо, когда один не пьет (с) Джейсон Стетхем`,
+  `У меня на потолке написано - завтра бросаю пить. Каждое утро просыпаюсь и благодарю бога, что завтра, а не сегодня (с) Джейсон Стетхем`,
+  `Соседка снизу может быть сверху (с) Джейсон Стетхем`,
+  `Посмотри на волосы на жопе, они всю жизнь в очке, говне и темноте, но при этом как то растут и развиваются. И у тебя получится! (с) Джейсон Стетхем`,
+  `Братьев береги, шкуру люби, маму храни, врагов хорони, суп посоли, ковер отряхни, Мухаммед Али (с) Джейсон Стетхем`,
+  `У меня не было денег, поэтому в трусы стриптизерши я крикнул спасибо (с) Джейсон Стетхем`,
+  `Когда я смотрю на солнце, оно щурится (с) Джейсон Стетхем`,
+  `Лучше быть каблуком, чем луком (с) Джейсон Стетхем`,
+  `Если гонка, то самогонка (с) Джейсон Стетхем`,
+  `Я скажу две фразы, открывающие любые двери: от себя и на себя (с) Джейсон Стетхем`,
+  `Если драка неизбежна - беги первым (с) Джейсон Стетхем`,
+  `Шаг влево, шаг вправо - два шага (с) Джейсон Стетхем`,
+  `Подобное притягивается подобным. А что делать, если я бесподобный? (с) Джейсон Стетхем`,
+  `Однажды я смотрел в бездну. Она моргнула первой (с) Джейсон Стетхем`,
+  `Я уважаю мнение каждого, кто со мной согласен (с) Джейсон Стетхем`,
+  `Влюбленный волк уже не хищник (с) Джейсон Стетхем`,
+  `Я не пересолил борщ, я переборщил с солью (с) Джейсон Стетхем`,
+  `Пока самка улыбается, пацаны не напрягаются (с) Джейсон Стетхем`,
+];
+
+const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyA', 'KeyB'];
+
+const navItems = [
+  ['about', 'О студии', '◈'],
+  ['services', 'Услуги', '✦'],
+  ['cases', 'Кейсы', '▣'],
+  ['prices', 'Цены', '₽'],
+  ['blog', 'Блог', '✎'],
+  ['team', 'Команда', '◎'],
+  ['equipment', 'Оборудование', '▤'],
+  ['reviews', 'Наши клиенты', '★'],
+  ['faq', 'FAQ', '?'],
+  ['contacts', 'Контакты', '⌖'],
+];
+
+const iconLibrary = {
+  telegram: '<path d="M11.94 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 11.94 0zm4.97 7.22c.1 0 .32.03.46.14.12.1.16.23.17.33.02.09.04.3.02.47-.18 1.9-.96 6.5-1.36 8.63-.17.9-.5 1.2-.82 1.23-.7.06-1.22-.46-1.9-.9-1.06-.7-1.65-1.13-2.68-1.8-1.18-.78-.42-1.21.26-1.91.18-.18 3.25-2.98 3.31-3.23.01-.03.01-.15-.06-.21-.07-.06-.17-.04-.25-.03-.1.03-1.79 1.14-5.06 3.35-.48.33-.91.49-1.3.48-.43-.01-1.25-.24-1.87-.44-.75-.24-1.35-.37-1.3-.79.03-.21.33-.43.9-.66 3.49-1.52 5.83-2.53 7-3.01 3.33-1.39 4.02-1.63 4.48-1.65z"/>',
+  whatsapp: '<path fill-rule="evenodd" clip-rule="evenodd" d="M12.05 2C6.52 2 2.04 6.48 2.04 12c0 1.76.46 3.45 1.34 4.95L2 22l5.18-1.36A10 10 0 1 0 12.05 2zm5.42 12.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.47 1.07 2.88 1.22 3.08.15.2 2.09 3.2 5.07 4.49.71.3 1.27.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.34z"/>',
+  vk: '<path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.08 14.27h-1.46c-.55 0-.72-.44-1.71-1.43-.86-.83-1.24-.94-1.45-.94-.3 0-.38.08-.38.5v1.31c0 .35-.11.56-1.03.56-1.52 0-3.21-.92-4.4-2.63-1.79-2.5-2.28-4.38-2.28-4.76 0-.21.08-.41.5-.41H7.4c.38 0 .52.17.67.56.73 2.12 1.96 3.98 2.46 3.98.19 0 .27-.09.27-.58v-2.25c-.06-1.03-.61-1.12-.61-1.49 0-.18.15-.36.39-.36h2.3c.31 0 .42.17.42.54v3.03c0 .33.14.44.23.44.19 0 .35-.11.7-.46 1.08-1.21 1.85-3.08 1.85-3.08.1-.21.27-.41.65-.41h1.46c.44 0 .54.22.44.53-.18.84-1.95 3.34-1.95 3.34-.16.25-.22.36 0 .65.16.21.68.67 1.03 1.08.64.73 1.13 1.34 1.26 1.76.14.42-.07.63-.5.63z"/>',
+  youtube: '<path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/>',
+  x: '<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>',
+  pinterest: '<path d="M12 2C6.48 2 2 6.48 2 12c0 4.12 2.5 7.65 6.06 9.17-.08-.74-.16-1.88.03-2.69.18-.77 1.14-4.97 1.14-4.97s-.29-.58-.29-1.44c0-1.35.78-2.36 1.75-2.36.83 0 1.23.62 1.23 1.37 0 .83-.53 2.08-.81 3.23-.23.97.49 1.76 1.45 1.76 1.74 0 3.08-1.83 3.08-4.48 0-2.34-1.68-3.98-4.09-3.98-2.79 0-4.42 2.09-4.42 4.25 0 .84.32 1.74.72 2.23.08.1.09.19.07.29-.07.3-.24.96-.27 1.09-.04.18-.14.22-.33.13-1.24-.58-2.02-2.38-2.02-3.83 0-3.12 2.27-5.99 6.54-5.99 3.43 0 6.1 2.45 6.1 5.72 0 3.41-2.15 6.15-5.2 6.15-1.02 0-1.97-.53-2.3-1.16l-.62 2.38c-.23.87-.84 1.97-1.25 2.64.94.29 1.94.45 2.98.45 5.52 0 10-4.48 10-10S17.52 2 12 2z"/>',
+  ok: '<path d="M12 2c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5zm0 2c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm5.6 10.8c-.66.8-1.6 1.4-2.72 1.68.92.62 1.72 1.46 2.32 2.48.4.66.18 1.52-.48 1.92-.66.4-1.52.18-1.92-.48-.76-1.26-2.08-2.12-3.6-2.12s-2.84.86-3.6 2.12c-.4.66-1.26.88-1.92.48-.66-.4-.88-1.26-.48-1.92.6-1.02 1.4-1.86 2.32-2.48-1.12-.28-2.06-.88-2.72-1.68-1.28-1.56-1.08-3.86.48-5.14 1.56-1.28 3.86-1.08 5.14.48.24.28.44.6.6.94.16-.34.36-.66.6-.94 1.28-1.56 3.58-1.76 5.14-.48 1.56 1.28 1.76 3.58.48 5.14z"/>',
+  rutube: '<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15V7l8 5-8 5z"/>',
+  mail: '<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>',
+  phone: '<path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>',
+  pin: '<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>',
+  cut: '<path d="M9.18 8.2a4 4 0 1 0-1.52 1.5l2.47 2.3-2.47 2.3a4 4 0 1 0 1.52 1.5L21 4h-3.15l-5.86 5.47L9.18 8.2zM6 8.5A1.5 1.5 0 1 1 6 5.5a1.5 1.5 0 0 1 0 3zm0 10A1.5 1.5 0 1 1 6 15.5a1.5 1.5 0 0 1 0 3z"/>',
+  play: '<path d="M8 5v14l11-7z"/>',
+  image: '<path d="M5 4h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3zm11.7 6.4a1.9 1.9 0 1 0 0-3.8 1.9 1.9 0 0 0 0 3.8zM5 17h14l-4.7-5.2-3.35 3.5-2.5-2.6L5 17z"/>',
+  edit: '<path d="M4 17.25V21h3.75L18.81 9.94l-3.75-3.75L4 17.25zm17.35-10.2a1 1 0 0 0 0-1.41l-2.99-2.99a1 1 0 0 0-1.41 0l-1.42 1.42 3.75 3.75 2.07-2.07z"/>',
+  timeline: '<path d="M3 18h18v2H3v-2zm2-8h4v6H5v-6zm5-5h4v11h-4V5zm5 7h4v4h-4v-4z"/>',
+  camera: '<path d="M9.4 4 7.7 6.5H5a3 3 0 0 0-3 3V17a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V9.5a3 3 0 0 0-3-3h-2.7L14.6 4H9.4zM12 17a4.2 4.2 0 1 1 0-8.4 4.2 4.2 0 0 1 0 8.4zm0-2.1a2.1 2.1 0 1 0 0-4.2 2.1 2.1 0 0 0 0 4.2z"/>',
+  mic: '<path d="M12 2a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4zm7 9a7 7 0 0 1-6 6.92V21h4v2H7v-2h4v-3.08A7 7 0 0 1 5 11h2a5 5 0 0 0 10 0h2z"/>',
+  star: '<path d="m12 2 3 6 6 .9-4.5 4.4 1.1 6.3L12 16.8l-5.6 2.8 1.1-6.3L3 8.9 9 8z"/>',
+  smile: '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/>',
+  'arrow-left': '<path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/>',
+  'arrow-right': '<path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>',
+  'arrow-up': '<path d="M12 19V5"/><path d="M5 12l7-7 7 7"/>',
+  'arrow-down': '<path d="M12 5v14"/><path d="M5 12l7 7 7-7"/>',
+  check: '<path d="M20 6L9 17l-5-5"/>',
+  heart: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+  fire: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+  zap: '<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>',
+  target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  trophy: '<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>',
+  gift: '<path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>',
+  bell: '<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>',
+  calendar: '<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>',
+  clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  'message-circle': '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5a8.5 8.5 0 0 1 17 0z"/>',
+  video: '<path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>',
+  music: '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+  pause: '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>',
+  download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/>',
+  upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/>',
+  'external-link': '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/>',
+  share: '<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/>',
+  eye: '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+  lock: '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  unlock: '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/>',
+  user: '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+  users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  home: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>',
+  settings: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
+  menu: '<path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>',
+  close: '<path d="M18.36 5.64a1 1 0 0 0-1.41 0L12 10.59 7.05 5.64a1 1 0 1 0-1.41 1.41L10.59 12l-4.95 4.95a1 1 0 1 0 1.41 1.41L12 13.41l4.95 4.95a1 1 0 0 0 1.41-1.41L13.41 12l4.95-4.95a1 1 0 0 0 0-1.41z"/>',
+  plus: '<path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/>',
+  minus: '<path d="M19 13H5v-2h14z"/>',
+  search: '<path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>',
+  filter: '<path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/>',
+  sort: '<path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/>',
+  grid: '<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>',
+  list: '<path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>',
+  crown: '<path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/>',
+  gem: '<path d="M6 3h12l4 6-10 13L2 9l4-6z"/><path d="M11 3L8 9l4 13 4-13-3-6z"/><path d="M2 9h20"/>',
+  rocket: '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
+  medal: '<path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2l4.39-5.9a2 2 0 0 1 3.4.35l2.3 7.3"/><path d="M16.79 15 21.34 7.14a2 2 0 0 0-.13-2.2l-4.39-5.9a2 2 0 0 0-3.4.35l-2.3 7.3"/><circle cx="12" cy="15" r="6"/><path d="M12 13v2"/><path d="M12 17h.01"/>',
+};
+
+const iconTitles = {
+  telegram: 'Telegram', whatsapp: 'WhatsApp', vk: 'VK', youtube: 'YouTube', x: 'X (Twitter)', pinterest: 'Pinterest', ok: 'Одноклассники', rutube: 'Rutube',
+  mail: 'Почта', phone: 'Телефон', pin: 'Адрес', cut: 'Монтаж', play: 'Play', image: 'Изображение', edit: 'Правки', timeline: 'Таймлайн', camera: 'Камера', mic: 'Микрофон', star: 'Звезда',
+  smile: 'Смайлик', 'arrow-left': 'Стрелка влево', 'arrow-right': 'Стрелка вправо', 'arrow-up': 'Стрелка вверх', 'arrow-down': 'Стрелка вниз', check: 'Галочка', heart: 'Сердце', fire: 'Огонь', zap: 'Молния',
+  target: 'Мишень', trophy: 'Кубок', gift: 'Подарок', bell: 'Колокол', calendar: 'Календарь', clock: 'Часы', 'message-circle': 'Сообщение', video: 'Видео', music: 'Музыка', pause: 'Пауза',
+  download: 'Скачать', upload: 'Загрузить', 'external-link': 'Внешняя ссылка', share: 'Поделиться', eye: 'Глаз', lock: 'Замок', unlock: 'Открытый замок', user: 'Пользователь', users: 'Группа',
+  home: 'Дом', settings: 'Настройки', menu: 'Меню', close: 'Закрыть', plus: 'Плюс', minus: 'Минус', search: 'Поиск', filter: 'Фильтр', sort: 'Сортировка', grid: 'Сетка', list: 'Список',
+  crown: 'Корона', gem: 'Кристалл', rocket: 'Ракета', medal: 'Медаль',
+};
+const iconOptions = Object.keys(iconLibrary).map((id) => [id, iconTitles[id] || id]);
+
+const publicSections = [
+  ['home', 'Главная'],
+  ['about', 'О студии'],
+  ['services', 'Услуги'],
+  ['cases', 'Кейсы'],
+  ['beforeafter', 'До / После'],
+  ['prices', 'Цены'],
+  ['blog', 'Блог'],
+  ['team', 'Команда'],
+  ['equipment', 'Оборудование'],
+  ['reviews', 'Наши клиенты'],
+  ['faq', 'FAQ'],
+  ['contacts', 'Контакты'],
+];
+
+const services = [
+  {
+    title: 'Аренда студии',
+    price: '5 000 ₽/час',
+    badge: 'до 4 человек',
+    image: studioImages[0],
+    bullets: ['несколько локаций на выбор', 'съёмка до 4 камер', 'свет, звукорежиссёр и оператор', 'исходные материалы'],
+  },
+  {
+    title: 'Аудиозапись',
+    price: '2 000 ₽/час',
+    badge: 'до 4 микрофонов',
+    image: studioImages[1],
+    bullets: ['работа звукорежиссёра', 'чистая запись голоса', 'подкасты и интервью', 'комфортная атмосфера'],
+  },
+  {
+    title: 'Обработка аудио',
+    price: '3 000 ₽/час',
+    badge: 'мастеринг',
+    image: studioImages[2],
+    bullets: ['сведение', 'мастеринг', 'очистка и баланс', 'подготовка к публикации'],
+  },
+  {
+    title: 'Видео в студии',
+    price: '5 000 ₽/час',
+    badge: '4K horizontal',
+    image: studioImages[3],
+    bullets: ['горизонтальный формат', 'камеры 4K', 'профессиональный свет', 'оператор и звук'],
+  },
+  {
+    title: 'Reels / Shorts / Клипы',
+    price: '5 000 ₽/час',
+    badge: 'vertical',
+    image: studioImages[4],
+    bullets: ['вертикальный формат', 'несколько локаций', 'динамичная подача', 'исходные материалы'],
+  },
+  {
+    title: 'Интервьюер',
+    price: '10 000 ₽',
+    badge: 'за съёмку',
+    image: studioImages[5],
+    bullets: ['подготовка', 'участие в съёмке', 'до 3 часов', 'структура разговора'],
+  },
+];
+
+const prices = [
+  { title: 'Видеомонтаж', price: '10 000 ₽', text: 'За час исходных материалов: мультикамерный монтаж, цвет, синхронизация аудио, графика.', icon: 'cut' },
+  { title: 'Тизер', price: '4 000 ₽', text: 'Монтаж по тайм-кодам заказчика, хронометраж до 1 минуты, музыкальное оформление.', icon: 'play' },
+  { title: 'Обложка YouTube', price: '3 000 ₽', text: 'Горизонтальный или вертикальный формат для публикаций и превью.', icon: 'image' },
+  { title: 'Пакет правок', price: 'от 2 000 ₽', text: 'Дополнительные правки по тайм-кодам заказчика.', icon: 'edit' },
+  { title: 'Базовый монтаж', price: 'от 3 000 ₽', text: 'Синхронизация со звуковой дорожкой и проявление цвета исходного видео.', icon: 'timeline' },
+];
+
+const portfolioCategories = [
+  {
+    id: 'video',
+    title: 'Видео',
+    text: 'Съёмки, интервью, экспертные ролики и Reels.',
+    count: '12 проектов',
+    image: studioImages[3],
+    items: [
+      ['Интервью в синей зоне', studioImages[3]],
+      ['Экспертный выпуск', studioImages[5]],
+      ['Reels для бренда', studioImages[4]],
+    ],
+  },
+  {
+    id: 'gallery',
+    title: 'Галерея',
+    text: 'Фотографии студии, локаций, света и рабочих зон.',
+    count: '28 фото',
+    image: studioImages[2],
+    items: [
+      ['Зона записи', studioImages[0]],
+      ['Синий зал', studioImages[1]],
+      ['Рабочая сцена', studioImages[2]],
+    ],
+  },
+  {
+    id: 'podcasts',
+    title: 'Подкасты',
+    text: 'Подкаст-записи, разговорные шоу и интервью.',
+    count: '9 выпусков',
+    image: studioImages[7],
+    items: [
+      ['Большой разговор', studioImages[7]],
+      ['Подкаст с гостем', studioImages[8]],
+      ['Запись за столом', studioImages[0]],
+    ],
+  },
+  {
+    id: 'backstage',
+    title: 'Бэкстейдж',
+    text: 'Как проходит подготовка, съёмка и работа команды.',
+    count: '6 серий',
+    image: studioImages[6],
+    items: [
+      ['Подготовка света', studioImages[6]],
+      ['Работа оператора', studioImages[9]],
+      ['Монтажный процесс', studioImages[5]],
+    ],
+  },
+];
+
+const defaultPortfolio = portfolioCategories.map((category) => ({
+  ...category,
+  projects: category.items.map(([title, image]) => ({
+    title,
+    text: category.text,
+    type: category.id === 'gallery' ? 'gallery' : 'image',
+    cover: image,
+    video: '',
+    gallery: [{ image, alt: title }],
+  })),
+}));
+
+const team = [
+  ['Продюсер проекта', 'Ведёт подготовку, брифинг и тайминг съёмки.', studioImages[6], studioImages[7]],
+  ['Звукорежиссёр', 'Следит за чистотой голоса, балансом и записью.', studioImages[1], studioImages[8]],
+  ['Видеооператор', 'Камеры, свет, композиция и настроение кадра.', studioImages[3], studioImages[9]],
+  ['Монтажёр', 'Собирает финальный выпуск, цвет и динамику.', studioImages[2], studioImages[5]],
+];
+
+const equipment = [
+  { title: 'Sony FX3', image: studioImages[3], specs: ['Full Frame 4K', '10-bit 4:2:2', 'S-Log3 / Cine EI', 'стабилизация матрицы'] },
+  { title: 'Sony A7 IV', image: studioImages[5], specs: ['33 МП Full Frame', '4K 60p', 'профили S-Cinetone', 'точный автофокус'] },
+  { title: 'Sigma 24-70mm F2.8', image: studioImages[4], specs: ['универсальный зум', 'светосила F2.8', 'портреты и общий план', 'чистая детализация'] },
+  { title: 'Aputure 300D II', image: studioImages[6], specs: ['мощный постоянный свет', 'мягкие схемы через софтбокс', '5600K', 'DMX / пульт'] },
+  { title: 'Shure SM7B', image: studioImages[1], specs: ['студийный динамический микрофон', 'чистый голос', 'минимум комнатных отражений', 'подкасты и интервью'] },
+  { title: 'Rodecaster Pro II', image: studioImages[8], specs: ['многоканальная запись', 'до 4 микрофонов', 'обработка голоса', 'запись дорожек отдельно'] },
+];
+
+const blogPosts = [
+  { title: 'Новая синяя зона для интервью', excerpt: 'Обновили свет, кресла и фон для экспертных выпусков и подкастов.', date: '28 мая', image: studioImages[3], fullText: '', video: '', gallery: [] },
+  { title: 'Тестируем новые схемы света', excerpt: 'Собрали несколько пресетов под Reels, подкасты и горизонтальные ролики.', date: '24 мая', image: studioImages[6], fullText: '', video: '', gallery: [] },
+  { title: 'Появились пакетные съёмки', excerpt: 'Можно забронировать студию, оператора и звук в одном сценарии.', date: '20 мая', image: studioImages[0], fullText: '', video: '', gallery: [] },
+];
+
+const reviews = {
+  text: [
+    { name: 'Мария, бренд-стратег', text: 'Записывали экспертный подкаст и серию коротких роликов. Команда быстро собрала свет, помогла с кадром и держала спокойный темп всей съёмки.', image: studioImages[0] },
+    { name: 'Алексей, YouTube-проект', text: 'Очень чистый звук и понятный процесс. Пришли с идеей выпуска, ушли с готовым материалом и точным пониманием дальнейшего монтажа.', image: studioImages[5] },
+    { name: 'Команда локального бренда', text: 'Студия выглядит премиально в кадре, а техническая часть не отвлекает от работы. Для интервью и контента в соцсети — сильное место.', image: studioImages[8] },
+  ],
+  video: [
+    { title: 'Отзыв после записи подкаста', text: 'Клиент рассказывает о подготовке, записи и результате.', image: studioImages[7] },
+    { title: 'Видеоотзыв о съёмке интервью', text: 'Как прошла съёмка экспертного выпуска в синей зоне.', image: studioImages[3] },
+  ],
+};
+
+const defaultContent = {
+  seo: {
+    siteTitle: 'СТУДИЯ 313',
+    siteDescription: 'СТУДИЯ 313 — подкасты, звукозапись и видеосъёмка.',
+    keywords: 'студия подкастов, запись подкаста, видеосъёмка, интервью, Краснодар',
+    ogImage: '/icons/favicon.png',
+    pages: {
+      home: { title: 'СТУДИЯ 313', description: 'Премиальная студия подкастов, звукозаписи и видеосъёмки.' },
+      services: { title: 'Услуги — СТУДИЯ 313', description: 'Аренда студии, аудиозапись, видео, Reels и продакшн.' },
+      prices: { title: 'Цены — СТУДИЯ 313', description: 'Прайс на дополнительные услуги студии.' },
+      blog: { title: 'Блог — СТУДИЯ 313', description: 'Новости студии и полезные материалы.' },
+      reviews: { title: 'Отзывы — СТУДИЯ 313', description: 'Текстовые и видеоотзывы клиентов о работе студии.' },
+      contacts: { title: 'Контакты — СТУДИЯ 313', description: 'Контакты и адрес студии в Краснодаре.' },
+    },
+  },
+  home: {
+    eyebrow: 'подкасты · звук · видео',
+    copy: 'Премиальное пространство для записи подкастов, экспертных видео, интервью, Reels и полного продакшна. Сильный свет, чистый звук, камеры 4K и команда, которая держит процесс.',
+    podcastAudio: '',
+    promoVideo: '',
+    primaryButton: 'ЗАПИСАТЬСЯ',
+    primaryTarget: 'booking',
+    secondaryButton: 'НАШИ УСЛУГИ',
+    secondaryTarget: 'services',
+    stats: [
+      { value: '4K', label: 'съёмка до 4 камер' },
+      { value: '4', label: 'человека в кадре' },
+      { value: '313', label: 'сцена для вашего контента' },
+    ],
+  },
+  about: {
+    eyebrow: 'о студии',
+    title: 'Пространство для сильного контента',
+    name: 'СТУДИЯ 313',
+    paragraphs: [
+      'Премиальная студия для подкастов, интервью, экспертных видео, Reels и коммерческих съёмок. Мы собрали свет, звук, камеры и несколько выразительных зон, чтобы авторы и бренды могли быстро получать чистый, готовый к публикации материал.',
+      'Внутри можно записать разговор, снять вертикальные ролики, провести интервью, подготовить серию выпусков или собрать полный продакшн с командой.',
+    ],
+    gallery: studioImages.map((image, index) => ({ image, alt: `СТУДИЯ 313 — фото ${index + 1}` })),
+  },
+  headings: {
+    services: 'Запись, съёмка и продакшн в одном месте',
+    prices: 'Прайс на дополнительные услуги',
+    blog: 'Новости студии',
+    team: 'Команда',
+    equipment: 'На что снимаем и записываем',
+    reviews: 'Наши клиенты',
+    contacts: 'Связаться и приехать',
+    faq: 'Частые вопросы',
+    beforeAfter: 'До и после монтажа',
+    clients: 'Нам доверяют',
+  },
+  clients: [
+    { name: 'Brand One', logo: '' },
+    { name: 'Brand Two', logo: '' },
+    { name: 'Brand Three', logo: '' },
+    { name: 'Brand Four', logo: '' },
+    { name: 'Brand Five', logo: '' },
+    { name: 'Brand Six', logo: '' },
+  ],
+  faq: {
+    items: [
+      { question: 'Сколько длится съёмка?', answer: 'Обычно съёмка занимает 1-2 часа. Время зависит от формата и сложности проекта.' },
+      { question: 'Можно ли приехать на рекогносцировку?', answer: 'Да, мы проводим бесплатные экскурсии по студии. Запишитесь заранее.' },
+      { question: 'Что входит в стоимость аренды?', answer: 'В стоимость включены студийные помещения, базовый свет, звук и помощь ассистента.' },
+    ],
+  },
+  beforeAfter: {
+    items: [
+      { before: '', after: '', label: 'Цветокоррекция' },
+      { before: '', after: '', label: 'Монтаж + графика' },
+    ],
+  },
+  contacts: {
+    email: 'hello@studio313.ru',
+    phone: '8 800 222-7-313',
+    phoneHref: '+79990000000',
+    address: 'Краснодар Атарбекова 1/1',
+    emailIcon: 'mail',
+    phoneIcon: 'phone',
+    addressIcon: 'pin',
+    social: [
+      { title: 'Telegram', href: '#', icon: 'telegram' },
+      { title: 'WhatsApp', href: '#', icon: 'whatsapp' },
+      { title: 'VK', href: '#', icon: 'vk' },
+      { title: 'YouTube', href: '#', icon: 'youtube' },
+    ],
+  },
+  booking: {
+    mode: 'form',
+    widgetCode: '',
+    widgetOpen: '',
+    title: 'Записаться в студию',
+    serviceTitle: 'Выберите услугу',
+    dateTitle: 'Дата',
+    timeTitle: 'Свободное время',
+    clientTitle: 'Данные клиента',
+    submitText: 'ОТПРАВИТЬ ЗАЯВКУ',
+    dates: [
+      { title: 'Сегодня', subtitle: '28 мая' },
+      { title: 'Завтра', subtitle: '29 мая' },
+      { title: 'Пт', subtitle: '30 мая' },
+      { title: 'Сб', subtitle: '31 мая' },
+    ],
+    availability: {
+      daysAhead: '14',
+      workDays: [1, 2, 3, 4, 5, 6, 0],
+      startTime: '10:00',
+      endTime: '20:00',
+      slotMinutes: '120',
+    },
+    times: ['10:00', '12:00', '14:00', '16:00', '18:00', '20:00'],
+    telegram: {
+      adminChatId: '',
+      botTokenHint: 'Токен задаётся на сервере переменной TELEGRAM_BOT_TOKEN',
+    },
+    placeholders: {
+      name: 'Имя',
+      phone: 'Телефон',
+      messenger: 'Telegram / WhatsApp',
+      email: 'Email, если нужен чек',
+      comment: 'Примечание: формат, количество гостей, что нужно подготовить',
+    },
+  },
+  ticker: {
+    text: 'ПОДКАСТЫ / ИНТЕРВЬЮ / РАЗГОВОРНЫЕ ШОУ',
+  },
+  portfolio: defaultPortfolio,
+  services,
+  prices,
+  blogPosts,
+  team,
+  equipment,
+  reviews,
+};
+
+let siteContent = cloneContent(defaultContent);
+const ADMIN_AUTH_KEY = 'studio313-admin-auth';
+const ADMIN_PASSWORD_KEY = 'studio313-admin-password';
+
+function cloneContent(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function mergeContent(base, saved) {
+  if (!saved || typeof saved !== 'object') return cloneContent(base);
+  const result = Array.isArray(base) ? [...base] : { ...base };
+  Object.entries(saved).forEach(([key, value]) => {
+    if (Array.isArray(value)) result[key] = value;
+    else if (value && typeof value === 'object' && base[key] && typeof base[key] === 'object' && !Array.isArray(base[key])) result[key] = mergeContent(base[key], value);
+    else result[key] = value;
+  });
+  return result;
+}
+
+function migrateContent(data) {
+  if (!data || typeof data !== 'object') return data;
+  // Migrate blogPosts from tuples to objects
+  if (Array.isArray(data.blogPosts) && data.blogPosts.length > 0 && Array.isArray(data.blogPosts[0])) {
+    data.blogPosts = data.blogPosts.map(([title, excerpt, date, image, fullText, video, gallery]) => ({
+      title: title || '',
+      excerpt: excerpt || '',
+      date: date || '',
+      image: image || '',
+      fullText: fullText || excerpt || '',
+      video: video || '',
+      gallery: Array.isArray(gallery) ? gallery : [],
+    }));
+  }
+  // Ensure reviews structure exists
+  if (!data.reviews || typeof data.reviews !== 'object') {
+    data.reviews = { text: [], video: [] };
+  }
+  if (!Array.isArray(data.reviews.text)) data.reviews.text = [];
+  if (!Array.isArray(data.reviews.video)) data.reviews.video = [];
+  return data;
+}
+
+function html(value) {
+  return String(value ?? '').replace(/[&<>"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[char]));
+}
+
+function attr(value) {
+  return html(value).replace(/'/g, '&#39;');
+}
+
+function phoneLink(value) {
+  const text = String(value || '').trim();
+  if (/^[a-z][a-z0-9+.-]*:/i.test(text)) return text;
+  return `tel:${text.replace(/[^+\d]/g, '')}`;
+}
+
+function createPanel(id, className, html) {
+  return `<section class="panel ${className || ''}" id="${id}" data-section="${id}"><div class="panel__inner"><div class="section">${html}</div></div></section>`;
+}
+
+function localDateValue(date) {
+  const copy = new Date(date);
+  copy.setMinutes(copy.getMinutes() - copy.getTimezoneOffset());
+  return copy.toISOString().slice(0, 10);
+}
+
+function formatDateLabel(date) {
+  return new Intl.DateTimeFormat('ru-RU', { weekday: 'short', day: 'numeric', month: 'short' }).format(date);
+}
+
+function minutesFromTime(time) {
+  const [hours, minutes] = String(time || '00:00').split(':').map(Number);
+  return (hours || 0) * 60 + (minutes || 0);
+}
+
+function timeFromMinutes(value) {
+  return `${String(Math.floor(value / 60)).padStart(2, '0')}:${String(value % 60).padStart(2, '0')}`;
+}
+
+function bookingSlots() {
+  const availability = siteContent.booking?.availability || defaultContent.booking.availability;
+  const start = minutesFromTime(availability.startTime);
+  const end = minutesFromTime(availability.endTime);
+  const step = Math.max(30, Number(availability.slotMinutes) || 120);
+  const slots = [];
+  for (let value = start; value + step <= end; value += step) slots.push(timeFromMinutes(value));
+  return slots.length ? slots : (siteContent.booking?.times || defaultContent.booking.times);
+}
+
+function bookingDates() {
+  const availability = siteContent.booking?.availability || defaultContent.booking.availability;
+  const daysAhead = Math.max(1, Number(availability.daysAhead) || 14);
+  const workDays = (availability.workDays || []).map(Number);
+  const dates = [];
+  for (let offset = 0; dates.length < daysAhead && offset < daysAhead + 14; offset += 1) {
+    const date = new Date();
+    date.setDate(date.getDate() + offset);
+    if (workDays.length && !workDays.includes(date.getDay())) continue;
+    dates.push({ value: localDateValue(date), title: formatDateLabel(date), subtitle: localDateValue(date) });
+  }
+  return dates;
+}
+
+function isBusySlot(date, time) {
+  return bookingBusySlots.some((item) => item.date === date && item.time === time);
+}
+
+function serviceCard(item) {
+  const badgeClass = item.badgeStyle ? `badge badge--${item.badgeStyle}` : 'badge';
+  const badge = item.badge ? `<span class="${badgeClass}">${html(item.badge)}</span>` : '';
+  return `<article class="card service-card"><div class="visual-card">${badge}<img src="${attr(item.image)}" alt="${attr(item.title)}"></div><h3>${html(item.title)}</h3><div class="price">${html(item.price)}</div><div class="service-included"><span>Что входит</span><ul>${(item.bullets || []).map((bullet) => `<li><span aria-hidden="true">✓</span>${html(bullet)}</li>`).join('')}</ul></div><button class="btn btn--primary service-booking" type="button" data-service-booking="${attr(item.title)}">ЗАПИСАТЬСЯ</button></article>`;
+}
+
+function bookingPage(selectedService = '') {
+  const serviceOptions = siteContent.services.map((service, index) => `<label><input type="radio" name="service" ${selectedService ? (service.title === selectedService ? 'checked' : '') : (index === 0 ? 'checked' : '')}><span><b>${html(service.title)}</b><small>${html(service.price)}</small></span></label>`).join('');
+  const booking = siteContent.booking || defaultContent.booking;
+  const generatedDates = bookingDates();
+  const selectedDate = generatedDates[0]?.value || '';
+  const dates = generatedDates.map((date, index) => `<label><input type="radio" name="date" value="${attr(date.value)}" ${index === 0 ? 'checked' : ''}><span><b>${html(date.title)}</b><small>${html(date.subtitle)}</small></span></label>`).join('');
+  const times = bookingSlots().map((time, index) => {
+    const busy = isBusySlot(selectedDate, time);
+    return `<label class="${busy ? 'is-disabled' : ''}"><input type="radio" name="time" value="${attr(time)}" ${!busy && index === 0 ? 'checked' : ''} ${busy ? 'disabled' : ''}><span>${html(time)}${busy ? '<small>занято</small>' : ''}</span></label>`;
+  }).join('');
+  const placeholders = booking.placeholders || defaultContent.booking.placeholders;
+  return createPanel('booking', '', `<span class="eyebrow">онлайн-запись</span><h2 class="section-title">${html(booking.title)}</h2><form class="booking-flow" id="bookingForm"><section class="booking-step"><div class="booking-step__head"><span>01</span><h3>${html(booking.serviceTitle)}</h3></div><div class="service-pills">${serviceOptions}</div></section><section class="booking-step"><div class="booking-step__head"><span>02</span><h3>${html(booking.dateTitle)}</h3></div><div class="date-pills">${dates}</div></section><section class="booking-step"><div class="booking-step__head"><span>03</span><h3>${html(booking.timeTitle)}</h3></div><div class="time-slots" data-time-slots>${times}</div></section><section class="booking-step booking-step--client"><div class="booking-step__head"><span>04</span><h3>${html(booking.clientTitle)}</h3></div><div class="field-grid"><input class="field" name="name" placeholder="${attr(placeholders.name)}" required><input class="field" name="phone" placeholder="${attr(placeholders.phone)}" required><input class="field" name="messenger" placeholder="${attr(placeholders.messenger)}"><input class="field" name="email" placeholder="${attr(placeholders.email)}"><input class="field" name="telegramChatId" placeholder="Telegram chat_id для уведомления клиенту"></div><textarea class="textarea" name="comment" placeholder="${attr(placeholders.comment)}"></textarea><button class="btn btn--primary" type="submit">${html(booking.submitText)}</button><span class="admin-status" data-booking-status></span></section></form>`);
+}
+
+function priceIcon(id) {
+  return renderIcon(id || 'play', 'price-icon');
+}
+
+function priceCard({ title, price, text, icon }) {
+  return `<article class="card price-card">${priceIcon(icon)}<h3>${html(title)}</h3><div class="price">${html(price)}</div><p class="card-text">${html(text)}</p></article>`;
+}
+
+function teamCard([role, text, base, alt], index) {
+  return `<article class="card team-card" tabindex="0" aria-label="${attr(role)}. Нажмите, чтобы сменить фото"><div class="team-media"><img class="base" src="${attr(base)}" alt="${attr(role)}"><img class="alt" src="${attr(alt)}" alt="${attr(role)}, второе фото"></div><h3>${html(role)}</h3><p class="card-text">${html(text)}</p></article>`;
+}
+
+function equipmentCard(item) {
+  return `<article class="card equipment-card"><div class="visual-card"><img src="${attr(item.image)}" alt="${attr(item.title)}"></div><h3>${html(item.title)}</h3><ul class="bullets">${(item.specs || []).map((spec) => `<li>${html(spec)}</li>`).join('')}</ul></article>`;
+}
+
+function portfolioData() {
+  return (siteContent.portfolio || defaultContent.portfolio || []).map((category) => ({
+    ...category,
+    projects: category.projects || (category.items || []).map(([title, image]) => ({ title, text: category.text, type: 'image', cover: image, video: '', gallery: [{ image, alt: title }] })),
+  }));
+}
+
+function portfolioFolders() {
+  return `<div class="portfolio-grid">${portfolioData().map((category, index) => `<article class="portfolio-folder" tabindex="0" data-portfolio-folder="${index}"><span class="folder-shape" aria-hidden="true"></span><img src="${attr(category.image)}" alt="${attr(category.title)}"><strong>${html(category.title)}</strong><span>${html(category.text)}</span><em class="folder-count">${html(category.count || `${(category.projects || []).length} проектов`)}</em></article>`).join('')}</div>`;
+}
+
+function portfolioContent(category) {
+  const projects = category.projects || [];
+  return `<div class="portfolio-open"><div><div class="portfolio-open__head"><span class="portfolio-back" tabindex="0" data-portfolio-back aria-label="Вернуться ко всем папкам">←</span><h3>${html(category.title)}</h3></div><p class="card-text">${html(category.text)}</p></div><div class="portfolio-items">${projects.map((project) => `<article class="card portfolio-project"><div class="visual-card">${project.video ? `<video src="${attr(project.video)}" controls playsinline preload="metadata" poster="${attr(project.cover || project.gallery?.[0]?.image || '')}"></video>` : `<img src="${attr(project.cover || project.gallery?.[0]?.image || '')}" alt="${attr(project.title)}">`}</div><h3>${html(project.title)}</h3>${project.text ? `<p class="card-text">${html(project.text)}</p>` : ''}${(project.gallery || []).length > 1 ? `<div class="project-gallery">${project.gallery.map((item) => `<img src="${attr(item.image)}" alt="${attr(item.alt || project.title)}">`).join('')}</div>` : ''}</article>`).join('')}</div></div>`;
+}
+
+function beforeAfterPage() {
+  const items = (siteContent.beforeAfter?.items || defaultContent.beforeAfter.items || []).filter((item) => item.before || item.after);
+  if (!items.length) return '';
+  return `<div class="before-after-grid">${items.map((item, i) => `<div class="before-after" data-before-after="${i}"><img src="${attr(item.before || '')}" alt="До" loading="lazy"><div class="before-after__after" data-after-wrap><img src="${attr(item.after || '')}" alt="После" loading="lazy"></div><div class="before-after__handle" data-handle></div>${item.label ? `<span class="before-after__label before-after__label--before">До</span><span class="before-after__label before-after__label--after">После</span>` : ''}</div>`).join('')}</div>`;
+}
+
+function adminField(name, label, value, multiline = false) {
+  const input = multiline
+    ? `<textarea class="textarea" name="${name}" rows="4">${html(value)}</textarea>`
+    : `<input class="field" name="${name}" value="${attr(value)}">`;
+  return `<label class="admin-field"><span>${label}</span>${input}</label>`;
+}
+
+function adminImageField(name, label, value, arrayKey = '') {
+  return `<label class="admin-field admin-field--image admin-field--wide"><span>${label}</span><input class="field" ${arrayKey ? `data-array-field="${arrayKey}"` : ''} ${name ? `name="${name}"` : ''} value="${attr(value)}"><input class="admin-upload" type="file" accept="image/*" data-image-upload><small>Можно вставить путь или загрузить файл</small></label>`;
+}
+
+function adminFileField(name, label, value, accept = '*/*', arrayKey = '') {
+  return `<label class="admin-field admin-field--file admin-field--wide"><span>${label}</span><input class="field" ${arrayKey ? `data-array-field="${arrayKey}"` : ''} ${name ? `name="${name}"` : ''} value="${attr(value)}"><input class="admin-upload" type="file" accept="${attr(accept)}" data-file-upload><small>Можно вставить путь или загрузить файл с ПК</small></label>`;
+}
+
+function adminIconField(name, label, value, arrayKey = '') {
+  const current = String(value || '').trim();
+  return `<label class="admin-field admin-field--icon admin-field--wide"><span>${label}</span><input class="field" ${arrayKey ? `data-array-field="${arrayKey}"` : ''} name="${name}" value="${attr(current)}"><div class="admin-icon-picker">${iconOptions.map(([id, title]) => `<button class="admin-icon-option ${current === id ? 'is-active' : ''}" type="button" data-icon-pick="${attr(id)}" title="${attr(title)}">${renderIcon(id)}<small>${html(title)}</small></button>`).join('')}</div><input class="admin-upload" type="file" accept="image/*,.svg" data-image-upload><small>Выберите иконку из библиотеки или загрузите свою с ПК</small></label>`;
+}
+
+function adminJsonField(name, label, value) {
+  return `<label class="admin-field admin-field--wide"><span>${label}</span><textarea class="textarea admin-json" name="${name}" rows="10">${html(JSON.stringify(value, null, 2))}</textarea></label>`;
+}
+
+function adminSelect(name, label, value) {
+  const options = [
+    ['booking', 'Открыть запись'],
+    ['services', 'Перейти к услугам'],
+    ['cases', 'Перейти к кейсам'],
+    ['prices', 'Перейти к ценам'],
+    ['contacts', 'Перейти к контактам'],
+  ];
+  return `<label class="admin-field"><span>${label}</span><select class="field" name="${name}">${options.map(([id, text]) => `<option value="${id}" ${id === value ? 'selected' : ''}>${text}</option>`).join('')}</select></label>`;
+}
+
+function adminArrayEditor(name, title, items, fields, addLabel) {
+  const hasItems = Array.isArray(items) && items.length > 0;
+  const isTuple = fields.some((f) => /^\d+$/.test(f.key));
+  const displayItems = hasItems ? items : (isTuple ? [[]] : [{}]);
+  const safeFields = JSON.stringify(fields.map(({ key, label, type, accept, wide, options }) => ({ key, label, type, accept, wide, options })));
+  return `<section class="card admin-section" data-admin-array="${name}" data-admin-fields="${attr(safeFields)}"><div class="admin-section__head"><h3>${title}</h3><button class="btn btn--secondary" type="button" data-admin-add="${name}">${addLabel}</button></div><div class="admin-card-list">${displayItems.map((item, index) => adminArrayItem(name, item, fields, index)).join('')}</div></section>`;
+}
+
+function adminArrayItem(name, item, fields, index) {
+  return `<article class="admin-edit-card" data-admin-item><button class="admin-remove" type="button" data-admin-remove aria-label="Удалить">×</button>${fields.map((field) => adminItemField(name, item, field, index)).join('')}</article>`;
+}
+
+function adminPortfolioEditor(items) {
+  return `<section class="card admin-section admin-section--wide admin-portfolio" data-admin-portfolio><div class="admin-section__head"><div><h3>Портфолио</h3><p class="card-text">Работает как удобный редактор: слева категории, ниже проекты выбранной категории, справа форма одного элемента.</p></div><button class="btn btn--secondary" type="button" data-portfolio-add-category>+ категория</button></div><div class="admin-portfolio-cms" data-portfolio-cms><aside class="admin-portfolio-sidebar"><div class="admin-portfolio-sidebar__block"><strong>Категории</strong><small>Разделы портфолио</small><div class="admin-portfolio-nav" data-portfolio-category-nav></div></div><div class="admin-portfolio-sidebar__block"><strong>Проекты</strong><small>Проекты выбранной категории</small><div class="admin-portfolio-nav" data-portfolio-project-nav></div></div></aside><div class="admin-portfolio-workspace"><div class="admin-portfolio-list">${(items || []).map((category, index) => adminPortfolioCategory(category, index)).join('')}</div></div></div></section>`;
+}
+
+function adminPortfolioCategory(category, index = 0) {
+  const projects = category.projects || [];
+  return `<article class="admin-portfolio-category ${index === 0 ? 'is-active' : ''}" data-portfolio-category data-portfolio-category-index="${index}"><div class="admin-section__head admin-portfolio-category__head"><div><h4>Категория</h4><p class="card-text">Настройки раздела портфолио.</p></div><button class="admin-remove" type="button" data-portfolio-remove aria-label="Удалить">×</button></div><div class="admin-portfolio-category__body"><div class="admin-portfolio-category-fields" data-portfolio-category-fields><div class="admin-form-grid"><label class="admin-field"><span>ID / ярлык</span><input class="field" data-portfolio-field="id" value="${attr(category.id || '')}"></label><label class="admin-field"><span>Название</span><input class="field" data-portfolio-field="title" value="${attr(category.title || '')}"></label><label class="admin-field"><span>Счётчик</span><input class="field" data-portfolio-field="count" value="${attr(category.count || '')}"></label>${adminImageField('', 'Обложка категории', category.image || '', 'image')}<label class="admin-field admin-field--wide"><span>Описание категории</span><textarea class="textarea" data-portfolio-field="text" rows="3">${html(category.text || '')}</textarea></label></div></div><div class="admin-portfolio-project-shell"><div class="admin-section__head admin-portfolio-project-shell__head"><div><h4>Проекты</h4><p class="card-text">Редактируется только выбранный проект, без длинной простыни.</p></div><button class="btn btn--secondary" type="button" data-portfolio-add-project>+ проект</button></div><div class="admin-portfolio-projects" data-portfolio-projects>${projects.map((project, projectIndex) => adminPortfolioProject(project, projectIndex)).join('')}</div></div></div></article>`;
+}
+
+function adminPortfolioProject(project, index = 0) {
+  const gallery = project.gallery?.length ? project.gallery : [{ image: project.cover || '', alt: project.title || '' }];
+  return `<article class="admin-portfolio-project ${index === 0 ? 'is-active' : ''}" data-portfolio-project data-portfolio-project-index="${index}"><div class="admin-section__head admin-portfolio-project__head"><div><h4>Проект</h4><p class="card-text">Контент выбранной карточки.</p></div><button class="admin-remove" type="button" data-portfolio-remove aria-label="Удалить">×</button></div><div class="admin-portfolio-project__body"><div class="admin-portfolio-project-fields" data-portfolio-project-fields><div class="admin-form-grid"><label class="admin-field"><span>Название проекта</span><input class="field" data-project-field="title" value="${attr(project.title || '')}"></label><label class="admin-field"><span>Тип</span><select class="field" data-project-field="type"><option value="image" ${project.type === 'image' ? 'selected' : ''}>Изображение</option><option value="video" ${project.type === 'video' ? 'selected' : ''}>Видео</option><option value="gallery" ${project.type === 'gallery' ? 'selected' : ''}>Галерея</option></select></label>${adminImageField('', 'Обложка проекта', project.cover || '', 'cover')}${adminFileField('', 'Видео проекта', project.video || '', 'video/*', 'video')}<label class="admin-field admin-field--wide"><span>Описание проекта</span><textarea class="textarea" data-project-field="text" rows="3">${html(project.text || '')}</textarea></label></div></div><div class="admin-portfolio-gallery-shell"><div class="admin-section__head admin-portfolio-gallery-shell__head"><div><h4>Галерея проекта</h4><p class="card-text">Фото редактируются по одному: выберите кадр в списке.</p></div><button class="btn btn--secondary" type="button" data-portfolio-add-gallery>+ фото</button></div><div class="admin-entity-layout"><div class="admin-portfolio-nav" data-portfolio-gallery-nav></div><div class="admin-portfolio-gallery" data-portfolio-gallery>${gallery.map((item, galleryIndex) => adminPortfolioGalleryItem(item, galleryIndex)).join('')}</div></div></div></div></article>`;
+}
+
+function adminPortfolioGalleryItem(item, index = 0) {
+  return `<div class="admin-portfolio-gallery-item ${index === 0 ? 'is-active' : ''}" data-portfolio-gallery-item>${adminImageField('', 'Фото', item.image || '', 'image')}<label class="admin-field"><span>Alt</span><input class="field" data-gallery-field="alt" value="${attr(item.alt || '')}"></label><button class="admin-remove" type="button" data-portfolio-remove aria-label="Удалить">×</button></div>`;
+}
+
+function adminItemField(name, item, field, index) {
+  const value = field.get ? field.get(item) : item[field.key];
+  const fieldName = `${name}.${index}.${field.key}`;
+  if (field.type === 'image') return adminImageField(fieldName, field.label, value, field.key);
+  if (field.type === 'file') return adminFileField(fieldName, field.label, value, field.accept || '*/*', field.key);
+  if (field.type === 'icon') return adminIconField(fieldName, field.label, value, field.key);
+  if (field.type === 'textarea') return `<label class="admin-field ${field.wide ? 'admin-field--wide' : ''}"><span>${field.label}</span><textarea class="textarea" data-array-field="${field.key}" name="${fieldName}" rows="3">${html(value)}</textarea></label>`;
+  if (field.type === 'json') return `<label class="admin-field ${field.wide ? 'admin-field--wide' : ''}"><span>${field.label}</span><textarea class="textarea admin-json" data-array-field="${field.key}" name="${fieldName}" rows="4">${html(JSON.stringify(value || [], null, 2))}</textarea></label>`;
+  if (field.type === 'select') {
+    const opts = (field.options || []).map(([id, text]) => `<option value="${attr(id)}" ${id === value ? 'selected' : ''}>${html(text)}</option>`).join('');
+    return `<label class="admin-field ${field.wide ? 'admin-field--wide' : ''}"><span>${field.label}</span><select class="field" data-array-field="${field.key}" name="${fieldName}">${opts}</select></label>`;
+  }
+  return `<label class="admin-field ${field.wide ? 'admin-field--wide' : ''}"><span>${field.label}</span><input class="field" data-array-field="${field.key}" name="${fieldName}" value="${attr(value)}"></label>`;
+}
+
+function navHref(target) {
+  return target === 'booking' ? '#booking' : `#${target || 'home'}`;
+}
+
+function blogList() {
+  return `<div class="blog-grid">${siteContent.blogPosts.map((post, index) => {
+    const { title, excerpt, date, image } = post || {};
+    return `<article class="card blog-card" data-blog-open="${index}" tabindex="0"><div class="visual-card"><img src="${attr(image)}" alt="${attr(title)}"></div><span class="blog-date">${html(date)}</span><h3>${html(title)}</h3><p class="card-text">${html(excerpt)}</p><button class="btn btn--secondary" type="button">ЧИТАТЬ</button></article>`;
+  }).join('')}</div>`;
+}
+
+function blogDetail(index) {
+  const post = siteContent.blogPosts[index];
+  if (!post) return blogList();
+  const { title, excerpt, date, image, fullText, video, gallery = [] } = post;
+  const paragraphs = String(fullText || excerpt || '').split(/\n{2,}/).filter(Boolean);
+  const media = video ? `<div class="visual-card"><video src="${attr(video)}" controls playsinline preload="metadata" poster="${attr(image)}"></video></div>` : `<div class="visual-card"><img src="${attr(image)}" alt="${attr(title)}"></div>`;
+  const galleryItems = Array.isArray(gallery) ? gallery.filter((item) => item?.image) : [];
+  return `<article class="blog-detail"><button class="portfolio-back" type="button" data-blog-back aria-label="Вернуться к новостям">←</button>${media}<span class="blog-date">${html(date)}</span><h3>${html(title)}</h3>${paragraphs.map((paragraph) => `<p class="card-text">${html(paragraph)}</p>`).join('')}${galleryItems.length ? `<div class="blog-detail__gallery">${galleryItems.map((item) => `<img src="${attr(item.image)}" alt="${attr(item.alt || title)}">`).join('')}</div>` : ''}</article>`;
+}
+
+function socialIcon(title) {
+  const key = String(title || '').toLowerCase();
+  if (key.includes('whatsapp')) return iconLibrary.whatsapp;
+  if (key.includes('vk') || key.includes('вк')) return iconLibrary.vk;
+  if (key.includes('youtube')) return iconLibrary.youtube;
+  if (key.includes('x') || key.includes('twitter')) return iconLibrary.x;
+  if (key.includes('pinterest')) return iconLibrary.pinterest;
+  if (key.includes('ok') || key.includes('одноклассники')) return iconLibrary.ok;
+  if (key.includes('rutube')) return iconLibrary.rutube;
+  return iconLibrary.telegram;
+}
+
+function renderIcon(value, className = '') {
+  const key = String(value || '').trim();
+  if (/^(https?:|data:|\/)/i.test(key)) return `<img class="${attr(className || 'custom-icon')}" src="${attr(key)}" alt="" aria-hidden="true">`;
+  const path = iconLibrary[key] || socialIcon(key);
+  return `<svg class="${attr(className)}" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" stroke="none">${path}</svg>`;
+}
+
+function renderSocialIcon(item) {
+  return renderIcon(item?.icon || item?.title || 'telegram', 'social-grid__icon');
+}
+
+function navIcon(id) {
+  const icons = {
+    home: '<path d="M4 11.5 12 5l8 6.5"/><path d="M6.5 10.5V19h11v-8.5"/><path d="M10 19v-5h4v5"/>',
+    about: '<circle cx="12" cy="12" r="8"/><path d="M12 11v5"/><path d="M12 8h.01"/>',
+    services: '<path d="M12 3v5"/><path d="M12 16v5"/><path d="M4 12h5"/><path d="M15 12h5"/><path d="m6.5 6.5 3.5 3.5"/><path d="m14 14 3.5 3.5"/><path d="m17.5 6.5-3.5 3.5"/><path d="m10 14-3.5 3.5"/>',
+    cases: '<path d="M4 8h16v11H4z"/><path d="M8 8V5h8v3"/>',
+    prices: '<path d="M8 5h5a4 4 0 0 1 0 8H8"/><path d="M8 13h7"/><path d="M8 5v14"/><path d="M6 16h9"/>',
+    blog: '<path d="M5 19h14"/><path d="m7 15 1-4 7.5-7.5 3 3L11 14z"/>',
+    team: '<path d="M8.5 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M3.8 19a5 5 0 0 1 9.4 0"/><path d="M16 11.5a2.6 2.6 0 1 0 0-5.2"/><path d="M15.4 14.2A4.8 4.8 0 0 1 20.2 19"/>',
+    equipment: '<path d="M4 8h16v10H4z"/><path d="M8 8l1.5-3h5L16 8"/><circle cx="12" cy="13" r="3"/>',
+    reviews: '<path d="M5 5h14v10H9l-4 4z"/><path d="M8.5 9.5h7"/><path d="M8.5 12.5h4.5"/>',
+    faq: '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',
+    beforeafter: '<path d="M4 4h7v16H4z"/><path d="M13 4h7v16h-7z"/>',
+    clients: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M12 2v20"/>',
+    contacts: '<path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/>',
+  };
+  return `<span class="nav-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24">${icons[id] || icons.home}</svg></span>`;
+}
+
+function yandexMapUrl(address) {
+  return `https://yandex.ru/map-widget/v1/?text=${encodeURIComponent(address)}&z=16`;
+}
+
+function reviewTextCard(item) {
+  const image = item.image ? `<img class="review-author" src="${attr(item.image)}" alt="${attr(item.name)}">` : '';
+  return `<article class="card review-card review-card--text"><span class="review-mark">“</span>${image}<p class="card-text">${html(item.text)}</p><strong>${html(item.name)}</strong></article>`;
+}
+
+function reviewVideoCard(item) {
+  return `<article class="card review-card review-card--video"><div class="visual-card"><img src="${attr(item.image)}" alt="${attr(item.title)}"><span class="video-play" aria-hidden="true">▶</span></div><h3>${html(item.title)}</h3><p class="card-text">${html(item.text)}</p></article>`;
+}
+
+function podcastPlayer() {
+  const audioSrc = String(siteContent.home.podcastAudio || '').trim();
+  const bars = Array.from({ length: 96 }, (_, index) => {
+    const wave = Math.sin(index * 1.7) * 22 + Math.sin(index * 0.47) * 18;
+    const accent = index % 9 === 0 ? 18 : 0;
+    const height = Math.max(18, Math.min(92, Math.round(52 + wave + accent)));
+    return `<span style="--h:${height}%"></span>`;
+  }).join('');
+  const audio = audioSrc ? `<audio src="${attr(audioSrc)}" preload="metadata"></audio>` : '';
+  return `<div class="voice-player" data-audio-player><button class="voice-play" type="button" aria-label="Воспроизвести пример подкаста"><span></span></button><div class="voice-wave" aria-hidden="true">${bars}</div>${audio}</div>`;
+}
+
+function renderDesktopTicker() {
+  const tickerTrack = document.querySelector('.desktop-ticker__track');
+  if (!tickerTrack) return;
+  const rawText = String(siteContent.ticker?.text || defaultContent.ticker.text).trim();
+  const items = rawText.split('/').map((item) => item.trim()).filter(Boolean);
+  const tickerItems = items.length ? items : [defaultContent.ticker.text];
+  const group = document.createElement('div');
+  group.className = 'desktop-ticker__group';
+  const appendCycle = () => {
+    tickerItems.forEach((item) => {
+      const span = document.createElement('span');
+      span.textContent = item;
+      const divider = document.createElement('i');
+      divider.textContent = '/';
+      group.append(span, divider);
+    });
+  };
+  appendCycle();
+  tickerTrack.replaceChildren(group);
+  const minGroupWidth = Math.max(window.innerWidth * 2.2, 4200);
+  let guard = 0;
+  while (group.scrollWidth < minGroupWidth && guard < 40) {
+    appendCycle();
+    guard += 1;
+  }
+  tickerTrack.append(group.cloneNode(true));
+  tickerTrack.style.setProperty('--ticker-duration', `${Math.max(24, group.scrollWidth / 170).toFixed(2)}s`);
+}
+
+function bookingBoard() {
+  const dates = bookingDates();
+  const slots = bookingSlots();
+  const rows = dates.map((date) => `<tr><th><b>${html(date.title)}</b><small>${html(date.subtitle)}</small></th>${slots.map((time) => {
+    const booking = adminBookings.find((item) => item.date === date.value && item.time === time && item.status !== 'cancelled');
+    return `<td class="${booking ? 'is-booked' : 'is-free'}"><strong>${html(time)}</strong>${booking ? `<span>${html(booking.name)}</span><small>${html(booking.service || booking.phone)}</small><select data-booking-status-change="${attr(booking.id)}"><option value="new" ${booking.status === 'new' ? 'selected' : ''}>новая</option><option value="confirmed" ${booking.status === 'confirmed' ? 'selected' : ''}>подтверждена</option><option value="cancelled" ${booking.status === 'cancelled' ? 'selected' : ''}>отменена</option></select>` : '<span>свободно</span>'}</td>`;
+  }).join('')}</tr>`).join('');
+  return `<section class="card admin-section" data-booking-board-root><div class="admin-section__head"><h3>Шахматка бронирования</h3><button class="btn btn--secondary" type="button" data-refresh-bookings>ОБНОВИТЬ</button></div><div class="booking-board"><table><thead><tr><th>Дата</th>${slots.map((time) => `<th>${html(time)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></section>`;
+}
+
+function adminPage() {
+  const c = siteContent;
+  if (sessionStorage.getItem(ADMIN_AUTH_KEY) !== 'true') return createPanel('admin', 'panel--admin', `<span class="eyebrow">admin</span><h2 class="section-title">Вход в админку</h2><form class="admin-login" id="adminLogin"><label class="admin-field"><span>Пароль</span><input class="field" type="password" name="password" autocomplete="current-password" autofocus></label><button class="btn btn--primary" type="submit">ВОЙТИ</button><span class="admin-status" id="adminStatus"></span></form>`);
+  const badgeOptions = [['', 'Без стиля'], ['hit', 'Хит продаж'], ['new', 'Новинка'], ['sale', 'Акция'], ['vip', 'VIP']];
+  const serviceFields = [{ key: 'title', label: 'Название' }, { key: 'price', label: 'Цена' }, { key: 'badge', label: 'Бейдж' }, { key: 'badgeStyle', label: 'Стиль бейджа', type: 'select', options: badgeOptions }, { key: 'image', label: 'Фото', type: 'image', wide: true }, { key: 'bullets', label: 'Что входит (список через запятую)', type: 'json', wide: true }];
+  const priceFields = [{ key: 'title', label: 'Название' }, { key: 'price', label: 'Цена' }, { key: 'icon', label: 'Иконка', type: 'icon', wide: true }, { key: 'text', label: 'Описание', type: 'textarea', wide: true }];
+  const blogFields = [{ key: 'title', label: 'Заголовок' }, { key: 'date', label: 'Дата' }, { key: 'image', label: 'Обложка', type: 'image', wide: true }, { key: 'video', label: 'Видео новости', type: 'file', accept: 'video/*', wide: true }, { key: 'excerpt', label: 'Анонс', type: 'textarea', wide: true }, { key: 'fullText', label: 'Полный текст', type: 'textarea', wide: true }, { key: 'gallery', label: 'Галерея (JSON)', type: 'json', wide: true }];
+  const teamFields = [{ key: '0', label: 'Роль', get: (item) => item[0] }, { key: '2', label: 'Фото 1', type: 'image', get: (item) => item[2] }, { key: '3', label: 'Фото 2', type: 'image', get: (item) => item[3] }, { key: '1', label: 'Описание', type: 'textarea', get: (item) => item[1], wide: true }];
+  const equipmentFields = [{ key: 'title', label: 'Название' }, { key: 'image', label: 'Фото', type: 'image', wide: true }, { key: 'specs', label: 'Характеристики (JSON)', type: 'json', wide: true }];
+  const statFields = [{ key: 'value', label: 'Число' }, { key: 'label', label: 'Подпись' }];
+  const galleryFields = [{ key: 'image', label: 'Фото', type: 'image', wide: true }, { key: 'alt', label: 'Alt-текст' }];
+  const socialFields = [{ key: 'title', label: 'Название' }, { key: 'href', label: 'Ссылка' }, { key: 'icon', label: 'Иконка', type: 'icon', wide: true }];
+  const bookingDateFields = [{ key: 'title', label: 'Название' }, { key: 'subtitle', label: 'Подпись' }];
+  const reviewTextFields = [{ key: 'name', label: 'Имя и должность' }, { key: 'text', label: 'Текст отзыва', type: 'textarea', wide: true }, { key: 'image', label: 'Фото', type: 'image', wide: true }];
+  const reviewVideoFields = [{ key: 'title', label: 'Заголовок' }, { key: 'text', label: 'Описание', type: 'textarea', wide: true }, { key: 'image', label: 'Обложка', type: 'image', wide: true }, { key: 'video', label: 'Видео', type: 'file', accept: 'video/*', wide: true }];
+  const faqFields = [{ key: 'question', label: 'Вопрос' }, { key: 'answer', label: 'Ответ', type: 'textarea', wide: true }];
+  const clientsFields = [{ key: 'name', label: 'Название' }, { key: 'logo', label: 'Логотип', type: 'image', wide: true }];
+  const tabs = [['main', 'Главная'], ['services', 'Услуги и цены'], ['portfolio', 'Портфолио'], ['team', 'Команда и оборудование'], ['blog', 'Новости'], ['reviews', 'Наши клиенты'], ['booking', 'Запись'], ['seo', 'SEO'], ['settings', 'Настройки']];
+  return createPanel('admin', 'panel--admin', `<span class="eyebrow">admin</span><h2 class="section-title">Редактор контента</h2><p class="section-subtitle">Админка разбита на вкладки по разделам сайта. Карточки добавляются визуально, изображения, аудио и видео можно загрузить прямо с компьютера.</p><form class="admin-editor" id="contentEditor"><div class="admin-tabs">${tabs.map(([id, label], index) => `<button class="admin-tab ${index === 0 ? 'is-active' : ''}" type="button" data-admin-tab="${id}">${label}</button>`).join('')}</div><div class="admin-tab-panel is-active" data-admin-tab-panel="main"><section class="card admin-section"><h3>Главный экран</h3><div class="admin-form-grid">${adminField('home.copy', 'Описание на главной', c.home.copy, true)}${adminFileField('home.podcastAudio', 'Файл подкаста mp3/ogg/wav', c.home.podcastAudio || '', 'audio/*')}${adminFileField('home.promoVideo', 'Проморолик mp4/webm/mov', c.home.promoVideo || '', 'video/*')}</div></section>${adminArrayEditor('home.stats', 'Статистика', c.home.stats, statFields, '+ статистика')}<section class="card admin-section"><h3>Бегущая строка</h3><p class="card-text">Разделяйте фразы символом /. На сайте текст автоматически размножится без пустот.</p><div class="admin-form-grid">${adminField('ticker.text', 'Текст строки', c.ticker?.text || defaultContent.ticker.text, true)}</div></section><section class="card admin-section"><h3>О студии</h3><div class="admin-form-grid">${adminField('about.eyebrow', 'Надзаголовок', c.about.eyebrow)}${adminField('about.title', 'Заголовок', c.about.title)}${adminField('about.name', 'Название в карточке', c.about.name)}${adminJsonField('about.paragraphs', 'Абзацы (JSON-массив строк)', c.about.paragraphs)}${adminField('headings.services', 'Заголовок: Услуги', c.headings.services)}${adminField('headings.prices', 'Заголовок: Цены', c.headings.prices)}${adminField('headings.blog', 'Заголовок: Новости', c.headings.blog)}${adminField('headings.team', 'Заголовок: Команда', c.headings.team)}${adminField('headings.equipment', 'Заголовок: Оборудование', c.headings.equipment)}${adminField('headings.reviews', 'Заголовок: Отзывы', c.headings.reviews)}${adminField('headings.contacts', 'Заголовок: Контакты', c.headings.contacts)}</div></section>${adminArrayEditor('about.gallery', 'Галерея «О студии»', c.about.gallery || defaultContent.about.gallery, galleryFields, '+ фото')}<section class="card admin-section"><h3>Контакты</h3><div class="admin-form-grid">${adminField('contacts.email', 'Email', c.contacts.email)}${adminField('contacts.phone', 'Телефон', c.contacts.phone)}${adminField('contacts.phoneHref', 'Телефон для ссылки', c.contacts.phoneHref)}${adminField('contacts.address', 'Адрес', c.contacts.address)}</div></section>${adminArrayEditor('contacts.social', 'Соцсети', c.contacts.social, socialFields, '+ соцсеть')}${adminArrayEditor('faq.items', 'FAQ', c.faq?.items || [], faqFields, '+ вопрос')}</div><div class="admin-tab-panel" data-admin-tab-panel="services">${adminArrayEditor('services', 'Услуги', c.services, serviceFields, '+ услуга')}${adminArrayEditor('prices', 'Прайс', c.prices, priceFields, '+ позиция')}</div><div class="admin-tab-panel" data-admin-tab-panel="portfolio">${adminPortfolioEditor(c.portfolio || defaultContent.portfolio)}</div><div class="admin-tab-panel" data-admin-tab-panel="team">${adminArrayEditor('team', 'Команда', c.team, teamFields, '+ член команды')}${adminArrayEditor('equipment', 'Оборудование', c.equipment, equipmentFields, '+ оборудование')}</div><div class="admin-tab-panel" data-admin-tab-panel="blog">${adminArrayEditor('blogPosts', 'Новости', c.blogPosts, blogFields, '+ новость')}</div><div class="admin-tab-panel" data-admin-tab-panel="reviews">${adminArrayEditor('reviews.text', 'Текстовые отзывы', c.reviews?.text || [], reviewTextFields, '+ отзыв')}${adminArrayEditor('reviews.video', 'Видеоотзывы', c.reviews?.video || [], reviewVideoFields, '+ видеоотзыв')}${adminArrayEditor('clients', 'Клиенты и партнёры', c.clients || defaultContent.clients, clientsFields, '+ клиент')}</div><div class="admin-tab-panel" data-admin-tab-panel="booking"><section class="card admin-section"><h3>Настройки формы записи</h3><div class="admin-form-grid">${adminField('booking.title', 'Заголовок формы', c.booking.title)}${adminField('booking.serviceTitle', 'Заголовок выбора услуги', c.booking.serviceTitle)}${adminField('booking.dateTitle', 'Заголовок выбора даты', c.booking.dateTitle)}${adminField('booking.timeTitle', 'Заголовок выбора времени', c.booking.timeTitle)}${adminField('booking.clientTitle', 'Заголовок данных клиента', c.booking.clientTitle)}${adminField('booking.submitText', 'Текст кнопки', c.booking.submitText)}${adminJsonField('booking.times', 'Время записи (JSON)', c.booking.times)}${adminJsonField('booking.placeholders', 'Плейсхолдеры полей (JSON)', c.booking.placeholders)}</div></section><section class="card admin-section"><h3>CRM виджет</h3><p class="card-text">Если используете внешнюю CRM (АльфаСRM, Битрикс24, YCLIENTS и т.д.), выберите режим «CRM виджет», вставьте код виджета и JS-команды для открытия.</p><div class="admin-form-grid"><label class="admin-field"><span>Режим записи</span><select class="field" name="booking.mode"><option value="form" ${c.booking.mode === 'form' ? 'selected' : ''}>Наша форма</option><option value="widget" ${c.booking.mode === 'widget' ? 'selected' : ''}>CRM виджет</option></select></label>${adminField('booking.widgetOpen', 'JS-код открытия виджета', c.booking.widgetOpen || '')}${adminJsonField('booking.widgetCode', 'Код виджета CRM (HTML/JS)', c.booking.widgetCode || '')}</div></section>${adminArrayEditor('booking.dates', 'Даты онлайн-записи', c.booking.dates, bookingDateFields, '+ дата')}${bookingBoard()}</div><div class="admin-tab-panel" data-admin-tab-panel="seo"><section class="card admin-section"><h3>SEO сайта</h3><div class="admin-form-grid">${adminField('seo.siteTitle', 'Название сайта', c.seo.siteTitle)}${adminField('seo.siteDescription', 'Описание сайта', c.seo.siteDescription, true)}${adminField('seo.keywords', 'Ключевые слова', c.seo.keywords || '', true)}${adminImageField('seo.ogImage', 'OG-изображение', c.seo.ogImage || '')}</div></section><section class="card admin-section"><h3>SEO страниц</h3><div class="admin-form-grid">${Object.entries(c.seo.pages).map(([id, seo]) => `${adminField(`seo.pages.${id}.title`, `Title: ${id}`, seo.title)}${adminField(`seo.pages.${id}.description`, `Description: ${id}`, seo.description, true)}`).join('')}</div></section></div><div class="admin-tab-panel" data-admin-tab-panel="settings"><section class="card admin-section"><h3>Настройки</h3><p class="card-text">Telegram-уведомления настраиваются через переменные среды на сервере: TELEGRAM_BOT_TOKEN и TELEGRAM_ADMIN_CHAT_ID. Пароль администратора задаётся через переменную ADMIN_PASSWORD. По умолчанию для локального прототипа: 313.</p><button class="btn btn--secondary" type="button" data-admin-logout>ВЫЙТИ ИЗ АДМИНКИ</button></section></div><div class="admin-actions"><button class="btn btn--primary" type="submit">СОХРАНИТЬ</button><button class="btn btn--secondary" type="button" data-admin-reset>СБРОСИТЬ К СТАНДАРТУ</button><span class="admin-status" id="adminStatus"></span></div></form>`);
+}
+
+const pages = {
+  home: () => createPanel('home', 'panel--hero', `
+    <div class="hero-layout">
+      <div class="hero-content">
+        <span class="eyebrow">${html(siteContent.home.eyebrow)}</span>
+        <h1 class="hero-title hero-title--logo"><img src="/brand/logo-black.svg" alt="СТУДИЯ 313"></h1>
+        <p class="hero-copy">${html(siteContent.home.copy)}</p>
+        ${podcastPlayer()}
+        <div class="stats-row">${siteContent.home.stats.map((stat) => `<div class="stat"><div class="stat-value">${html(stat.value)}</div><div class="stat-label">${html(stat.label)}</div></div>`).join('')}</div>
+      </div>
+      <div class="hero-promo" aria-label="Место для проморолика">${siteContent.home.promoVideo ? `<video src="${attr(siteContent.home.promoVideo)}" controls playsinline preload="metadata" poster="${attr((siteContent.about.gallery || defaultContent.about.gallery)[0]?.image || studioImages[0])}"></video>` : `<img src="${attr((siteContent.about.gallery || defaultContent.about.gallery)[0]?.image || studioImages[0])}" alt="Проморолик СТУДИЯ 313"><span class="hero-promo__play" aria-hidden="true">▶</span>`}</div>
+    </div>`),
+  about: () => createPanel('about', '', `<span class="eyebrow">${html(siteContent.about.eyebrow)}</span><h2 class="section-title">${html(siteContent.about.title)}</h2><div class="about-layout"><article class="card about-copy"><h3>${html(siteContent.about.name)}</h3>${siteContent.about.paragraphs.map((text) => `<p class="card-text">${html(text)}</p>`).join('')}</article><div class="masonry-gallery">${(siteContent.about.gallery || defaultContent.about.gallery).map((item, index) => `<img class="masonry-gallery__item masonry-gallery__item--${index % 5}" src="${attr(item.image || item)}" alt="${attr(item.alt || `СТУДИЯ 313 — фото ${index + 1}`)}">`).join('')}</div></div>`),
+  services: () => createPanel('services', '', `<span class="eyebrow">услуги</span><h2 class="section-title">${html(siteContent.headings.services)}</h2><div class="service-grid">${siteContent.services.map(serviceCard).join('')}</div>`),
+  cases: () => createPanel('cases', '', `<span class="eyebrow">кейсы</span><h2 class="section-title">Портфолио</h2><div id="portfolioRoot">${portfolioFolders()}</div>`),
+  beforeafter: () => createPanel('beforeafter', '', `<span class="eyebrow">до / после</span><h2 class="section-title">${html(siteContent.headings.beforeAfter || defaultContent.headings.beforeAfter)}</h2><div id="beforeAfterRoot">${beforeAfterPage()}</div>`),
+  prices: () => createPanel('prices', '', `<span class="eyebrow">стоимость</span><h2 class="section-title">${html(siteContent.headings.prices)}</h2><div class="price-grid">${siteContent.prices.map(priceCard).join('')}</div>`),
+  blog: () => createPanel('blog', '', `<span class="eyebrow">блог</span><h2 class="section-title">${html(siteContent.headings.blog)}</h2><div id="blogRoot">${blogList()}</div>`),
+  team: () => createPanel('team', '', `<span class="eyebrow">команда</span><h2 class="section-title">${html(siteContent.headings.team)}</h2><div class="team-grid">${siteContent.team.map(teamCard).join('')}</div>`),
+  equipment: () => createPanel('equipment', '', `<span class="eyebrow">оборудование</span><h2 class="section-title">${html(siteContent.headings.equipment)}</h2><div class="equipment-grid">${siteContent.equipment.map(equipmentCard).join('')}</div>`),
+  reviews: () => {
+    const clientsHtml = (siteContent.clients || []).length ? `<section class="reviews-block"><h3>Нам доверяют</h3><div class="clients-grid">${siteContent.clients.map((client) => `<article class="client-card">${client.logo ? `<img src="${attr(client.logo)}" alt="${attr(client.name)}">` : `<span class="client-name">${html(client.name)}</span>`}</article>`).join('')}</div></section>` : '';
+    return createPanel('reviews', '', `<span class="eyebrow">отзывы</span><h2 class="section-title">${html(siteContent.headings.reviews)}</h2><div class="reviews-layout">${clientsHtml}<section class="reviews-block"><h3>О нас говорят</h3><div class="review-grid">${(siteContent.reviews?.text || []).map(reviewTextCard).join('')}</div></section><section class="reviews-block"><h3>Видеоотзывы</h3><div class="review-video-grid">${(siteContent.reviews?.video || []).map(reviewVideoCard).join('')}</div></section></div>`);
+  },
+  faq: () => createPanel('faq', '', `<span class="eyebrow">faq</span><h2 class="section-title">${html(siteContent.headings.faq)}</h2><div class="faq-list">${(siteContent.faq?.items || []).map((item, i) => `<details class="faq-item" ${i === 0 ? 'open' : ''}><summary>${html(item.question)}</summary><p>${html(item.answer)}</p></details>`).join('')}</div>`),
+  booking: (selectedService = '') => bookingPage(selectedService),
+  contacts: () => createPanel('contacts', '', `<span class="eyebrow">контакты</span><h2 class="section-title">${html(siteContent.headings.contacts)}</h2><div class="contacts-page"><article class="contact-card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg><span>Почта</span><a href="mailto:${attr(siteContent.contacts.email)}">${html(siteContent.contacts.email)}</a></article><article class="contact-card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>Телефон</span><a href="${attr(phoneLink(siteContent.contacts.phoneHref))}">${html(siteContent.contacts.phone)}</a></article><article class="contact-card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span>Адрес</span><strong>${html(siteContent.contacts.address)}</strong></article></div><div class="studio-map" aria-label="Карта: ${attr(siteContent.contacts.address)}"><iframe src="${attr(yandexMapUrl(siteContent.contacts.address))}" title="Яндекс Карта: ${attr(siteContent.contacts.address)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><div class="map-pin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span>${html(siteContent.contacts.address)}</span></div></div><div class="social-panel"><span class="eyebrow">соцсети</span><div class="social-grid">${siteContent.contacts.social.map((item) => `<a href="${attr(item.href)}" aria-label="${attr(item.title)}">${renderSocialIcon(item)}<span>${html(item.title)}</span></a>`).join('')}</div></div>`),
+  admin: () => adminPage(),
+};
+
+const track = document.querySelector('#workspaceTrack');
+const nav = document.querySelector('#sidebarNav');
+const spotlight = document.querySelector('.spotlight');
+const bookingModal = document.querySelector('#bookingModal');
+const bookingModalBody = document.querySelector('#bookingModalBody');
+const mobileMenuToggle = document.querySelector('#mobileMenuToggle');
+let pageTransitionTimer;
+let isMobileMenuBound = false;
+let bookingBusySlots = [];
+let adminBookings = [];
+
+async function loadContent() {
+  try {
+    const response = await fetch('/api/content', { cache: 'no-store' });
+    if (!response.ok) throw new Error('Не удалось загрузить content.json');
+    const saved = migrateContent(await response.json());
+    siteContent = mergeContent(defaultContent, saved);
+  } catch (error) {
+    console.warn(error);
+    siteContent = cloneContent(defaultContent);
+  }
+  try {
+    const busyResponse = await fetch('/api/bookings/public', { cache: 'no-store' });
+    bookingBusySlots = busyResponse.ok ? await busyResponse.json() : [];
+  } catch (error) {
+    console.warn(error);
+    bookingBusySlots = [];
+  }
+}
+
+function setContentPath(target, path, value) {
+  const keys = path.split('.');
+  let cursor = target;
+  keys.slice(0, -1).forEach((key) => {
+    if (!cursor[key] || typeof cursor[key] !== 'object') cursor[key] = {};
+    cursor = cursor[key];
+  });
+  cursor[keys.at(-1)] = value;
+}
+
+function isEmptyItem(item) {
+  if (Array.isArray(item)) return item.every((v) => !String(v).trim());
+  return Object.values(item).every((v) => {
+    if (Array.isArray(v)) return v.length === 0;
+    return !String(v).trim();
+  });
+}
+
+function getFormContent(form) {
+  const nextContent = cloneContent(siteContent);
+  form.querySelectorAll('[name]:not([data-array-field])').forEach((field) => {
+    const rawValue = field.value;
+    const value = field.classList.contains('admin-json') ? JSON.parse(rawValue) : rawValue;
+    setContentPath(nextContent, field.name, value);
+  });
+  form.querySelectorAll('[data-admin-array]').forEach((editor) => {
+    const items = [...editor.querySelectorAll('[data-admin-item]')].map((card) => {
+      const isTuple = [...card.querySelectorAll('[data-array-field]')].some((field) => /^\d+$/.test(field.dataset.arrayField));
+      const item = isTuple ? [] : {};
+      card.querySelectorAll('[data-array-field]').forEach((field) => {
+        item[field.dataset.arrayField] = field.classList.contains('admin-json') ? JSON.parse(field.value) : field.value;
+      });
+      return item;
+    });
+    setContentPath(nextContent, editor.dataset.adminArray, items.filter((item) => !isEmptyItem(item)));
+  });
+  const portfolioEditor = form.querySelector('[data-admin-portfolio]');
+  if (portfolioEditor) {
+    nextContent.portfolio = [...portfolioEditor.querySelectorAll('[data-portfolio-category]')].map((categoryCard) => {
+      const category = { projects: [] };
+      categoryCard.querySelectorAll('[data-portfolio-category-fields] [data-portfolio-field], [data-portfolio-category-fields] [data-array-field]').forEach((field) => {
+        const key = field.dataset.portfolioField || field.dataset.arrayField;
+        category[key] = field.value;
+      });
+      category.projects = [...categoryCard.querySelectorAll('[data-portfolio-projects] > [data-portfolio-project]')].map((projectCard) => {
+        const project = { gallery: [] };
+        projectCard.querySelectorAll('[data-portfolio-project-fields] [data-project-field], [data-portfolio-project-fields] [data-array-field]').forEach((field) => {
+          const key = field.dataset.projectField || field.dataset.arrayField;
+          project[key] = field.value;
+        });
+        project.gallery = [...projectCard.querySelectorAll('[data-portfolio-gallery] > [data-portfolio-gallery-item]')].map((galleryCard) => {
+          const image = galleryCard.querySelector('[data-array-field="image"]')?.value || '';
+          const alt = galleryCard.querySelector('[data-gallery-field="alt"]')?.value || '';
+          return { image, alt };
+        }).filter((item) => item.image || item.alt);
+        return project;
+      });
+      return category;
+    });
+  }
+  return nextContent;
+}
+
+function setAdminStatus(message, isError = false) {
+  const status = document.querySelector('#adminStatus');
+  if (!status) return;
+  status.textContent = message;
+  status.classList.toggle('is-error', isError);
+}
+
+function refreshPortfolioAdmin(cms, activeCategory = 0, activeProject = 0, activeGallery = 0) {
+  if (!cms) return;
+  const categories = [...cms.querySelectorAll('[data-portfolio-category]')];
+  const categoryNav = cms.querySelector('[data-portfolio-category-nav]');
+  const projectNav = cms.querySelector('[data-portfolio-project-nav]');
+  const safeCategory = Math.max(0, Math.min(activeCategory, categories.length - 1));
+
+  categories.forEach((category, index) => {
+    category.dataset.portfolioCategoryIndex = index;
+    category.classList.toggle('is-active', index === safeCategory);
+  });
+
+  if (categoryNav) {
+    categoryNav.innerHTML = categories.map((category, index) => {
+      const title = category.querySelector('[data-portfolio-field="title"]')?.value || `Категория ${index + 1}`;
+      const count = category.querySelectorAll('[data-portfolio-project]').length;
+      return `<button class="admin-portfolio-nav-item ${index === safeCategory ? 'is-active' : ''}" type="button" data-portfolio-select-category="${index}"><span>${html(title)}</span><small>${count} проектов</small></button>`;
+    }).join('') || '<p class="card-text">Категорий пока нет.</p>';
+  }
+
+  const activeCategoryCard = categories[safeCategory];
+  const projects = activeCategoryCard ? [...activeCategoryCard.querySelectorAll('[data-portfolio-projects] > [data-portfolio-project]')] : [];
+  const safeProject = Math.max(0, Math.min(activeProject, projects.length - 1));
+
+  projects.forEach((project, index) => {
+    project.dataset.portfolioProjectIndex = index;
+    project.classList.toggle('is-active', index === safeProject);
+  });
+
+  if (projectNav) {
+    projectNav.innerHTML = projects.map((project, index) => {
+      const title = project.querySelector('[data-project-field="title"]')?.value || `Проект ${index + 1}`;
+      const type = project.querySelector('[data-project-field="type"]')?.value || 'image';
+      return `<button class="admin-portfolio-nav-item ${index === safeProject ? 'is-active' : ''}" type="button" data-portfolio-select-project="${index}"><span>${html(title)}</span><small>${html(type)}</small></button>`;
+    }).join('') || '<p class="card-text">В категории пока нет проектов.</p>';
+  }
+
+  const activeProjectCard = projects[safeProject];
+  const galleryNav = activeProjectCard?.querySelector('[data-portfolio-gallery-nav]');
+  const galleryItems = activeProjectCard ? [...activeProjectCard.querySelectorAll('[data-portfolio-gallery] > [data-portfolio-gallery-item]')] : [];
+  const safeGallery = Math.max(0, Math.min(activeGallery, galleryItems.length - 1));
+  galleryItems.forEach((item, index) => item.classList.toggle('is-active', index === safeGallery));
+
+  if (galleryNav) {
+    galleryNav.innerHTML = galleryItems.map((item, index) => {
+      const alt = item.querySelector('[data-gallery-field="alt"]')?.value || `Фото ${index + 1}`;
+      return `<button class="admin-portfolio-nav-item ${index === safeGallery ? 'is-active' : ''}" type="button" data-portfolio-select-gallery="${index}"><span>${html(alt)}</span><small>кадр ${index + 1}</small></button>`;
+    }).join('') || '<p class="card-text">У проекта пока нет фото.</p>';
+  }
+}
+
+function refreshAdminSubnav(panel, activeIndex = 0) {
+  if (!panel) return;
+  const sections = [...panel.querySelectorAll(':scope > .admin-section, :scope > [data-booking-board-root]')];
+  let nav = panel.querySelector('[data-admin-subnav]');
+  if (sections.length <= 1) {
+    nav?.remove();
+    sections.forEach((section) => section.classList.add('is-active'));
+    return;
+  }
+  if (!nav) {
+    nav = document.createElement('aside');
+    nav.className = 'admin-subnav';
+    nav.dataset.adminSubnav = '';
+    panel.prepend(nav);
+  }
+  const safeIndex = Math.max(0, Math.min(activeIndex, sections.length - 1));
+  nav.innerHTML = sections.map((section, index) => {
+    const title = section.querySelector('h3')?.textContent?.trim() || `Блок ${index + 1}`;
+    return `<button class="admin-tab ${index === safeIndex ? 'is-active' : ''}" type="button" data-admin-subtab="${index}">${html(title)}</button>`;
+  }).join('');
+  sections.forEach((section, index) => section.classList.toggle('is-active', index === safeIndex));
+}
+
+function refreshAdminArrayEditor(editor, activeIndex = 0) {
+  if (!editor) return;
+  const list = editor.querySelector(':scope > .admin-card-list');
+  const cards = list ? [...list.querySelectorAll(':scope > [data-admin-item]')] : [];
+  let nav = editor.querySelector(':scope > .admin-array-nav');
+  if (!cards.length) {
+    nav?.remove();
+    return;
+  }
+  if (!list) return;
+  if (!nav) {
+    nav = document.createElement('div');
+    nav.className = 'admin-array-nav';
+    list.before(nav);
+  }
+  const safeIndex = Math.max(0, Math.min(activeIndex, cards.length - 1));
+  nav.innerHTML = cards.map((card, index) => {
+    const field = card.querySelector('[data-array-field]');
+    const title = field?.value || `Элемент ${index + 1}`;
+    return `<button class="admin-portfolio-nav-item ${index === safeIndex ? 'is-active' : ''}" type="button" data-admin-array-select="${index}"><span>${html(title)}</span><small>${index + 1}</small></button>`;
+  }).join('');
+  cards.forEach((card, index) => card.classList.toggle('is-active', index === safeIndex));
+}
+
+function applySeo(pageId) {
+  const pageSeo = siteContent.seo?.pages?.[pageId] || {};
+  document.title = pageSeo.title || siteContent.seo?.siteTitle || 'СТУДИЯ 313';
+  const description = pageSeo.description || siteContent.seo?.siteDescription || '';
+  const setMeta = (selector, attrs) => {
+    let meta = document.head.querySelector(selector);
+    if (!meta) {
+      meta = document.createElement('meta');
+      const nameMatch = selector.match(/name="([^"]+)"/);
+      const propertyMatch = selector.match(/property="([^"]+)"/);
+      if (nameMatch) meta.setAttribute('name', nameMatch[1]);
+      if (propertyMatch) meta.setAttribute('property', propertyMatch[1]);
+      document.head.append(meta);
+    }
+    Object.entries(attrs).forEach(([key, value]) => meta.setAttribute(key, value));
+  };
+  const ogImage = siteContent.seo?.ogImage || '';
+  setMeta('meta[name="description"]', { content: description });
+  setMeta('meta[name="keywords"]', { content: siteContent.seo?.keywords || '' });
+  setMeta('meta[property="og:title"]', { content: document.title });
+  setMeta('meta[property="og:description"]', { content: description });
+  setMeta('meta[property="og:type"]', { content: 'website' });
+  setMeta('meta[property="og:image"]', { content: ogImage });
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: siteContent.seo?.siteTitle || 'СТУДИЯ 313',
+    description: siteContent.seo?.siteDescription || '',
+    url: typeof location !== 'undefined' ? location.origin : '',
+    telephone: siteContent.contacts?.phoneHref || '',
+    email: siteContent.contacts?.email || '',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Краснодар',
+      streetAddress: siteContent.contacts?.address || '',
+      addressCountry: 'RU',
+    },
+    image: ogImage,
+    priceRange: '₽₽',
+    sameAs: (siteContent.contacts?.social || []).map((s) => s.href).filter(Boolean),
+  };
+  let schemaScript = document.head.querySelector('script[data-schema]');
+  if (!schemaScript) {
+    schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.dataset.schema = 'true';
+    document.head.append(schemaScript);
+  }
+  schemaScript.textContent = JSON.stringify(schema);
+}
+
+function applyContactIcons() {
+  const contacts = siteContent.contacts || defaultContent.contacts;
+  const icons = [contacts.emailIcon || 'mail', contacts.phoneIcon || 'phone', contacts.addressIcon || 'pin'];
+  document.querySelectorAll('#contacts .contact-card').forEach((card, index) => {
+    const oldIcon = card.querySelector('svg, img.custom-icon');
+    oldIcon?.insertAdjacentHTML('beforebegin', renderIcon(icons[index]));
+    oldIcon?.remove();
+  });
+  const mapIcon = document.querySelector('#contacts .map-pin svg, #contacts .map-pin img.custom-icon');
+  mapIcon?.insertAdjacentHTML('beforebegin', renderIcon(contacts.addressIcon || 'pin'));
+  mapIcon?.remove();
+}
+
+let stathamMode = false;
+let konamiIndex = 0;
+
+function randomStathamQuote(index) {
+  return stathamQuotes[Math.floor(Math.random() * stathamQuotes.length + index) % stathamQuotes.length];
+}
+
+function applyStathamMode() {
+  stathamMode = true;
+  document.body.classList.add('statham-mode');
+  document.querySelectorAll('h1, h2, h3').forEach((heading, index) => {
+    heading.textContent = randomStathamQuote(index);
+  });
+}
+
+function render() {
+  const isAdminRoute = location.pathname === '/admin';
+  document.body.classList.toggle('admin-mode', isAdminRoute);
+  const sections = isAdminRoute ? [['admin', 'Админка']] : publicSections;
+  nav.innerHTML = navItems.map(([id, label]) => `<a class="nav-link" href="#${id}" data-nav-link="${id}">${navIcon(id)}<span>${label}</span></a>`).join('');
+  track.innerHTML = sections.map(([id]) => pages[id]()).join('');
+  applyContactIcons();
+  renderDesktopTicker();
+  if (bookingModalBody) bookingModalBody.innerHTML = pages.booking();
+  runSwipeHint();
+  bindNavigation();
+  bindMobileMenu();
+  bindTeamCards();
+  bindPortfolio();
+  bindBlog();
+  bindBeforeAfter();
+  bindLightbox();
+  bindScrollReveal();
+  bindServiceBooking();
+  bindForms();
+  bindPodcastPlayer();
+  bindBookingModal();
+  injectCrmWidget();
+  bindAdminEditor();
+  const target = isAdminRoute ? 'admin' : (location.hash || '#home').slice(1);
+  applySeo(target);
+  requestAnimationFrame(() => {
+    goTo(target, false);
+    if (stathamMode) applyStathamMode();
+  });
+}
+
+function goTo(id, updateHistory = true) {
+  if (id === 'booking') {
+    openBookingModal();
+    return;
+  }
+  const panel = document.querySelector(`[data-section="${id}"]`);
+  if (!panel) return;
+  closeBookingModal();
+  clearTimeout(pageTransitionTimer);
+  document.body.classList.add('is-page-switching');
+  pageTransitionTimer = window.setTimeout(() => document.body.classList.remove('is-page-switching'), 620);
+  panel.classList.remove('is-entering');
+  void panel.offsetWidth;
+  panel.classList.add('is-entering');
+  panel.scrollIntoView({ behavior: 'auto', inline: 'start', block: 'nearest' });
+  document.querySelectorAll('.nav-link').forEach((link) => link.classList.toggle('is-active', link.dataset.navLink === id));
+  applySeo(id);
+  if (updateHistory) history.pushState({ id }, '', id === 'admin' ? '/admin' : `#${id}`);
+}
+
+function bindNavigation() {
+  document.querySelectorAll('[data-nav-link]').forEach((link) => {
+    if (link.dataset.navBound === 'true') return;
+    link.dataset.navBound = 'true';
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (link.dataset.navLink === 'booking') {
+        closeMobileMenu();
+        openBookingModal();
+        return;
+      }
+      closeMobileMenu();
+      goTo(link.dataset.navLink);
+    });
+  });
+}
+
+function closeMobileMenu() {
+  document.body.classList.remove('mobile-menu-open');
+  mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+  mobileMenuToggle?.setAttribute('aria-label', 'Открыть меню');
+}
+
+function bindMobileMenu() {
+  if (isMobileMenuBound) return;
+  isMobileMenuBound = true;
+  mobileMenuToggle?.addEventListener('click', () => {
+    const isOpen = document.body.classList.toggle('mobile-menu-open');
+    mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+    mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+  });
+}
+
+function injectCrmWidget() {
+  const booking = siteContent.booking || defaultContent.booking;
+  if (booking.mode !== 'widget' || !booking.widgetCode) return;
+  const containerId = 'crm-widget-container';
+  if (document.getElementById(containerId)) return;
+  const container = document.createElement('div');
+  container.id = containerId;
+  container.style.cssText = 'position:fixed;inset:auto 24px 24px auto;z-index:9999;';
+  container.innerHTML = booking.widgetCode;
+  document.body.appendChild(container);
+  container.querySelectorAll('script').forEach((oldScript) => {
+    const newScript = document.createElement('script');
+    if (oldScript.src) newScript.src = oldScript.src;
+    else newScript.textContent = oldScript.textContent;
+    oldScript.replaceWith(newScript);
+  });
+}
+
+function openBookingModal(selectedService = '') {
+  closeMobileMenu();
+  const booking = siteContent.booking || defaultContent.booking;
+  if (booking.mode === 'widget' && booking.widgetOpen) {
+    try {
+      new Function(booking.widgetOpen)();
+    } catch (e) {
+      console.error('CRM widget error:', e);
+    }
+    return;
+  }
+  if (bookingModalBody) {
+    bookingModalBody.innerHTML = pages.booking(selectedService);
+    bindForms();
+    bindBookingModal();
+  }
+  bookingModal?.classList.add('is-open');
+  bookingModal?.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+}
+
+function bindBeforeAfter() {
+  document.querySelectorAll('[data-before-after]').forEach((el) => {
+    const afterWrap = el.querySelector('[data-after-wrap]');
+    const handle = el.querySelector('[data-handle]');
+    if (!afterWrap || !handle) return;
+    const update = (ratio) => {
+      const clamped = Math.max(0, Math.min(1, ratio));
+      afterWrap.style.width = `${clamped * 100}%`;
+      handle.style.left = `${clamped * 100}%`;
+    };
+    const onMove = (clientX) => {
+      const rect = el.getBoundingClientRect();
+      update((clientX - rect.left) / rect.width);
+    };
+    el.addEventListener('mousedown', (e) => { onMove(e.clientX); const mm = (ev) => onMove(ev.clientX); const mu = () => { window.removeEventListener('mousemove', mm); window.removeEventListener('mouseup', mu); }; window.addEventListener('mousemove', mm); window.addEventListener('mouseup', mu); });
+    el.addEventListener('touchstart', (e) => { onMove(e.touches[0].clientX); const tm = (ev) => onMove(ev.touches[0].clientX); const te = () => { window.removeEventListener('touchmove', tm); window.removeEventListener('touchend', te); }; window.addEventListener('touchmove', tm); window.addEventListener('touchend', te); }, { passive: true });
+  });
+}
+
+let lightboxImages = [];
+let lightboxIndex = 0;
+function bindLightbox() {
+  const lb = document.querySelector('#lightbox');
+  const media = document.querySelector('#lightboxMedia');
+  const counter = document.querySelector('#lightboxCounter');
+  if (!lb || !media) return;
+  const open = (index) => {
+    if (!lightboxImages.length) return;
+    lightboxIndex = index;
+    media.src = lightboxImages[index];
+    counter.textContent = `${index + 1} / ${lightboxImages.length}`;
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+  };
+  const close = () => {
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden', 'true');
+    media.src = '';
+  };
+  const prev = () => open((lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length);
+  const next = () => open((lightboxIndex + 1) % lightboxImages.length);
+  lb.querySelector('[data-lightbox-close]')?.addEventListener('click', close);
+  lb.querySelector('[data-lightbox-prev]')?.addEventListener('click', (e) => { e.stopPropagation(); prev(); });
+  lb.querySelector('[data-lightbox-next]')?.addEventListener('click', (e) => { e.stopPropagation(); next(); });
+  lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+  const selectors = '.project-gallery img, .masonry-gallery img, .blog-detail__gallery img, .before-after img';
+  document.querySelectorAll(selectors).forEach((img) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      const all = Array.from(document.querySelectorAll(selectors)).filter((i) => i.src);
+      lightboxImages = all.map((i) => i.src);
+      const idx = all.indexOf(img);
+      open(idx >= 0 ? idx : 0);
+    });
+  });
+}
+
+function bindScrollReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  const targets = document.querySelectorAll('.card, .portfolio-folder, .portfolio-project, .review-card, .faq-item, .client-card, .price-card, .service-card, .team-card, .equipment-card, .blog-item, .stat, .before-after');
+  targets.forEach((el, i) => {
+    el.classList.add('reveal');
+    const delayClass = `reveal-delay-${(i % 4) + 1}`;
+    if (!el.classList.contains(delayClass)) el.classList.add(delayClass);
+    observer.observe(el);
+  });
+}
+
+function runSwipeHint() {
+  if (localStorage.getItem('swipeHintShown')) return;
+  if (!window.matchMedia('(max-width: 1080px)').matches) return;
+  const track = document.querySelector('.workspace__track');
+  if (!track) return;
+  const show = () => {
+    track.classList.add('is-swipe-hint');
+    window.setTimeout(() => {
+      track.classList.remove('is-swipe-hint');
+      localStorage.setItem('swipeHintShown', '1');
+    }, 1400);
+  };
+  const wait = () => {
+    if (!document.body.classList.contains('is-loaded') || document.body.classList.contains('is-page-switching')) {
+      window.setTimeout(wait, 150);
+      return;
+    }
+    window.setTimeout(show, 1800);
+  };
+  wait();
+}
+
+function bindServiceBooking() {
+  document.querySelectorAll('[data-service-booking]').forEach((button) => {
+    button.addEventListener('click', () => openBookingModal(button.dataset.serviceBooking));
+  });
+}
+
+function bindPodcastPlayer() {
+  document.querySelectorAll('[data-audio-player]').forEach((player) => {
+    if (player.dataset.playerBound === 'true') return;
+    player.dataset.playerBound = 'true';
+    const button = player.querySelector('.voice-play');
+    const audio = player.querySelector('audio');
+    button?.addEventListener('click', async () => {
+      if (!audio) {
+        player.classList.toggle('is-playing');
+        return;
+      }
+      if (audio.paused) {
+        await audio.play();
+        player.classList.add('is-playing');
+      } else {
+        audio.pause();
+        player.classList.remove('is-playing');
+      }
+    });
+    audio?.addEventListener('ended', () => player.classList.remove('is-playing'));
+  });
+}
+
+function closeBookingModal() {
+  bookingModal?.classList.remove('is-open');
+  bookingModal?.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+}
+
+function bindBookingModal() {
+  document.querySelectorAll('[data-booking-close]').forEach((button) => {
+    button.addEventListener('click', closeBookingModal);
+  });
+}
+
+function bindPortfolio() {
+  const root = document.querySelector('#portfolioRoot');
+  if (!root) return;
+
+  root.querySelectorAll('[data-portfolio-folder]').forEach((folder) => {
+    const openFolder = () => {
+      const category = portfolioData()[Number(folder.dataset.portfolioFolder)];
+      if (!category) return;
+      root.innerHTML = portfolioContent(category);
+      bindPortfolio();
+    };
+
+    folder.addEventListener('click', openFolder);
+    folder.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openFolder();
+      }
+    });
+  });
+
+  const back = root.querySelector('[data-portfolio-back]');
+  const returnToFolders = () => {
+    root.innerHTML = portfolioFolders();
+    bindPortfolio();
+  };
+  back?.addEventListener('click', returnToFolders);
+  back?.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      returnToFolders();
+    }
+  });
+}
+
+function bindBlog() {
+  const root = document.querySelector('#blogRoot');
+  if (!root) return;
+
+  root.querySelectorAll('[data-blog-open]').forEach((card) => {
+    const openPost = () => {
+      root.innerHTML = blogDetail(Number(card.dataset.blogOpen));
+      bindBlog();
+    };
+    card.addEventListener('click', openPost);
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openPost();
+      }
+    });
+  });
+
+  root.querySelector('[data-blog-back]')?.addEventListener('click', () => {
+    root.innerHTML = blogList();
+    bindBlog();
+  });
+}
+
+function bindTeamCards() {
+  document.querySelectorAll('.team-card').forEach((card) => {
+    card.addEventListener('mouseenter', () => card.classList.add('is-alt'));
+    card.addEventListener('mouseleave', () => {
+      if (card.dataset.locked !== 'true') card.classList.remove('is-alt');
+    });
+    card.addEventListener('click', () => {
+      const isLocked = card.dataset.locked === 'true';
+      card.dataset.locked = String(!isLocked);
+      card.classList.toggle('is-alt', !isLocked);
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        const isLocked = card.dataset.locked === 'true';
+        card.dataset.locked = String(!isLocked);
+        card.classList.toggle('is-alt', !isLocked);
+      }
+    });
+  });
+}
+
+function bindForms() {
+  document.querySelectorAll('#bookingForm').forEach((form) => {
+    const renderTimes = () => {
+      const date = form.date?.value || bookingDates()[0]?.value || '';
+      const htmlSlots = bookingSlots().map((time) => {
+        const busy = isBusySlot(date, time);
+        return `<label class="${busy ? 'is-disabled' : ''}"><input type="radio" name="time" value="${attr(time)}" ${busy ? 'disabled' : ''}><span>${html(time)}${busy ? '<small>занято</small>' : ''}</span></label>`;
+      }).join('');
+      const slots = form.querySelector('[data-time-slots]');
+      if (slots) slots.innerHTML = htmlSlots;
+      form.querySelector('input[name="time"]:not(:disabled)')?.click();
+    };
+    form.querySelectorAll('input[name="date"]').forEach((input) => input.addEventListener('change', renderTimes));
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const status = form.querySelector('[data-booking-status]');
+      const body = {
+        service: form.querySelector('input[name="service"]:checked')?.closest('label')?.querySelector('b')?.textContent || '',
+        date: form.date?.value || '',
+        time: form.time?.value || '',
+        name: form.name?.value || '',
+        phone: form.phone?.value || '',
+        messenger: form.messenger?.value || '',
+        email: form.email?.value || '',
+        telegramChatId: form.telegramChatId?.value || '',
+        comment: form.comment?.value || '',
+      };
+      try {
+        const response = await fetch('/api/booking/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        if (!response.ok) throw new Error(await response.text());
+        bookingBusySlots.push({ date: body.date, time: body.time });
+        if (status) status.textContent = 'Заявка отправлена. Мы свяжемся с вами.';
+        form.reset();
+        renderTimes();
+        setTimeout(closeBookingModal, 900);
+      } catch (error) {
+        if (status) {
+          status.textContent = error.message;
+          status.classList.add('is-error');
+        }
+      }
+    });
+  });
+}
+
+async function refreshAdminBookings(form) {
+  try {
+    const response = await fetch('/api/bookings', { cache: 'no-store', headers: { 'X-Admin-Password': sessionStorage.getItem(ADMIN_PASSWORD_KEY) || '' } });
+    if (!response.ok) throw new Error(await response.text());
+    adminBookings = await response.json();
+    bookingBusySlots = adminBookings.filter((item) => item.status !== 'cancelled').map((item) => ({ date: item.date, time: item.time }));
+    const panel = form.querySelector('[data-admin-tab-panel="booking"]');
+    const oldBoard = panel?.querySelector('[data-booking-board-root]');
+    const template = document.createElement('template');
+    template.innerHTML = bookingBoard().trim();
+    const board = template.content.firstElementChild;
+    if (oldBoard) oldBoard.replaceWith(board);
+    else panel?.prepend(board);
+    refreshAdminSubnav(panel);
+  } catch (error) {
+    setAdminStatus(`Не удалось загрузить шахматку: ${error.message}`, true);
+  }
+}
+
+function bindAdminEditor() {
+  const login = document.querySelector('#adminLogin');
+  if (login) {
+    login.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const password = login.password.value;
+      const response = await fetch('/api/admin/login', { method: 'POST', headers: { 'X-Admin-Password': password } });
+      if (!response.ok) {
+        setAdminStatus('Неверный пароль', true);
+        return;
+      }
+      sessionStorage.setItem(ADMIN_AUTH_KEY, 'true');
+      sessionStorage.setItem(ADMIN_PASSWORD_KEY, password);
+      render();
+    });
+    return;
+  }
+
+  const form = document.querySelector('#contentEditor');
+  if (!form) return;
+
+  if (!form.querySelector('[data-admin-tab-panel="portfolio"]')) {
+    form.querySelector('[data-admin-tab-panel="main"]')?.insertAdjacentHTML('afterend', `<div class="admin-tab-panel" data-admin-tab-panel="portfolio">${adminPortfolioEditor(siteContent.portfolio || defaultContent.portfolio)}</div>`);
+  }
+
+  const portfolioPanel = form.querySelector('[data-admin-tab-panel="portfolio"]');
+  if (portfolioPanel && !portfolioPanel.querySelector('[data-admin-beforeafter]')) {
+    portfolioPanel.insertAdjacentHTML('beforeend', `<section class="card admin-section" data-admin-beforeafter><h3>До и после</h3>${adminArrayEditor('beforeAfter.items', 'Примеры работ', siteContent.beforeAfter?.items || defaultContent.beforeAfter.items, [{ key: 'before', label: 'Фото ДО', type: 'image', wide: true }, { key: 'after', label: 'Фото ПОСЛЕ', type: 'image', wide: true }, { key: 'label', label: 'Подпись' }], '+ пример')}</section>`);
+  }
+
+  form.querySelectorAll('[data-admin-tab]').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      form.querySelectorAll('[data-admin-tab]').forEach((item) => item.classList.toggle('is-active', item === tab));
+      form.querySelectorAll('[data-admin-tab-panel]').forEach((panel) => panel.classList.toggle('is-active', panel.dataset.adminTabPanel === tab.dataset.adminTab));
+      refreshAdminSubnav(form.querySelector(`[data-admin-tab-panel="${tab.dataset.adminTab}"]`));
+    });
+  });
+
+  const bookingPanel = form.querySelector('[data-admin-tab-panel="booking"]');
+  if (bookingPanel && !bookingPanel.querySelector('[data-booking-availability-settings]')) {
+    const booking = siteContent.booking || defaultContent.booking;
+    bookingPanel.insertAdjacentHTML('beforeend', `<section class="card admin-section" data-booking-availability-settings><h3>Свободные даты и Telegram</h3><div class="admin-form-grid">${adminField('booking.availability.daysAhead', 'Сколько дней показывать клиенту', booking.availability?.daysAhead || defaultContent.booking.availability.daysAhead)}${adminJsonField('booking.availability.workDays', 'Рабочие дни JSON (0=вс, 1=пн)', booking.availability?.workDays || defaultContent.booking.availability.workDays)}${adminField('booking.availability.startTime', 'Начало рабочего дня', booking.availability?.startTime || '10:00')}${adminField('booking.availability.endTime', 'Конец рабочего дня', booking.availability?.endTime || '20:00')}${adminField('booking.availability.slotMinutes', 'Длительность слота, минут', booking.availability?.slotMinutes || '120')}${adminField('booking.telegram.adminChatId', 'Telegram chat_id администратора', booking.telegram?.adminChatId || '')}${adminField('booking.telegram.botTokenHint', 'Подсказка по токену бота', booking.telegram?.botTokenHint || defaultContent.booking.telegram.botTokenHint)}</div><p class="card-text">Для отправки сообщений серверу нужен TELEGRAM_BOT_TOKEN. Chat ID администратора можно задать здесь или переменной TELEGRAM_ADMIN_CHAT_ID.</p></section>`);
+  }
+
+  const contactsSection = [...form.querySelectorAll('.admin-section')].find((section) => section.querySelector('input[name="contacts.email"]'));
+  if (contactsSection && !contactsSection.querySelector('[data-contact-icon-settings]')) {
+    contactsSection.querySelector('.admin-form-grid')?.insertAdjacentHTML('beforeend', `<div data-contact-icon-settings class="admin-field--wide admin-form-grid">${adminIconField('contacts.emailIcon', 'Иконка email', siteContent.contacts?.emailIcon || 'mail')}${adminIconField('contacts.phoneIcon', 'Иконка телефона', siteContent.contacts?.phoneIcon || 'phone')}${adminIconField('contacts.addressIcon', 'Иконка адреса', siteContent.contacts?.addressIcon || 'pin')}</div>`);
+  }
+
+  refreshPortfolioAdmin(form.querySelector('[data-portfolio-cms]'));
+  form.querySelectorAll('[data-admin-tab-panel]').forEach((panel) => refreshAdminSubnav(panel));
+  form.querySelectorAll('[data-admin-array]').forEach((editor) => refreshAdminArrayEditor(editor));
+
+  refreshAdminBookings(form);
+
+  form.addEventListener('change', async (event) => {
+    const statusSelect = event.target.closest('[data-booking-status-change]');
+    if (!statusSelect) return;
+    try {
+      const response = await fetch('/api/bookings/status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Password': sessionStorage.getItem(ADMIN_PASSWORD_KEY) || '' },
+        body: JSON.stringify({ id: statusSelect.dataset.bookingStatusChange, status: statusSelect.value }),
+      });
+      if (!response.ok) throw new Error(await response.text());
+      await refreshAdminBookings(form);
+      setAdminStatus('Статус бронирования обновлён.');
+    } catch (error) {
+      setAdminStatus(`Ошибка бронирования: ${error.message}`, true);
+    }
+  });
+
+  form.querySelector('[data-admin-logout]')?.addEventListener('click', () => {
+    sessionStorage.removeItem(ADMIN_AUTH_KEY);
+    sessionStorage.removeItem(ADMIN_PASSWORD_KEY);
+    render();
+  });
+
+  form.querySelectorAll('[data-admin-add]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const section = button.closest('[data-admin-array]');
+      const list = section?.querySelector('.admin-card-list');
+      const source = list?.querySelector('[data-admin-item]');
+      if (!list) return;
+      let clone;
+      if (source) {
+        clone = source.cloneNode(true);
+        clone.querySelectorAll('input, textarea, select').forEach((field) => {
+          field.value = field.classList.contains('admin-json') ? '[]' : '';
+        });
+      } else {
+        const fields = JSON.parse(section.dataset.adminFields || '[]');
+        const isTuple = fields.some((f) => /^\d+$/.test(f.key));
+        const item = isTuple ? [] : {};
+        const tpl = document.createElement('template');
+        tpl.innerHTML = adminArrayItem(section.dataset.adminArray, item, fields, 0);
+        clone = tpl.content.firstElementChild;
+      }
+      if (!clone) return;
+      list.append(clone);
+      refreshAdminArrayEditor(section, list.querySelectorAll('[data-admin-item]').length - 1);
+    });
+  });
+
+  form.addEventListener('click', (event) => {
+    const iconButton = event.target.closest('[data-icon-pick]');
+    if (iconButton) {
+      const field = iconButton.closest('.admin-field')?.querySelector('input.field');
+      if (field) {
+        field.value = iconButton.dataset.iconPick;
+        iconButton.closest('.admin-icon-picker')?.querySelectorAll('.admin-icon-option').forEach((button) => button.classList.toggle('is-active', button === iconButton));
+      }
+      return;
+    }
+    if (event.target.closest('[data-refresh-bookings]')) {
+      refreshAdminBookings(form);
+      return;
+    }
+    const adminSubtab = event.target.closest('[data-admin-subtab]');
+    if (adminSubtab) {
+      refreshAdminSubnav(adminSubtab.closest('[data-admin-tab-panel]'), Number(adminSubtab.dataset.adminSubtab));
+      return;
+    }
+    const arraySelect = event.target.closest('[data-admin-array-select]');
+    if (arraySelect) {
+      refreshAdminArrayEditor(arraySelect.closest('[data-admin-array]'), Number(arraySelect.dataset.adminArraySelect));
+      return;
+    }
+    const categorySelect = event.target.closest('[data-portfolio-select-category]');
+    if (categorySelect) {
+      refreshPortfolioAdmin(categorySelect.closest('[data-portfolio-cms]'), Number(categorySelect.dataset.portfolioSelectCategory), 0);
+      return;
+    }
+    const projectSelect = event.target.closest('[data-portfolio-select-project]');
+    if (projectSelect) {
+      const cms = projectSelect.closest('[data-portfolio-cms]');
+      if (!cms) return;
+      const activeCategory = [...cms.querySelectorAll('[data-portfolio-category]')].findIndex((category) => category.classList.contains('is-active'));
+      refreshPortfolioAdmin(cms, activeCategory, Number(projectSelect.dataset.portfolioSelectProject));
+      return;
+    }
+    const gallerySelect = event.target.closest('[data-portfolio-select-gallery]');
+    if (gallerySelect) {
+      const cms = gallerySelect.closest('[data-portfolio-cms]');
+      if (!cms) return;
+      const activeCategory = [...cms.querySelectorAll('[data-portfolio-category]')].findIndex((category) => category.classList.contains('is-active'));
+      const activeProject = [...(cms.querySelector('[data-portfolio-category].is-active')?.querySelectorAll('[data-portfolio-project]') || [])].findIndex((project) => project.classList.contains('is-active'));
+      refreshPortfolioAdmin(cms, activeCategory, activeProject, Number(gallerySelect.dataset.portfolioSelectGallery));
+      return;
+    }
+    if (event.target.closest('[data-portfolio-add-category]')) {
+      const list = form.querySelector('.admin-portfolio-list');
+      list?.insertAdjacentHTML('beforeend', adminPortfolioCategory({ id: '', title: 'Новая категория', text: '', count: '', image: '', projects: [] }, list.querySelectorAll('[data-portfolio-category]').length));
+      refreshPortfolioAdmin(form.querySelector('[data-portfolio-cms]'), Math.max(0, (list?.querySelectorAll('[data-portfolio-category]').length || 1) - 1), 0);
+      return;
+    }
+    if (event.target.closest('[data-portfolio-add-project]')) {
+      const category = event.target.closest('[data-portfolio-category]');
+      const list = category?.querySelector('[data-portfolio-projects]');
+      list?.insertAdjacentHTML('beforeend', adminPortfolioProject({ title: 'Новый проект', text: '', type: 'image', cover: '', video: '', gallery: [{ image: '', alt: '' }] }, list.querySelectorAll('[data-portfolio-project]').length));
+      const cms = category?.closest('[data-portfolio-cms]');
+      if (!cms) return;
+      const activeCategory = [...cms.querySelectorAll('[data-portfolio-category]')].indexOf(category);
+      refreshPortfolioAdmin(cms, activeCategory, Math.max(0, (list?.querySelectorAll('[data-portfolio-project]').length || 1) - 1));
+      return;
+    }
+    if (event.target.closest('[data-portfolio-add-gallery]')) {
+      const project = event.target.closest('[data-portfolio-project]');
+      const list = project?.querySelector('[data-portfolio-gallery]');
+      list?.insertAdjacentHTML('beforeend', adminPortfolioGalleryItem({ image: '', alt: '' }, list.querySelectorAll('[data-portfolio-gallery-item]').length));
+      const cms = project?.closest('[data-portfolio-cms]');
+      if (!cms) return;
+      const activeCategory = [...cms.querySelectorAll('[data-portfolio-category]')].findIndex((category) => category.classList.contains('is-active'));
+      const activeProject = [...(cms.querySelector('[data-portfolio-category].is-active')?.querySelectorAll('[data-portfolio-project]') || [])].findIndex((item) => item.classList.contains('is-active'));
+      refreshPortfolioAdmin(cms, activeCategory, activeProject, Math.max(0, (list?.querySelectorAll('[data-portfolio-gallery-item]').length || 1) - 1));
+      return;
+    }
+    const portfolioRemove = event.target.closest('[data-portfolio-remove]');
+    if (portfolioRemove) {
+      const target = portfolioRemove.closest('[data-portfolio-gallery-item], [data-portfolio-project], [data-portfolio-category]');
+      const cms = target?.closest('[data-portfolio-cms]');
+      const category = target?.closest('[data-portfolio-category]');
+      const activeCategory = cms && category ? [...cms.querySelectorAll('[data-portfolio-category]')].indexOf(category) : 0;
+      const activeProject = cms ? [...(cms.querySelector('[data-portfolio-category].is-active')?.querySelectorAll('[data-portfolio-project]') || [])].findIndex((project) => project.classList.contains('is-active')) : 0;
+      target?.remove();
+      refreshPortfolioAdmin(cms, activeCategory, activeProject, 0);
+      return;
+    }
+    const remove = event.target.closest('[data-admin-remove]');
+    if (!remove) return;
+    const list = remove.closest('.admin-card-list');
+    const editor = remove.closest('[data-admin-array]');
+    remove.closest('[data-admin-item]')?.remove();
+    refreshAdminArrayEditor(editor);
+  });
+
+  form.addEventListener('input', (event) => {
+    const arrayEditor = event.target.closest('[data-admin-array]');
+    if (arrayEditor && event.target.matches('[data-array-field]')) {
+      const activeIndex = [...arrayEditor.querySelectorAll('[data-admin-item]')].findIndex((card) => card.classList.contains('is-active'));
+      refreshAdminArrayEditor(arrayEditor, activeIndex);
+    }
+    if (!event.target.closest('[data-admin-portfolio]')) return;
+    if (!event.target.matches('[data-portfolio-field="title"], [data-project-field="title"], [data-project-field="type"]')) return;
+    const cms = event.target.closest('[data-portfolio-cms]');
+    if (!cms) return;
+    const activeCategory = [...cms.querySelectorAll('[data-portfolio-category]')].findIndex((category) => category.classList.contains('is-active'));
+    const activeProject = [...(cms.querySelector('[data-portfolio-category].is-active')?.querySelectorAll('[data-portfolio-project]') || [])].findIndex((project) => project.classList.contains('is-active'));
+    refreshPortfolioAdmin(cms, activeCategory, activeProject);
+  });
+
+  form.addEventListener('change', (event) => {
+    if (event.target.closest('[data-admin-portfolio]') && event.target.matches('[data-project-field="type"]')) {
+      const cms = event.target.closest('[data-portfolio-cms]');
+      if (!cms) return;
+      const activeCategory = [...cms.querySelectorAll('[data-portfolio-category]')].findIndex((category) => category.classList.contains('is-active'));
+      const activeProject = [...(cms.querySelector('[data-portfolio-category].is-active')?.querySelectorAll('[data-portfolio-project]') || [])].findIndex((project) => project.classList.contains('is-active'));
+      refreshPortfolioAdmin(cms, activeCategory, activeProject);
+    }
+    const upload = event.target.closest('[data-image-upload], [data-file-upload]');
+    if (!upload) return;
+    const file = upload.files?.[0];
+    if (!file) return;
+    const input = upload.parentElement.querySelector('input.field');
+    const isImage = upload.hasAttribute('data-image-upload');
+    const reader = new FileReader();
+    reader.onload = async () => {
+      try {
+        const response = await fetch('/api/upload', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Admin-Password': sessionStorage.getItem(ADMIN_PASSWORD_KEY) || '' },
+          body: JSON.stringify({ name: file.name, data: reader.result }),
+        });
+        if (!response.ok) throw new Error(await response.text());
+        const result = await response.json();
+        input.value = result.url;
+        setAdminStatus(`${isImage ? 'Изображение' : 'Файл'} загружено. Не забудьте сохранить контент.`);
+      } catch (error) {
+        setAdminStatus(`Ошибка загрузки: ${error.message}`, true);
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    try {
+      const nextContent = getFormContent(form);
+      const response = await fetch('/api/content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Password': sessionStorage.getItem(ADMIN_PASSWORD_KEY) || '' },
+        body: JSON.stringify(nextContent),
+      });
+      if (!response.ok) throw new Error(await response.text());
+      siteContent = mergeContent(defaultContent, await response.json());
+      render();
+      setAdminStatus('Сохранено. Публичные страницы уже используют новые данные.');
+    } catch (error) {
+      setAdminStatus(`Ошибка: ${error.message}`, true);
+    }
+  });
+
+  form.querySelector('[data-admin-reset]')?.addEventListener('click', async () => {
+    if (!confirm('Сбросить весь редактируемый контент к стандартным значениям?')) return;
+    try {
+      const response = await fetch('/api/content/reset', { method: 'POST', headers: { 'X-Admin-Password': sessionStorage.getItem(ADMIN_PASSWORD_KEY) || '' } });
+      if (!response.ok) throw new Error(await response.text());
+      siteContent = mergeContent(defaultContent, await response.json());
+      render();
+      setAdminStatus('Контент сброшен к стандарту.');
+    } catch (error) {
+      setAdminStatus(`Ошибка: ${error.message}`, true);
+    }
+  });
+}
+
+document.querySelector('#sidebarToggle')?.addEventListener('click', () => {
+  document.body.classList.toggle('sidebar-collapsed');
+});
+
+window.addEventListener('popstate', () => {
+  goTo(location.pathname === '/admin' ? 'admin' : (location.hash || '#home').slice(1), false);
+});
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeBookingModal();
+  const expectedKey = konamiCode[konamiIndex];
+  konamiIndex = event.code === expectedKey ? konamiIndex + 1 : (event.code === konamiCode[0] ? 1 : 0);
+  if (konamiIndex === konamiCode.length) {
+    konamiIndex = 0;
+    applyStathamMode();
+  }
+});
+
+let introScheduled = false;
+
+function scheduleIntro() {
+  if (introScheduled) return;
+  introScheduled = true;
+  window.setTimeout(() => document.body.classList.add('is-menu-ready'), 1850);
+  window.setTimeout(() => document.body.classList.add('is-loaded'), 2380);
+}
+
+window.addEventListener('load', scheduleIntro);
+if (document.readyState === 'complete') scheduleIntro();
+
+let mouseX = innerWidth * 0.5;
+let mouseY = innerHeight * 0.4;
+let lightX = mouseX;
+let lightY = mouseY;
+let pulse = 0;
+let nextMobileLightShift = 0;
+
+window.addEventListener('pointermove', (event) => {
+  if (window.matchMedia('(max-width: 1080px)').matches) return;
+  mouseX = event.clientX;
+  mouseY = event.clientY;
+});
+
+function animateSpotlight() {
+  const isMobile = window.matchMedia('(max-width: 1080px)').matches;
+  if (isMobile && performance.now() > nextMobileLightShift) {
+    mouseX = innerWidth * (0.12 + Math.random() * 0.76);
+    mouseY = innerHeight * (0.08 + Math.random() * 0.64);
+    nextMobileLightShift = performance.now() + 4200 + Math.random() * 2600;
+  }
+  const easing = isMobile ? 0.014 : 0.1;
+  lightX += (mouseX - lightX) * easing;
+  lightY += (mouseY - lightY) * easing;
+  pulse += isMobile ? 0.006 : 0.018;
+  const alpha = isMobile ? 0.3 + Math.sin(pulse) * 0.055 : 0.48 + Math.sin(pulse) * 0.1;
+  spotlight?.style.setProperty('--x', `${lightX}px`);
+  spotlight?.style.setProperty('--y', `${lightY}px`);
+  spotlight?.style.setProperty('--alpha', alpha.toFixed(3));
+  requestAnimationFrame(animateSpotlight);
+}
+
+loadContent().finally(render);
+animateSpotlight();

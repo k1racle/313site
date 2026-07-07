@@ -1,0 +1,11 @@
+{
+  "name": "studio-313",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Premium studio website prototype for Studio 313",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}
+

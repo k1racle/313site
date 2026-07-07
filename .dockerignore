@@ -1,0 +1,17 @@
+node_modules
+.git
+.vscode
+.sixth
+.github
+
+docs
+deploy-studio313
+
+data
+bookings.json
+studio313-deploy.zip
+*.md
+.env
+.env.*
+!.env.example
+инофрмация.txt

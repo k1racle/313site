@@ -1518,7 +1518,7 @@ function bindForms() {
       };
       try {
         const response = await fetch('/api/booking/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-        if (!response.ok) throw new Error(await response.text());
+        if (!response.ok) throw new Error((await response.text()) || `HTTP ${response.status}`);
         bookingBusySlots.push({ date: body.date, time: body.time });
         if (status) status.textContent = 'Заявка отправлена. Мы свяжемся с вами.';
         form.reset();
@@ -1537,7 +1537,7 @@ function bindForms() {
 async function refreshAdminBookings(form) {
   try {
     const response = await fetch('/api/bookings', { cache: 'no-store', headers: { 'X-Admin-Password': sessionStorage.getItem(ADMIN_PASSWORD_KEY) || '' } });
-    if (!response.ok) throw new Error(await response.text());
+    if (!response.ok) throw new Error((await response.text()) || `HTTP ${response.status}`);
     adminBookings = await response.json();
     bookingBusySlots = adminBookings.filter((item) => item.status !== 'cancelled').map((item) => ({ date: item.date, time: item.time }));
     const panel = form.querySelector('[data-admin-tab-panel="booking"]');
@@ -1617,7 +1617,7 @@ function bindAdminEditor() {
         headers: { 'Content-Type': 'application/json', 'X-Admin-Password': sessionStorage.getItem(ADMIN_PASSWORD_KEY) || '' },
         body: JSON.stringify({ id: statusSelect.dataset.bookingStatusChange, status: statusSelect.value }),
       });
-      if (!response.ok) throw new Error(await response.text());
+      if (!response.ok) throw new Error((await response.text()) || `HTTP ${response.status}`);
       await refreshAdminBookings(form);
       setAdminStatus('Статус бронирования обновлён.');
     } catch (error) {
@@ -1786,7 +1786,7 @@ function bindAdminEditor() {
           headers: { 'Content-Type': 'application/json', 'X-Admin-Password': sessionStorage.getItem(ADMIN_PASSWORD_KEY) || '' },
           body: JSON.stringify({ name: file.name, data: reader.result }),
         });
-        if (!response.ok) throw new Error(await response.text());
+        if (!response.ok) throw new Error((await response.text()) || `HTTP ${response.status}`);
         const result = await response.json();
         input.value = result.url;
         setAdminStatus(`${isImage ? 'Изображение' : 'Файл'} загружено. Не забудьте сохранить контент.`);
@@ -1806,7 +1806,7 @@ function bindAdminEditor() {
         headers: { 'Content-Type': 'application/json', 'X-Admin-Password': sessionStorage.getItem(ADMIN_PASSWORD_KEY) || '' },
         body: JSON.stringify(nextContent),
       });
-      if (!response.ok) throw new Error(await response.text());
+      if (!response.ok) throw new Error((await response.text()) || `HTTP ${response.status}`);
       siteContent = mergeContent(defaultContent, await response.json());
       render();
       setAdminStatus('Сохранено. Публичные страницы уже используют новые данные.');
@@ -1819,7 +1819,7 @@ function bindAdminEditor() {
     if (!confirm('Сбросить весь редактируемый контент к стандартным значениям?')) return;
     try {
       const response = await fetch('/api/content/reset', { method: 'POST', headers: { 'X-Admin-Password': sessionStorage.getItem(ADMIN_PASSWORD_KEY) || '' } });
-      if (!response.ok) throw new Error(await response.text());
+      if (!response.ok) throw new Error((await response.text()) || `HTTP ${response.status}`);
       siteContent = mergeContent(defaultContent, await response.json());
       render();
       setAdminStatus('Контент сброшен к стандарту.');

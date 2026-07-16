@@ -3,7 +3,7 @@ services:
     build: .
     container_name: studio313
     ports:
-      - "${PORT:-2187}:3000"
+      - "${PORT:-3000}:3000"
     environment:
       - PORT=3000
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:-313}

@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { contactItems, socialLinks } from '~/config/contacts'
+import { bookingPage } from '~/config/navigation'
 import { useSiteNavigation } from '~/features/navigation/model/useSiteNavigation'
-import { bookingPage } from '~/shared/config/navigation'
-import { siteContact, socialLinks } from '~/shared/config/site'
+import SocialBrandIcon from '~/shared/ui/SocialBrandIcon.vue'
 
 const props = defineProps<{
   open: boolean
@@ -76,13 +77,24 @@ watch(() => props.open, async (open) => {
             <span class="w-6 font-body text-xs font-semibold text-white/50">{{ String(index + 1).padStart(2, '0') }}</span>
             <span>{{ item.label }}</span>
           </span>
-          <Icon :name="item.icon" class="size-6 shrink-0 text-white/70 transition group-hover:text-white" aria-hidden="true" />
+          <component :is="item.icon" class="size-6 shrink-0 text-white/70 transition group-hover:text-white" aria-hidden="true" />
         </NuxtLink>
       </nav>
 
       <div class="mt-8 border-t border-white/20 pt-5">
-        <a :href="siteContact.phoneHref" class="font-display text-2xl font-extrabold text-white">{{ siteContact.phone }}</a>
-        <p class="mt-2 text-sm text-white/70">{{ siteContact.address }}</p>
+        <div class="grid gap-3">
+          <component
+            :is="contact.href ? 'a' : 'span'"
+            v-for="contact in contactItems"
+            :key="contact.label"
+            :href="contact.href"
+            :aria-label="contact.label"
+            class="flex items-start gap-3 text-white/85 transition hover:text-white"
+          >
+            <component :is="contact.icon" class="mt-0.5 size-5 shrink-0" aria-hidden="true" />
+            <span>{{ contact.value }}</span>
+          </component>
+        </div>
         <div class="mt-4 flex gap-1" aria-label="Социальные сети">
           <a
             v-for="social in socialLinks"
@@ -92,7 +104,7 @@ watch(() => props.open, async (open) => {
             :title="social.label"
             class="grid size-11 place-items-center rounded-full text-white/80 transition hover:bg-white/15 hover:text-white"
           >
-            <Icon :name="social.icon" class="size-5" aria-hidden="true" />
+            <SocialBrandIcon :name="social.icon" class="size-5" aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -102,7 +114,7 @@ watch(() => props.open, async (open) => {
         class="mt-6 flex min-h-13 items-center justify-center gap-2 rounded-full bg-white px-5 font-display text-sm font-extrabold uppercase text-ink shadow-accent transition hover:text-accent"
         @click="$emit('close')"
       >
-        <Icon :name="bookingPage.icon" class="size-5" aria-hidden="true" />
+        <component :is="bookingPage.icon" class="size-5" aria-hidden="true" />
         {{ bookingPage.label }}
       </NuxtLink>
     </div>

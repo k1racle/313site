@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { Menu, X } from 'lucide-vue-next'
+import { contactDetails } from '~/config/contacts'
+
 defineProps<{
   open: boolean
 }>()
@@ -31,12 +34,12 @@ defineExpose({
 
       <div class="flex shrink-0 items-center gap-1">
         <a
-          href="tel:+79990000000"
+          :href="contactDetails.phone.href"
           class="grid size-12 place-items-center rounded-full text-white transition hover:bg-white/15"
           aria-label="Позвонить в Studio 313"
           title="Позвонить"
         >
-          <Icon name="lucide:phone" class="size-6" aria-hidden="true" />
+          <component :is="contactDetails.phone.icon" class="size-6" aria-hidden="true" />
         </a>
         <button
           ref="menuButton"
@@ -48,7 +51,7 @@ defineExpose({
           aria-controls="mobile-site-menu"
           @click="$emit('toggle')"
         >
-          <Icon :name="open ? 'lucide:x' : 'lucide:menu'" class="size-7" aria-hidden="true" />
+          <component :is="open ? X : Menu" class="size-7" aria-hidden="true" />
         </button>
       </div>
     </div>

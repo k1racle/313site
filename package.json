@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Premium studio website prototype for Studio 313",
   "scripts": {
-    "dev": "nuxt dev --port 3001 --host 127.0.0.1",
+    "dev": "nuxt dev",
     "build": "nuxt build",
     "preview": "nuxt preview",
     "generate": "nuxt generate",
@@ -16,20 +16,15 @@
   },
   "dependencies": {
     "@nuxt/fonts": "^0.14.0",
-    "@nuxt/icon": "^2.4.1",
     "@nuxt/image": "^2.1.0",
-    "@nuxtjs/color-mode": "^4.0.1",
-    "@nuxtjs/device": "^4.0.0",
     "@nuxtjs/seo": "^5.3.9",
-    "@resvg/resvg-js": "^2.6.2",
     "@vueuse/nuxt": "^14.4.0",
+    "lucide-vue-next": "^1.0.0",
     "nuxt": "^4.5.1",
-    "satori": "^0.29.0",
     "vue": "^3.5.40",
     "vue-router": "^5.2.0"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.121",
     "@nuxt/eslint": "^1.16.0",
     "@tailwindcss/vite": "^4.3.3",
     "autoprefixer": "^10.4.19",

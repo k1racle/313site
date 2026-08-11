@@ -10,6 +10,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-08-06',
   srcDir: 'app',
   devtools: { enabled: true },
+  devServer: {
+    port: 3001,
+    host: '127.0.0.1',
+  },
   site: {
     url: siteUrl,
     name: siteName,
@@ -17,15 +21,15 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxt/fonts',
-    '@nuxt/icon',
     '@nuxt/image',
-    '@nuxtjs/color-mode',
-    '@nuxtjs/device',
     '@nuxtjs/seo',
     '@vueuse/nuxt',
     '@nuxt/eslint',
   ],
   css: ['~/assets/css/app.css'],
+  ogImage: {
+    enabled: false,
+  },
   app: {
     head: {
       htmlAttrs: { lang: 'ru' },

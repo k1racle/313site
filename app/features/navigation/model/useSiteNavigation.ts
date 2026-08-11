@@ -1,4 +1,4 @@
-import { navigationItems } from '~/shared/config/navigation'
+import { navigationItems } from '~/config/navigation'
 
 export function useSiteNavigation() {
   const route = useRoute()

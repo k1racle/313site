@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { ChevronRight, PanelLeftClose, PanelLeftOpen } from 'lucide-vue-next'
+import { contactItems, socialLinks } from '~/config/contacts'
+import { bookingPage } from '~/config/navigation'
 import { useSiteNavigation } from '~/features/navigation/model/useSiteNavigation'
-import { bookingPage } from '~/shared/config/navigation'
-import { siteContact, socialLinks } from '~/shared/config/site'
 import AppIconButton from '~/shared/ui/AppIconButton.vue'
+import SocialBrandIcon from '~/shared/ui/SocialBrandIcon.vue'
 
 defineProps<{
   collapsed: boolean
@@ -31,28 +33,43 @@ const { isActive, navigationItems } = useSiteNavigation()
         class="flex w-full items-center gap-3"
         :class="collapsed ? 'flex-col' : 'justify-between'"
       >
-        <NuxtLink
-          to="/"
-          class="flex min-h-14 items-center justify-center"
-          aria-label="Studio 313, на главную"
-        >
-          <img
-            v-if="!collapsed"
-            src="/brand/logo-white.svg"
-            alt="Studio 313"
-            class="h-auto w-36"
+        <div class="group relative flex min-h-14 items-center justify-center">
+          <NuxtLink
+            to="/"
+            class="flex min-h-14 items-center justify-center transition"
+            :class="collapsed ? 'group-hover:opacity-20 group-focus-within:opacity-20' : ''"
+            aria-label="Studio 313, на главную"
           >
-          <img
-            v-else
-            src="/icons/favicon.png"
-            alt="Studio 313"
-            class="size-13 object-contain"
+            <img
+              v-if="!collapsed"
+              src="/brand/logo-white.svg"
+              alt="Studio 313"
+              class="h-auto w-36"
+            >
+            <img
+              v-else
+              src="/icons/favicon.png"
+              alt="Studio 313"
+              class="size-13 object-contain"
+            >
+          </NuxtLink>
+
+          <button
+            v-if="collapsed"
+            type="button"
+            class="pointer-events-none absolute inset-0 grid cursor-pointer place-items-center rounded-md bg-white/10 opacity-0 backdrop-blur-sm transition group-hover:pointer-events-auto group-hover:opacity-100 focus-visible:pointer-events-auto focus-visible:opacity-100"
+            aria-label="Развернуть меню"
+            title="Развернуть меню"
+            @click="$emit('toggle')"
           >
-        </NuxtLink>
+            <PanelLeftOpen class="size-7" aria-hidden="true" />
+          </button>
+        </div>
 
         <AppIconButton
-          :icon="collapsed ? 'lucide:panel-left-open' : 'lucide:panel-left-close'"
-          :label="collapsed ? 'Развернуть меню' : 'Свернуть меню'"
+          v-if="!collapsed"
+          :icon="PanelLeftClose"
+          label="Свернуть меню"
           class="grid size-11 shrink-0 cursor-pointer place-items-center rounded-full text-white transition hover:bg-white/15"
           @click="$emit('toggle')"
         />
@@ -75,16 +92,15 @@ const { isActive, navigationItems } = useSiteNavigation()
           ]"
         >
           <span class="flex min-w-0 items-center gap-3">
-            <Icon
-              :name="item.icon"
+            <component
+              :is="item.icon"
               class="size-5 shrink-0"
               aria-hidden="true"
             />
             <span v-if="!collapsed" class="truncate">{{ item.label }}</span>
           </span>
-          <Icon
+          <ChevronRight
             v-if="!collapsed"
-            name="lucide:chevron-right"
             class="size-4 shrink-0 opacity-45 transition group-hover:translate-x-0.5 group-hover:opacity-100"
             aria-hidden="true"
           />
@@ -99,18 +115,18 @@ const { isActive, navigationItems } = useSiteNavigation()
 
       <div v-if="!collapsed" class="mt-4 w-full border-t border-white/20 pt-4">
         <div class="grid gap-2 text-sm font-semibold text-white/90">
-          <a :href="`mailto:${siteContact.email}`" class="flex items-center gap-2 transition hover:text-white">
-            <Icon name="lucide:mail" class="size-4 shrink-0" aria-hidden="true" />
-            <span class="truncate">{{ siteContact.email }}</span>
-          </a>
-          <a :href="siteContact.phoneHref" class="flex items-center gap-2 transition hover:text-white">
-            <Icon name="lucide:phone" class="size-4 shrink-0" aria-hidden="true" />
-            <span>{{ siteContact.phone }}</span>
-          </a>
-          <span class="flex items-start gap-2 text-white/75">
-            <Icon name="lucide:map-pin" class="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-            <span>{{ siteContact.address }}</span>
-          </span>
+          <component
+            :is="contact.href ? 'a' : 'span'"
+            v-for="contact in contactItems"
+            :key="contact.label"
+            :href="contact.href"
+            :aria-label="contact.label"
+            class="flex items-start gap-2 transition hover:text-white"
+            :class="contact.href ? '' : 'text-white/75'"
+          >
+            <component :is="contact.icon" class="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+            <span class="min-w-0 truncate">{{ contact.value }}</span>
+          </component>
         </div>
 
         <div class="mt-3 flex items-center gap-1" aria-label="Социальные сети">
@@ -122,7 +138,7 @@ const { isActive, navigationItems } = useSiteNavigation()
             :title="social.label"
             class="grid size-10 place-items-center rounded-full text-white/80 transition hover:bg-white/15 hover:text-white"
           >
-            <Icon :name="social.icon" class="size-5" aria-hidden="true" />
+            <SocialBrandIcon :name="social.icon" class="size-5" aria-hidden="true" />
           </a>
         </div>
 
@@ -130,7 +146,7 @@ const { isActive, navigationItems } = useSiteNavigation()
           :to="bookingPage.to"
           class="mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-4 font-display text-sm font-extrabold uppercase text-ink shadow-accent transition duration-200 hover:-translate-y-0.5 hover:text-accent"
         >
-          <Icon :name="bookingPage.icon" class="size-5" aria-hidden="true" />
+          <component :is="bookingPage.icon" class="size-5" aria-hidden="true" />
           {{ bookingPage.label }}
         </NuxtLink>
       </div>
@@ -142,7 +158,7 @@ const { isActive, navigationItems } = useSiteNavigation()
         :title="bookingPage.label"
         class="mt-4 grid size-13 shrink-0 place-items-center rounded-full bg-white text-ink shadow-accent transition hover:-translate-y-0.5 hover:text-accent"
       >
-        <Icon :name="bookingPage.icon" class="size-6" aria-hidden="true" />
+        <component :is="bookingPage.icon" class="size-6" aria-hidden="true" />
       </NuxtLink>
     </div>
   </aside>

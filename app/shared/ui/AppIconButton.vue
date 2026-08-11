@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { LucideIcon } from 'lucide-vue-next'
+
 withDefaults(defineProps<{
-  icon: string
+  icon: LucideIcon
   label: string
   iconClass?: string
 }>(), {
@@ -26,8 +28,8 @@ defineExpose({
     :title="label"
     @click="$emit('click', $event)"
   >
-    <Icon
-      :name="icon"
+    <component
+      :is="icon"
       :class="iconClass"
       aria-hidden="true"
     />

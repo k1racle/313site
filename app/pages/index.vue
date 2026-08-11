@@ -2,6 +2,7 @@
 import { ArrowRight, ArrowUpRight, CalendarCheck } from 'lucide-vue-next'
 import PageFullscreen from '~/shared/ui/PageFullscreen.vue'
 import PageFullscreenContent from '~/shared/ui/PageFullscreenContent.vue'
+import SectionTimeline from '~/shared/ui/SectionTimeline.vue'
 
 const homeSections = [
   {
@@ -21,6 +22,19 @@ const homeSections = [
   },
 ] as const
 
+const activeSectionIndex = ref(0)
+
+function scrollToSection(index: number) {
+  const section = homeSections[index]
+  const target = section ? document.getElementById(section.id) : null
+  if (!target) return
+
+  target.scrollIntoView({
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+    block: 'start',
+  })
+}
+
 useSeoMeta({
   title: 'Студия 313 — студия подкастов в Краснодаре',
   description: 'Профессиональная студия для записи подкастов, интервью и видеопроизводства в Краснодаре.',
@@ -31,7 +45,11 @@ useSeoMeta({
 </script>
 
 <template>
-  <PageFullscreen :sections="homeSections" label="Экраны главной страницы">
+  <div class="relative [--page-bottom-inset:3.75rem]">
+    <PageFullscreen
+      label="Экраны главной страницы"
+      @active-change="activeSectionIndex = $event"
+    >
     <section id="intro" data-page-section class="relative flex min-h-full items-end overflow-hidden bg-ink px-6 pt-10 text-white sm:px-10 desktop:px-page desktop:pt-14">
         <NuxtImg
           src="/media/uploads/1782386093597-a5806b7b9cbd7.jpg"
@@ -124,5 +142,12 @@ useSeoMeta({
           <ArrowRight class="size-5" aria-hidden="true" />
         </NuxtLink>
     </section>
-  </PageFullscreen>
+    </PageFullscreen>
+
+    <SectionTimeline
+      :sections="homeSections"
+      :active-index="activeSectionIndex"
+      @select="scrollToSection"
+    />
+  </div>
 </template>

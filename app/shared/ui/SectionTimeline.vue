@@ -8,6 +8,7 @@ interface TimelineSection {
 const props = defineProps<{
   sections: readonly TimelineSection[]
   activeIndex: number
+  fixed?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -33,217 +34,63 @@ function selectSection(index: number) {
 watch(() => props.activeIndex, async (index) => {
   await nextTick()
   const activeButton = mobileTrack.value?.querySelector<HTMLElement>(`[data-timeline-index="${index}"]`)
-  activeButton?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  activeButton?.scrollIntoView({ behavior, block: 'nearest', inline: 'center' })
 })
 </script>
 
 <template>
-  <nav class="section-timeline" aria-label="Навигация по разделам страницы">
-    <div class="section-timeline__desktop">
+  <nav
+    class="section-timeline z-30 border-t border-white/15 bg-[rgba(5,14,29,.92)] text-white shadow-[0_-1rem_3rem_rgba(2,8,20,.26)] backdrop-blur-[1.25rem]"
+    :class="fixed
+      ? 'fixed inset-x-0 bottom-[var(--mobile-dock-height)] desktop:bottom-0 desktop:left-[var(--layout-sidebar-width,var(--sidebar-width))] desktop:transition-[left] desktop:duration-[var(--duration-slow)] desktop:ease-studio'
+      : 'absolute inset-x-0 bottom-0'"
+    aria-label="Навигация по разделам страницы"
+  >
+    <div class="hidden h-[3.75rem] desktop:flex">
       <button
         v-for="(section, index) in sections"
         :key="section.id"
         type="button"
-        class="section-timeline__segment"
-        :class="{ 'is-active': index === activeIndex }"
+        class="grid min-w-0 flex-1 cursor-pointer grid-rows-[auto_1fr] overflow-hidden border-0 border-r border-white/12 bg-[rgba(10,27,52,.42)] px-4 pt-[.45rem] pb-[.4rem] text-white/56 transition-[flex-grow,color,background-color] duration-[var(--duration-slow)] ease-studio last:border-r-0 hover:bg-[rgba(19,52,96,.52)] hover:text-white"
+        :class="{ '[flex-grow:1.14] bg-[linear-gradient(110deg,rgba(0,79,196,.52),rgba(7,31,65,.62))] text-white': index === activeIndex }"
         :aria-current="index === activeIndex ? 'step' : undefined"
         :aria-label="`Перейти к разделу ${section.label}`"
         @click="selectSection(index)"
       >
-        <span class="section-timeline__heading">
-          <span class="section-timeline__number">{{ String(index + 1).padStart(2, '0') }}</span>
-          <span class="section-timeline__label">{{ section.label }}</span>
+        <span class="flex min-w-0 items-center gap-[.55rem] font-display text-xs font-extrabold uppercase">
+          <span class="font-body text-[.625rem] text-white/30">{{ String(index + 1).padStart(2, '0') }}</span>
+          <span class="overflow-hidden text-ellipsis whitespace-nowrap">{{ section.label }}</span>
         </span>
-        <span class="section-timeline__wave" aria-hidden="true">
+        <span class="flex h-5 items-end gap-[clamp(.125rem,.45vw,.375rem)] pt-1" aria-hidden="true">
           <i
             v-for="(height, barIndex) in waveformFor(section, index)"
             :key="barIndex"
+            class="h-[20%] min-w-px max-w-[1.15rem] flex-1 bg-current opacity-28 transition-[height,opacity] duration-[var(--duration-slow)] ease-studio"
+            :class="{ 'opacity-80': index === activeIndex }"
             :style="index === activeIndex ? { height: `${height}%` } : undefined"
           />
         </span>
       </button>
     </div>
 
-    <div ref="mobileTrack" class="section-timeline__mobile">
+    <div
+      ref="mobileTrack"
+      class="flex h-[3.75rem] overflow-x-auto [overscroll-behavior-x:contain] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden desktop:hidden"
+    >
       <button
         v-for="(section, index) in sections"
         :key="section.id"
         type="button"
-        class="section-timeline__mobile-item"
-        :class="{ 'is-active': index === activeIndex }"
+        class="relative min-w-max flex-none cursor-pointer border-0 bg-transparent px-4 font-display text-[.6875rem] font-extrabold text-white/55 uppercase transition-colors duration-[var(--duration-base)] ease-studio after:absolute after:right-4 after:bottom-0 after:left-4 after:h-0.5 after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-[var(--duration-base)] after:ease-studio after:content-['']"
+        :class="{ 'text-white after:scale-x-100': index === activeIndex }"
         :data-timeline-index="index"
         :aria-current="index === activeIndex ? 'step' : undefined"
         @click="selectSection(index)"
       >
-        <span>{{ String(index + 1).padStart(2, '0') }}</span>
+        <span class="mr-[.35rem] font-body text-[.625rem] text-white/30">{{ String(index + 1).padStart(2, '0') }}</span>
         {{ section.label }}
       </button>
     </div>
   </nav>
 </template>
-
-<style scoped>
-.section-timeline {
-  position: absolute;
-  z-index: 30;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  color: white;
-  background: rgb(5 14 29 / 92%);
-  border-top: 1px solid rgb(255 255 255 / 15%);
-  box-shadow: 0 -1rem 3rem rgb(2 8 20 / 26%);
-  backdrop-filter: blur(1.25rem);
-}
-
-.section-timeline__desktop {
-  display: none;
-}
-
-.section-timeline__mobile {
-  display: flex;
-  height: var(--page-timeline-height);
-  overflow-x: auto;
-  scrollbar-width: none;
-  overscroll-behavior-x: contain;
-}
-
-.section-timeline__mobile::-webkit-scrollbar {
-  display: none;
-}
-
-.section-timeline__mobile-item {
-  position: relative;
-  flex: 0 0 auto;
-  min-width: max-content;
-  padding: 0 1rem;
-  border: 0;
-  color: rgb(255 255 255 / 55%);
-  background: transparent;
-  font-family: var(--font-display);
-  font-size: 0.6875rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color var(--duration-base) var(--ease-standard);
-}
-
-.section-timeline__mobile-item::after {
-  position: absolute;
-  right: 1rem;
-  bottom: 0;
-  left: 1rem;
-  height: 2px;
-  content: "";
-  background: var(--color-accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--duration-base) var(--ease-standard);
-}
-
-.section-timeline__mobile-item span {
-  margin-right: 0.35rem;
-  color: rgb(255 255 255 / 30%);
-  font-family: var(--font-body);
-  font-size: 0.625rem;
-}
-
-.section-timeline__mobile-item.is-active {
-  color: white;
-}
-
-.section-timeline__mobile-item.is-active::after {
-  transform: scaleX(1);
-}
-
-@media (min-width: 67.5rem) {
-  .section-timeline__desktop {
-    display: flex;
-    height: var(--page-timeline-height);
-  }
-
-  .section-timeline__mobile {
-    display: none;
-  }
-
-  .section-timeline__segment {
-    display: grid;
-    flex: 1 1 0;
-    grid-template-rows: auto 1fr;
-    min-width: 0;
-    padding: 0.45rem 1rem 0.4rem;
-    overflow: hidden;
-    color: rgb(255 255 255 / 56%);
-    background: rgb(10 27 52 / 42%);
-    border: 0;
-    border-right: 1px solid rgb(255 255 255 / 12%);
-    cursor: pointer;
-    transition:
-      flex-grow var(--duration-slow) var(--ease-standard),
-      color var(--duration-base) var(--ease-standard),
-      background-color var(--duration-base) var(--ease-standard);
-  }
-
-  .section-timeline__segment:last-child {
-    border-right: 0;
-  }
-
-  .section-timeline__segment:hover {
-    color: white;
-    background: rgb(19 52 96 / 52%);
-  }
-
-  .section-timeline__segment.is-active {
-    flex-grow: 1.14;
-    color: white;
-    background: linear-gradient(110deg, rgb(0 79 196 / 52%), rgb(7 31 65 / 62%));
-  }
-
-  .section-timeline__heading {
-    display: flex;
-    min-width: 0;
-    align-items: center;
-    gap: 0.55rem;
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-  }
-
-  .section-timeline__number {
-    color: rgb(255 255 255 / 30%);
-    font-family: var(--font-body);
-    font-size: 0.625rem;
-  }
-
-  .section-timeline__label {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .section-timeline__wave {
-    display: flex;
-    height: 1.25rem;
-    align-items: end;
-    gap: clamp(0.125rem, 0.45vw, 0.375rem);
-    padding-top: 0.25rem;
-  }
-
-  .section-timeline__wave i {
-    flex: 1 1 0;
-    height: 20%;
-    min-width: 1px;
-    max-width: 1.15rem;
-    background: currentColor;
-    opacity: 0.28;
-    transition:
-      height var(--duration-slow) var(--ease-standard),
-      opacity var(--duration-base) var(--ease-standard);
-  }
-
-  .section-timeline__segment.is-active .section-timeline__wave i {
-    opacity: 0.8;
-  }
-}
-</style>

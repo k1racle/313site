@@ -7,10 +7,6 @@ import PageFullscreenContent from '~/shared/ui/PageFullscreenContent.vue'
 const route = useRoute()
 const slug = computed(() => Array.isArray(route.params.slug) ? route.params.slug[0] : route.params.slug)
 const page = computed(() => findPublicPage(slug.value || ''))
-const pageSections = computed(() => [{
-  id: slug.value || 'page',
-  label: page.value?.shortLabel || 'Страница',
-}])
 
 if (!page.value) {
   throw createError({
@@ -29,7 +25,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <PageFullscreen v-if="page" :sections="pageSections" :label="page.label">
+  <PageFullscreen v-if="page" :label="page.label">
   <section :id="slug" data-page-section class="relative flex min-h-full items-end overflow-hidden bg-ink px-6 pt-12 text-white sm:px-10 desktop:px-page desktop:pt-16">
     <NuxtImg
       src="/media/photos/studio/tild3238-6165-4633-a230-336330613834__21.jpg"

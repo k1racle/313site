@@ -28,6 +28,7 @@ watch(isMobileOpen, async (open, wasOpen) => {
     <main
       class="min-h-screen pb-[var(--mobile-dock-height)] transition-[padding] duration-400 ease-studio desktop:pb-0"
       :class="isCollapsed ? 'desktop:pl-sidebar-collapsed' : 'desktop:pl-sidebar'"
+      :style="{ '--layout-sidebar-width': isCollapsed ? 'var(--sidebar-collapsed-width)' : 'var(--sidebar-width)' }"
     >
       <slot />
     </main>

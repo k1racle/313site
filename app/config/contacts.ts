@@ -42,3 +42,16 @@ export const socialLinks = [
   { label: 'VK', href: '#', icon: 'vk' },
   { label: 'YouTube', href: '#', icon: 'youtube' },
 ] as const satisfies readonly SocialLink[]
+
+export const contactPageSections = [
+  {
+    id: 'contacts',
+    label: 'Связаться',
+    waveform: [32, 68, 46, 84, 54, 92, 64, 38, 76, 50, 86, 42],
+  },
+  {
+    id: 'map',
+    label: 'На карте',
+    waveform: [72, 42, 82, 56, 34, 70, 90, 48, 78, 38, 62, 84],
+  },
+] as const

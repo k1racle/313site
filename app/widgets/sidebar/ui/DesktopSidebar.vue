@@ -19,7 +19,7 @@ const { isActive, navigationItems } = useSiteNavigation()
 
 <template>
   <aside
-    class="fixed inset-y-0 left-0 z-40 hidden flex-col overflow-hidden border-r border-white/20 bg-[image:var(--gradient-studio)] bg-[length:240%_240%] text-white shadow-panel transition-[width] duration-400 ease-studio desktop:flex motion-safe:animate-studio-flow"
+    class="group/sidebar fixed inset-y-0 left-0 z-40 hidden flex-col overflow-hidden border-r border-white/20 bg-[image:var(--gradient-studio)] bg-[length:240%_240%] text-white shadow-panel transition-[width] duration-400 ease-studio desktop:flex motion-safe:animate-studio-flow"
     :class="collapsed ? 'w-sidebar-collapsed' : 'w-sidebar'"
     aria-label="Навигация сайта"
   >
@@ -37,7 +37,7 @@ const { isActive, navigationItems } = useSiteNavigation()
           <NuxtLink
             to="/"
             class="flex min-h-14 items-center justify-center transition"
-            :class="collapsed ? 'group-hover:opacity-20 group-focus-within:opacity-20' : ''"
+            :class="collapsed ? 'group-hover/sidebar:opacity-20' : ''"
             aria-label="Studio 313, на главную"
           >
             <img
@@ -57,7 +57,7 @@ const { isActive, navigationItems } = useSiteNavigation()
           <button
             v-if="collapsed"
             type="button"
-            class="pointer-events-none absolute inset-0 grid cursor-pointer place-items-center rounded-md bg-white/10 opacity-0 backdrop-blur-sm transition group-hover:pointer-events-auto group-hover:opacity-100 focus-visible:pointer-events-auto focus-visible:opacity-100"
+            class="pointer-events-none absolute inset-0 z-10 grid cursor-pointer place-items-center bg-white/10 opacity-0 backdrop-blur-sm transition-opacity group-hover/sidebar:pointer-events-auto group-hover/sidebar:opacity-100 focus-visible:pointer-events-auto focus-visible:opacity-100"
             aria-label="Развернуть меню"
             title="Развернуть меню"
             @click="$emit('toggle')"
@@ -70,13 +70,13 @@ const { isActive, navigationItems } = useSiteNavigation()
           v-if="!collapsed"
           :icon="PanelLeftClose"
           label="Свернуть меню"
-          class="grid size-11 shrink-0 cursor-pointer place-items-center rounded-full text-white transition hover:bg-white/15"
+          class="grid size-11 shrink-0 cursor-pointer place-items-center text-white transition hover:bg-white/15"
           @click="$emit('toggle')"
         />
       </div>
 
       <nav
-        class="mt-7 flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto py-1 [scrollbar-color:rgba(255,255,255,0.35)_transparent] [scrollbar-width:thin]"
+        class="mt-7 flex min-h-0 flex-1 flex-col gap-1.5 overflow-y-auto py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         :class="collapsed ? 'w-full items-center' : 'w-full pr-1'"
       >
         <NuxtLink
@@ -87,7 +87,7 @@ const { isActive, navigationItems } = useSiteNavigation()
           :aria-label="collapsed ? item.label : undefined"
           class="group relative flex min-h-12 items-center border border-transparent font-display text-sm font-extrabold uppercase text-white transition duration-200 ease-studio hover:border-white/25 hover:bg-white/15"
           :class="[
-            collapsed ? 'size-13 justify-center rounded-md px-0' : 'w-full justify-between rounded-md px-4',
+            collapsed ? 'size-13 justify-center px-0' : 'w-full justify-between px-4',
             isActive(item.to) ? 'border-white/30 bg-white/20 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]' : '',
           ]"
         >
@@ -106,7 +106,7 @@ const { isActive, navigationItems } = useSiteNavigation()
           />
           <span
             v-if="collapsed"
-            class="pointer-events-none absolute left-[calc(100%+0.75rem)] z-50 hidden whitespace-nowrap rounded-sm bg-ink px-3 py-2 font-body text-xs font-semibold normal-case text-white shadow-panel group-hover:block group-focus-visible:block"
+            class="pointer-events-none absolute left-[calc(100%+0.75rem)] z-50 hidden whitespace-nowrap bg-ink px-3 py-2 font-body text-xs font-semibold normal-case text-white shadow-panel group-hover:block group-focus-visible:block"
           >
             {{ item.label }}
           </span>
@@ -136,7 +136,7 @@ const { isActive, navigationItems } = useSiteNavigation()
             :href="social.href"
             :aria-label="social.label"
             :title="social.label"
-            class="grid size-10 place-items-center rounded-full text-white/80 transition hover:bg-white/15 hover:text-white"
+            class="grid size-10 place-items-center text-white/80 transition hover:bg-white/15 hover:text-white"
           >
             <SocialBrandIcon :name="social.icon" class="size-5" aria-hidden="true" />
           </a>
@@ -144,7 +144,7 @@ const { isActive, navigationItems } = useSiteNavigation()
 
         <NuxtLink
           :to="bookingPage.to"
-          class="mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-4 font-display text-sm font-extrabold uppercase text-ink shadow-accent transition duration-200 hover:-translate-y-0.5 hover:text-accent"
+          class="mt-3 flex min-h-12 w-full items-center justify-center gap-2 bg-white px-4 font-display text-sm font-extrabold uppercase text-ink shadow-accent transition duration-200 hover:-translate-y-0.5 hover:text-accent"
         >
           <component :is="bookingPage.icon" class="size-5" aria-hidden="true" />
           {{ bookingPage.label }}
@@ -156,7 +156,7 @@ const { isActive, navigationItems } = useSiteNavigation()
         :to="bookingPage.to"
         :aria-label="bookingPage.label"
         :title="bookingPage.label"
-        class="mt-4 grid size-13 shrink-0 place-items-center rounded-full bg-white text-ink shadow-accent transition hover:-translate-y-0.5 hover:text-accent"
+        class="mt-4 grid size-13 shrink-0 place-items-center bg-white text-ink shadow-accent transition hover:-translate-y-0.5 hover:text-accent"
       >
         <component :is="bookingPage.icon" class="size-6" aria-hidden="true" />
       </NuxtLink>

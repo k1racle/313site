@@ -41,7 +41,7 @@ watch(() => props.activeIndex, async (index) => {
 
 <template>
   <nav
-    class="section-timeline z-30 border-t border-white/15 bg-[rgba(5,14,29,.92)] text-white shadow-[0_-1rem_3rem_rgba(2,8,20,.26)] backdrop-blur-[1.25rem]"
+    class="section-timeline z-30 border-t border-ink/10 bg-white/95 text-ink shadow-[0_-1rem_3rem_rgba(7,16,31,.08)] backdrop-blur-[1.25rem]"
     :class="fixed
       ? 'fixed inset-x-0 bottom-[var(--mobile-dock-height)] desktop:bottom-0 desktop:left-[var(--layout-sidebar-width,var(--sidebar-width))] desktop:transition-[left] desktop:duration-[var(--duration-slow)] desktop:ease-studio'
       : 'absolute inset-x-0 bottom-0'"
@@ -52,22 +52,22 @@ watch(() => props.activeIndex, async (index) => {
         v-for="(section, index) in sections"
         :key="section.id"
         type="button"
-        class="grid min-w-0 flex-1 cursor-pointer grid-rows-[auto_1fr] overflow-hidden border-0 border-r border-white/12 bg-[rgba(10,27,52,.42)] px-4 pt-[.45rem] pb-[.4rem] text-white/56 transition-[flex-grow,color,background-color] duration-[var(--duration-slow)] ease-studio last:border-r-0 hover:bg-[rgba(19,52,96,.52)] hover:text-white"
-        :class="{ '[flex-grow:1.14] bg-[linear-gradient(110deg,rgba(0,79,196,.52),rgba(7,31,65,.62))] text-white': index === activeIndex }"
+        class="grid min-w-0 flex-1 cursor-pointer grid-rows-[auto_1fr] overflow-hidden border-0 border-r border-ink/10 bg-white px-4 pt-[.45rem] pb-[.4rem] text-muted transition-[flex-grow,color,background-color] duration-[var(--duration-slow)] ease-studio last:border-r-0 hover:bg-[#eaf4ff] hover:text-ink"
+        :class="{ '[flex-grow:1.14] bg-[#eaf4ff] !text-accent': index === activeIndex }"
         :aria-current="index === activeIndex ? 'step' : undefined"
         :aria-label="`Перейти к разделу ${section.label}`"
         @click="selectSection(index)"
       >
         <span class="flex min-w-0 items-center gap-[.55rem] font-display text-xs font-extrabold uppercase">
-          <span class="font-body text-[.625rem] text-white/30">{{ String(index + 1).padStart(2, '0') }}</span>
+          <span class="font-body text-[.625rem]" :class="index === activeIndex ? 'text-accent' : 'text-ink/30'">{{ String(index + 1).padStart(2, '0') }}</span>
           <span class="overflow-hidden text-ellipsis whitespace-nowrap">{{ section.label }}</span>
         </span>
         <span class="flex h-5 items-end gap-[clamp(.125rem,.45vw,.375rem)] pt-1" aria-hidden="true">
           <i
             v-for="(height, barIndex) in waveformFor(section, index)"
             :key="barIndex"
-            class="h-[20%] min-w-px max-w-[1.15rem] flex-1 bg-current opacity-28 transition-[height,opacity] duration-[var(--duration-slow)] ease-studio"
-            :class="{ 'opacity-80': index === activeIndex }"
+            class="h-[20%] min-w-px max-w-[1.15rem] flex-1 opacity-28 transition-[height,opacity,background-color] duration-[var(--duration-slow)] ease-studio"
+            :class="index === activeIndex ? 'bg-accent opacity-80' : 'bg-current'"
             :style="index === activeIndex ? { height: `${height}%` } : undefined"
           />
         </span>
@@ -82,13 +82,13 @@ watch(() => props.activeIndex, async (index) => {
         v-for="(section, index) in sections"
         :key="section.id"
         type="button"
-        class="relative min-w-max flex-none cursor-pointer border-0 bg-transparent px-4 font-display text-[.6875rem] font-extrabold text-white/55 uppercase transition-colors duration-[var(--duration-base)] ease-studio after:absolute after:right-4 after:bottom-0 after:left-4 after:h-0.5 after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-[var(--duration-base)] after:ease-studio after:content-['']"
-        :class="{ 'text-white after:scale-x-100': index === activeIndex }"
+        class="relative min-w-max flex-none cursor-pointer border-0 bg-transparent px-4 font-display text-[.6875rem] font-extrabold text-muted uppercase transition-colors duration-[var(--duration-base)] ease-studio after:absolute after:right-4 after:bottom-0 after:left-4 after:h-0.5 after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-[var(--duration-base)] after:ease-studio after:content-['']"
+        :class="{ 'text-accent after:scale-x-100': index === activeIndex }"
         :data-timeline-index="index"
         :aria-current="index === activeIndex ? 'step' : undefined"
         @click="selectSection(index)"
       >
-        <span class="mr-[.35rem] font-body text-[.625rem] text-white/30">{{ String(index + 1).padStart(2, '0') }}</span>
+        <span class="mr-[.35rem] font-body text-[.625rem]" :class="index === activeIndex ? 'text-accent' : 'text-ink/30'">{{ String(index + 1).padStart(2, '0') }}</span>
         {{ section.label }}
       </button>
     </div>

@@ -1,16 +1,23 @@
 services:
   studio313:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: studio313:latest
     container_name: studio313
     ports:
       - "${PORT:-3000}:3000"
     environment:
-      - PORT=3000
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-313}
-      - DATA_DIR=/app/data
+      PORT: 3000
+      DATA_DIR: /app/data
+      NUXT_DATA_DIR: /app/data
+      DATABASE_URL: file:/app/data/site.sqlite
+      NUXT_ADMIN_PASSWORD: ${ADMIN_PASSWORD:-313}
+      NUXT_ADMIN_SESSION_SECRET: ${ADMIN_SESSION_SECRET:-studio313-change-this-secret}
     volumes:
       - studio313_data:/app/data
     restart: unless-stopped
 
 volumes:
   studio313_data:
+    name: studio313_data

@@ -8,12 +8,6 @@ export interface ContactItem {
   icon: LucideIcon
 }
 
-export interface SocialLink {
-  label: string
-  href: string
-  icon: 'telegram' | 'whatsapp' | 'vk' | 'youtube'
-}
-
 export const contactDetails = {
   email: {
     label: 'Электронная почта',
@@ -35,13 +29,6 @@ export const contactDetails = {
 } as const satisfies Record<string, ContactItem>
 
 export const contactItems: readonly ContactItem[] = Object.values(contactDetails)
-
-export const socialLinks = [
-  { label: 'Telegram', href: '#', icon: 'telegram' },
-  { label: 'WhatsApp', href: '#', icon: 'whatsapp' },
-  { label: 'VK', href: '#', icon: 'vk' },
-  { label: 'YouTube', href: '#', icon: 'youtube' },
-] as const satisfies readonly SocialLink[]
 
 export const contactPageSections = [
   {

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next'
 import { findPublicPage } from '~/config/navigation'
+import AppButton from '~/shared/ui/AppButton.vue'
+import AppHeading from '~/shared/ui/AppHeading.vue'
 import PageFullscreen from '~/shared/ui/PageFullscreen.vue'
 import PageFullscreenContent from '~/shared/ui/PageFullscreenContent.vue'
 
@@ -26,7 +28,7 @@ useSeoMeta({
 
 <template>
   <PageFullscreen v-if="page" :label="page.label">
-  <section :id="slug" data-page-section class="relative flex min-h-full items-end overflow-hidden bg-ink px-6 pt-12 text-white sm:px-10 desktop:px-page desktop:pt-16">
+  <section :id="slug" data-page-section class="relative flex min-h-full items-end overflow-hidden bg-page px-6 pt-12 text-ink sm:px-10 desktop:px-page desktop:pt-16">
     <NuxtImg
       src="/media/photos/studio/tild3238-6165-4633-a230-336330613834__21.jpg"
       :alt="`${page.label} — Studio 313`"
@@ -34,26 +36,27 @@ useSeoMeta({
       sizes="100vw xl:80vw"
       preload
     />
-    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,16,31,0.18),rgba(7,16,31,0.94))]" />
+    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.38),rgba(245,250,255,0.96))]" />
     <PageFullscreenContent class="relative z-10 max-w-4xl">
-      <div class="mb-5 flex items-center gap-3 text-sm font-bold uppercase text-white/60">
-        <NuxtLink to="/" class="transition hover:text-white">Studio 313</NuxtLink>
+      <div class="mb-5 flex items-center gap-3 text-sm font-bold uppercase text-muted">
+        <NuxtLink to="/" class="transition hover:text-accent">Studio 313</NuxtLink>
         <ChevronRight class="size-4" aria-hidden="true" />
         <span>{{ page.shortLabel }}</span>
       </div>
-      <h1 class="font-display text-5xl leading-none font-extrabold uppercase text-white sm:text-6xl desktop:text-8xl">
+      <AppHeading as="h1" size="hero" :accent="true">
         {{ page.label }}
-      </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 desktop:text-xl">
+      </AppHeading>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted desktop:text-xl">
         {{ page.description }}
       </p>
-      <NuxtLink
+      <AppButton
+        behaviour="link"
         to="/"
-        class="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 font-display text-sm font-extrabold uppercase text-ink transition hover:-translate-y-0.5 hover:text-accent"
+        class="mt-8"
       >
         <ArrowLeft class="size-5" aria-hidden="true" />
         На главную
-      </NuxtLink>
+      </AppButton>
     </PageFullscreenContent>
   </section>
   </PageFullscreen>

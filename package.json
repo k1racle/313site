@@ -1,5 +1,6 @@
 {
   "name": "studio-313",
+  "type": "module",
   "private": true,
   "version": "0.1.0",
   "description": "Premium studio website prototype for Studio 313",
@@ -10,15 +11,24 @@
     "generate": "nuxt generate",
     "lint": "eslint .",
     "typecheck": "vue-tsc --noEmit",
-    "postinstall": "nuxt prepare",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:seed": "prisma db seed",
+    "db:import": "tsx prisma/import-current.ts",
+    "postinstall": "prisma generate && nuxt prepare",
     "start": "node .output/server/index.mjs",
-    "start-old": "node server.js"
+    "start-old": "node server.cjs"
   },
   "dependencies": {
     "@nuxt/fonts": "^0.14.0",
     "@nuxt/image": "^2.1.0",
     "@nuxtjs/seo": "^5.3.9",
+    "@prisma/adapter-better-sqlite3": "^7.9.1",
+    "@prisma/client": "^7.9.1",
+    "@tiptap/starter-kit": "^3.30.0",
+    "@tiptap/vue-3": "^3.30.0",
     "@vueuse/nuxt": "^14.4.0",
+    "dotenv": "^17.4.2",
     "lucide-vue-next": "^1.0.0",
     "nuxt": "^4.5.1",
     "vue": "^3.5.40",
@@ -30,7 +40,9 @@
     "autoprefixer": "^10.4.19",
     "concurrently": "^8.2.2",
     "eslint": "^10.8.0",
+    "prisma": "^7.9.1",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.12",
     "vue-tsc": "^3.3.8"
   }
 }

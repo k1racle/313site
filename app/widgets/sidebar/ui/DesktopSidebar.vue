@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ChevronRight, PanelLeftClose, PanelLeftOpen } from 'lucide-vue-next'
-import { contactItems, socialLinks } from '~/config/contacts'
+import { contactItems } from '~/config/contacts'
 import { bookingPage } from '~/config/navigation'
 import { useSiteNavigation } from '~/features/navigation/model/useSiteNavigation'
+import { useSiteSocials } from '~/features/socials/model/useSiteSocials'
+import AppButton from '~/shared/ui/AppButton.vue'
 import AppIconButton from '~/shared/ui/AppIconButton.vue'
 import SocialBrandIcon from '~/shared/ui/SocialBrandIcon.vue'
 
@@ -15,16 +17,15 @@ defineEmits<{
 }>()
 
 const { isActive, navigationItems } = useSiteNavigation()
+const { socialLinks } = useSiteSocials()
 </script>
 
 <template>
   <aside
-    class="group/sidebar fixed inset-y-0 left-0 z-40 hidden flex-col overflow-hidden border-r border-white/20 bg-[image:var(--gradient-studio)] bg-[length:240%_240%] text-white shadow-panel transition-[width] duration-400 ease-studio desktop:flex motion-safe:animate-studio-flow"
+    class="group/sidebar fixed inset-y-0 left-0 z-40 hidden flex-col overflow-hidden border-r border-accent-700 bg-accent text-white shadow-panel transition-[width] duration-400 ease-studio desktop:flex"
     :class="collapsed ? 'w-sidebar-collapsed' : 'w-sidebar'"
     aria-label="Навигация сайта"
   >
-    <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_10%,rgba(255,255,255,0.13)_48%,transparent_70%)] opacity-70" />
-
     <div
       class="relative z-10 flex min-h-0 flex-1 flex-col px-4 py-5"
       :class="collapsed ? 'items-center' : ''"
@@ -134,6 +135,8 @@ const { isActive, navigationItems } = useSiteNavigation()
             v-for="social in socialLinks"
             :key="social.label"
             :href="social.href"
+            :target="social.href === '#' ? undefined : '_blank'"
+            :rel="social.href === '#' ? undefined : 'noopener noreferrer'"
             :aria-label="social.label"
             :title="social.label"
             class="grid size-10 place-items-center text-white/80 transition hover:bg-white/15 hover:text-white"
@@ -142,13 +145,15 @@ const { isActive, navigationItems } = useSiteNavigation()
           </a>
         </div>
 
-        <NuxtLink
+        <AppButton
+          behaviour="link"
+          variant="secondary"
           :to="bookingPage.to"
-          class="mt-3 flex min-h-12 w-full items-center justify-center gap-2 bg-white px-4 font-display text-sm font-extrabold uppercase text-ink shadow-accent transition duration-200 hover:-translate-y-0.5 hover:text-accent"
+          class="mt-3 w-full px-4"
         >
           <component :is="bookingPage.icon" class="size-5" aria-hidden="true" />
           {{ bookingPage.label }}
-        </NuxtLink>
+        </AppButton>
       </div>
 
       <NuxtLink

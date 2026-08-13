@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ArrowUpRight } from 'lucide-vue-next'
-import { contactDetails, contactItems, socialLinks } from '~/config/contacts'
+import { contactDetails, contactItems } from '~/config/contacts'
+import { useSiteSocials } from '~/features/socials/model/useSiteSocials'
+import AppHeading from '~/shared/ui/AppHeading.vue'
 import PageFullscreen from '~/shared/ui/PageFullscreen.vue'
 import PageFullscreenContent from '~/shared/ui/PageFullscreenContent.vue'
 import SocialBrandIcon from '~/shared/ui/SocialBrandIcon.vue'
@@ -9,6 +11,8 @@ import YandexStudioMap from '~/widgets/contacts-showcase/ui/YandexStudioMap.vue'
 defineEmits<{
   activeChange: [index: number]
 }>()
+
+const { socialLinks } = useSiteSocials()
 </script>
 
 <template>
@@ -24,13 +28,9 @@ defineEmits<{
       <div class="flex min-h-0 flex-col justify-between px-6 pt-9 sm:px-10 desktop:px-page desktop:pt-14">
         <PageFullscreenContent>
           <div>
-            <p class="flex items-center gap-2 text-xs font-bold tracking-[0.16em] text-accent uppercase">
-              <span class="size-2 rounded-full bg-accent shadow-[0_0_1rem_rgba(0,105,254,.55)]" aria-hidden="true" />
-              На связи ежедневно
-            </p>
-            <h1 class="mt-4 max-w-3xl font-display text-[clamp(2.65rem,7vw,6.5rem)] leading-[0.88] font-extrabold uppercase">
+            <AppHeading as="h1" size="page" :accent="true" class="max-w-3xl">
               Контакты
-            </h1>
+            </AppHeading>
           </div>
 
           <address class="mt-8 grid not-italic sm:mt-10 desktop:mt-12">
@@ -54,21 +54,19 @@ defineEmits<{
         </PageFullscreenContent>
       </div>
 
-      <div class="relative flex min-h-0 flex-col justify-between overflow-hidden bg-accent px-6 pt-8 text-white sm:px-10 desktop:px-page desktop:pt-14">
-        <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,.12),transparent_42%,rgba(0,63,157,.52))]" aria-hidden="true" />
-        <div class="pointer-events-none absolute -right-24 -bottom-28 font-display text-[18rem] leading-none font-extrabold text-white/[0.055]" aria-hidden="true">
+      <div class="relative flex min-h-0 flex-col justify-between overflow-hidden bg-[#eaf4ff] px-6 pt-8 text-ink sm:px-10 desktop:px-page desktop:pt-14">
+        <div class="pointer-events-none absolute -right-24 -bottom-28 font-display text-[18rem] leading-none font-extrabold text-accent/[0.06]" aria-hidden="true">
           313
         </div>
 
         <PageFullscreenContent class="relative flex min-h-full flex-col">
           <div class="flex items-start justify-between gap-5">
             <div>
-              <p class="text-xs font-bold tracking-[0.16em] text-white/60 uppercase">Social feed</p>
-              <h2 class="mt-3 font-display text-3xl leading-none font-extrabold uppercase sm:text-4xl desktop:text-5xl">
+              <AppHeading as="h2" size="section" :accent="true">
                 Мы в сети
-              </h2>
+              </AppHeading>
             </div>
-            <span class="font-body text-[0.625rem] font-bold tracking-[0.12em] text-white/55 uppercase">Online</span>
+            <span class="font-body text-[0.625rem] font-bold tracking-[0.12em] text-muted uppercase">Online</span>
           </div>
 
           <nav class="mt-7 grid flex-1 content-center" aria-label="Социальные сети Studio 313">
@@ -76,18 +74,20 @@ defineEmits<{
               v-for="(social, index) in socialLinks"
               :key="social.label"
               :href="social.href"
-              class="group grid grid-cols-[2.5rem_2.5rem_minmax(0,1fr)_auto] items-center gap-3 border-t border-white/25 py-3.5 text-white transition hover:border-white last:border-b desktop:py-5"
+              :target="social.href === '#' ? undefined : '_blank'"
+              :rel="social.href === '#' ? undefined : 'noopener noreferrer'"
+              class="group grid grid-cols-[2.5rem_2.5rem_minmax(0,1fr)_auto] items-center gap-3 border-t border-ink/15 py-3.5 text-ink transition hover:border-accent last:border-b desktop:py-5"
             >
-              <span class="text-[0.625rem] font-bold text-white/45">{{ String(index + 1).padStart(2, '0') }}</span>
-              <span class="grid size-10 place-items-center rounded-full border border-white/30 transition group-hover:bg-white group-hover:text-accent">
+              <span class="text-[0.625rem] font-bold text-muted">{{ String(index + 1).padStart(2, '0') }}</span>
+              <span class="grid size-10 place-items-center border border-ink/20 transition group-hover:border-accent group-hover:bg-accent group-hover:text-white">
                 <SocialBrandIcon :name="social.icon" class="size-5" aria-hidden="true" />
               </span>
               <span class="font-display text-xl font-extrabold uppercase sm:text-2xl">{{ social.label }}</span>
-              <ArrowUpRight class="size-5 text-white/60 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" aria-hidden="true" />
+              <ArrowUpRight class="size-5 text-muted transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent" aria-hidden="true" />
             </a>
           </nav>
 
-          <p class="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
+          <p class="mt-5 max-w-sm text-sm leading-relaxed text-muted">
             Новости студии, новые выпуски и рабочие моменты со съёмок.
           </p>
         </PageFullscreenContent>

@@ -9,6 +9,7 @@ import {
   MapPin,
   Newspaper,
   PanelsTopLeft,
+  MessageSquareQuote,
   UsersRound,
 } from 'lucide-vue-next'
 import type { LucideIcon } from 'lucide-vue-next'
@@ -77,6 +78,13 @@ export const navigationItems = [
     to: '/clients',
     icon: Handshake,
     description: 'Бренды и авторы, которые работают со студией.',
+  },
+  {
+    label: 'Отзывы',
+    shortLabel: 'Отзывы',
+    to: '/reviews',
+    icon: MessageSquareQuote,
+    description: 'Видеоотзывы клиентов о работе со студией.',
   },
   {
     label: 'FAQ',

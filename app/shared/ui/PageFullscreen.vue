@@ -92,7 +92,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div
-    class="page-fullscreen relative h-[calc(100dvh-var(--mobile-dock-height))] w-full overflow-hidden bg-ink text-white [--page-content-safe-bottom:calc(var(--page-bottom-inset,0rem)+var(--page-frame-inset)+var(--page-frame-corner-size)+var(--page-frame-content-gap))] [--page-frame-content-gap:.5rem] [--page-frame-corner-size:0rem] [--page-frame-inset:0rem] desktop:h-dvh"
+    class="page-fullscreen relative h-[calc(100dvh-var(--mobile-dock-height))] w-full overflow-hidden bg-page text-ink [--page-content-safe-bottom:calc(var(--page-bottom-inset,0rem)+var(--page-frame-inset)+var(--page-frame-corner-size)+var(--page-frame-content-gap))] [--page-frame-content-gap:.5rem] [--page-frame-corner-size:0rem] [--page-frame-inset:0rem] desktop:h-dvh"
     :class="{ '[--page-frame-corner-size:1.5rem] [--page-frame-inset:.75rem] desktop:[--page-frame-corner-size:clamp(1.75rem,3vw,3rem)] desktop:[--page-frame-inset:clamp(.75rem,1.6vw,1.5rem)]': showFrame }"
   >
     <div

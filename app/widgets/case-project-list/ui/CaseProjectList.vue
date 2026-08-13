@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { CaseCategory, CaseProject } from '~/entities/case-study/model/types'
+import AppHeading from '~/shared/ui/AppHeading.vue'
 
 defineProps<{
   category: CaseCategory
@@ -20,7 +21,7 @@ const imageLayout: Record<CaseProject['layout'], string> = {
 
 <template>
   <section aria-labelledby="case-list-title" class="grid gap-px bg-ink/15 desktop:grid-cols-12">
-    <h2 id="case-list-title" class="sr-only">Проекты раздела {{ category.title }}</h2>
+    <AppHeading id="case-list-title" as="h2" size="compact" :accent="false" class="sr-only">Проекты раздела {{ category.title }}</AppHeading>
 
     <article
       v-for="(project, index) in category.projects"
@@ -45,10 +46,9 @@ const imageLayout: Record<CaseProject['layout'], string> = {
 
       <div class="flex min-h-36 flex-col justify-between gap-5 p-5 sm:p-7 desktop:min-h-44 desktop:p-8">
         <div>
-          <p class="text-[0.625rem] font-bold tracking-[0.16em] text-accent uppercase">Studio 313 / Case</p>
-          <h3 class="mt-2 max-w-2xl font-display text-2xl leading-[1.04] font-extrabold uppercase text-ink sm:text-3xl desktop:text-[clamp(2rem,3.3vw,3.75rem)]">
+          <AppHeading as="h3" size="section" :accent="true" class="max-w-2xl text-ink">
             {{ project.title }}
-          </h3>
+          </AppHeading>
         </div>
         <p class="max-w-xl text-sm leading-relaxed text-muted sm:text-base">
           {{ project.description }}

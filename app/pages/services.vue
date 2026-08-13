@@ -1,24 +1,36 @@
 <script setup lang="ts">
 import {
-  featuredServices,
   pricingTimelineSection,
-  servicePriceGroups,
   serviceSignalBars,
-  serviceTimelineSections,
 } from '~/entities/service/config/services'
+import type { FeaturedService, PriceList } from '~/entities/service/model/types'
 import { useSectionNavigation } from '~/features/section-navigation/model/useSectionNavigation'
 import SectionTimeline from '~/shared/ui/SectionTimeline.vue'
 import ServicesPriceSheet from '~/widgets/services-price-sheet/ui/ServicesPriceSheet.vue'
 import ServicesShowcase from '~/widgets/services-showcase/ui/ServicesShowcase.vue'
 
-const pageSections = [...serviceTimelineSections, pricingTimelineSection]
+const { data: servicesData } = await useFetch<{ services: FeaturedService[] }>('/api/services', {
+  key: 'featured-services',
+  default: () => ({ services: [] }),
+})
+const featuredServiceItems = computed(() => servicesData.value.services)
+const { data: priceListData } = await useFetch<{ priceList: PriceList }>('/api/price-list', {
+  key: 'price-list',
+  default: () => ({ priceList: { id: 'main', title: 'Прайс-лист', subtitle: '', sections: [] } }),
+})
+const serviceTimelineSections = computed(() => featuredServiceItems.value.map(({ id, timelineLabel, waveform }) => ({
+  id,
+  label: timelineLabel,
+  waveform,
+})))
+const pageSections = computed(() => [...serviceTimelineSections.value, pricingTimelineSection])
 const {
   activeIndex,
   scrollToSection,
   setFullscreenIndex,
-} = useSectionNavigation(pageSections, {
+} = useSectionNavigation(pageSections.value, {
   longSectionId: pricingTimelineSection.id,
-  longSectionIndex: serviceTimelineSections.length,
+  longSectionIndex: serviceTimelineSections.value.length,
 })
 
 useSeoMeta({
@@ -31,14 +43,14 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="services-page bg-ink [--page-bottom-inset:3.75rem]">
+  <div class="services-page bg-page [--page-bottom-inset:3.75rem]">
     <ServicesShowcase
-      :services="featuredServices"
+      :services="featuredServiceItems"
       :signal-bars="serviceSignalBars"
       @active-change="setFullscreenIndex"
     />
 
-    <ServicesPriceSheet :groups="servicePriceGroups" />
+    <ServicesPriceSheet :price-list="priceListData.priceList" />
 
     <SectionTimeline
       :sections="pageSections"

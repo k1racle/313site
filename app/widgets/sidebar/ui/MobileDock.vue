@@ -19,10 +19,9 @@ defineExpose({
 
 <template>
   <div
-    class="fixed inset-x-0 bottom-0 z-50 flex min-h-[var(--mobile-dock-height)] items-start overflow-hidden border-t border-white/20 bg-[image:var(--gradient-studio)] bg-[length:240%_240%] px-4 pt-3 text-white shadow-[0_-18px_50px_rgba(7,16,31,0.18)] desktop:hidden motion-safe:animate-studio-flow"
+    class="fixed inset-x-0 bottom-0 z-50 flex min-h-[var(--mobile-dock-height)] items-start overflow-hidden border-t border-accent-700 bg-accent px-4 pt-3 text-white shadow-[0_-18px_50px_rgba(7,16,31,0.12)] desktop:hidden"
     aria-label="Мобильная навигация"
   >
-    <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(110deg,transparent_10%,rgba(255,255,255,0.14)_50%,transparent_80%)]" />
     <div class="relative z-10 flex w-full items-center justify-between gap-4">
       <NuxtLink
         to="/"
@@ -35,7 +34,7 @@ defineExpose({
       <div class="flex shrink-0 items-center gap-1">
         <a
           :href="contactDetails.phone.href"
-          class="grid size-12 place-items-center rounded-full text-white transition hover:bg-white/15"
+          class="grid size-12 place-items-center text-white transition hover:bg-white/15"
           aria-label="Позвонить в Studio 313"
           title="Позвонить"
         >
@@ -44,7 +43,7 @@ defineExpose({
         <button
           ref="menuButton"
           type="button"
-          class="grid size-12 cursor-pointer place-items-center rounded-full text-white transition hover:bg-white/15"
+          class="grid size-12 cursor-pointer place-items-center text-white transition hover:bg-white/15"
           :aria-label="open ? 'Закрыть меню' : 'Открыть меню'"
           :title="open ? 'Закрыть меню' : 'Открыть меню'"
           :aria-expanded="open"

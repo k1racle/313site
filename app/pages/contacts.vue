@@ -26,7 +26,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="contacts-page relative bg-ink [--page-bottom-inset:3.75rem]">
+  <div class="contacts-page relative bg-page [--page-bottom-inset:3.75rem]">
     <ContactsShowcase @active-change="activeSectionIndex = $event" />
 
     <SectionTimeline

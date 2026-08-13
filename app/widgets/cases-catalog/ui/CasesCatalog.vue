@@ -39,7 +39,7 @@ const cardLayout: Record<CaseCategory['id'], string> = {
       <span class="absolute top-3 left-3 text-[0.625rem] font-bold tracking-[0.16em] text-white/60 uppercase sm:top-5 sm:left-5">
         {{ String(index + 1).padStart(2, '0') }} / 03
       </span>
-      <span class="absolute top-3 right-3 grid size-8 place-items-center rounded-full border border-white/25 bg-ink/20 backdrop-blur-sm transition duration-300 group-hover:border-accent group-hover:bg-accent sm:top-5 sm:right-5 sm:size-10">
+      <span class="absolute top-3 right-3 grid size-8 place-items-center border border-white/25 bg-ink/20 backdrop-blur-sm transition duration-300 group-hover:border-accent group-hover:bg-accent sm:top-5 sm:right-5 sm:size-10">
         <ArrowUpRight class="size-4" aria-hidden="true" />
       </span>
 

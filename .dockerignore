@@ -1,4 +1,7 @@
 node_modules
+.nuxt
+.output
+data_test
 .git
 .vscode
 .sixth

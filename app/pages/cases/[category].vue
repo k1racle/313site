@@ -2,6 +2,8 @@
 import { ArrowLeft } from 'lucide-vue-next'
 import { findCaseCategory } from '~/entities/case-study/config/case-categories'
 import PageLongScreen from '~/shared/ui/PageLongScreen.vue'
+import AppButton from '~/shared/ui/AppButton.vue'
+import AppHeading from '~/shared/ui/AppHeading.vue'
 import CaseProjectList from '~/widgets/case-project-list/ui/CaseProjectList.vue'
 
 const route = useRoute()
@@ -26,33 +28,30 @@ useSeoMeta({
 
 <template>
   <PageLongScreen v-if="category" as="main" class="case-category-page bg-page text-copy">
-    <header class="relative overflow-hidden bg-ink px-5 pt-6 pb-9 text-white sm:px-8 sm:pt-8 sm:pb-12 desktop:px-page desktop:pt-10 desktop:pb-16">
+    <header class="relative overflow-hidden bg-[#eaf4ff] px-5 pt-6 pb-9 text-ink sm:px-8 sm:pt-8 sm:pb-12 desktop:px-page desktop:pt-10 desktop:pb-16">
       <div class="absolute top-0 right-0 h-px w-1/3 bg-accent" />
 
-      <NuxtLink
+      <AppButton
+        behaviour="link"
+        variant="ghost"
         to="/cases"
-        class="group inline-flex min-h-11 items-center gap-3 text-xs font-bold tracking-[0.12em] text-white/60 uppercase transition hover:text-white"
+        class="group min-h-11 px-4 text-xs"
       >
-        <span class="grid size-9 place-items-center rounded-full border border-white/25 transition group-hover:border-accent group-hover:bg-accent">
-          <ArrowLeft class="size-4" aria-hidden="true" />
-        </span>
+        <ArrowLeft class="size-4" aria-hidden="true" />
         Назад к кейсам
-      </NuxtLink>
+      </AppButton>
 
       <div class="mt-10 grid gap-7 sm:mt-14 sm:grid-cols-[minmax(0,1fr)_minmax(15rem,24rem)] sm:items-end desktop:mt-20">
         <div>
-          <p class="text-[0.625rem] font-bold tracking-[0.18em] text-accent uppercase sm:text-xs">
-            Cases / {{ category.eyebrow }}
-          </p>
-          <h1 class="mt-3 font-display text-5xl leading-[0.88] font-extrabold uppercase sm:text-7xl desktop:text-[clamp(5.5rem,10vw,10rem)]">
+          <AppHeading as="h1" size="hero" :accent="true">
             {{ category.title }}
-          </h1>
+          </AppHeading>
         </div>
-        <div class="border-t border-white/20 pt-4">
-          <p class="text-base leading-relaxed text-white/60">
+        <div class="border-t border-ink/15 pt-4">
+          <p class="text-base leading-relaxed text-muted">
             {{ category.description }}
           </p>
-          <p class="mt-5 text-[0.625rem] font-bold tracking-[0.16em] text-white/35 uppercase">
+          <p class="mt-5 text-[0.625rem] font-bold tracking-[0.16em] text-muted uppercase">
             {{ String(category.projects.length).padStart(2, '0') }} selected projects
           </p>
         </div>
@@ -63,18 +62,18 @@ useSeoMeta({
 
     <footer class="flex flex-col gap-5 border-t border-ink/15 bg-page px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 desktop:px-page desktop:py-12">
       <div>
-        <p class="text-[0.625rem] font-bold tracking-[0.16em] text-accent uppercase">Следующий шаг</p>
-        <p class="mt-2 max-w-xl font-display text-2xl font-extrabold uppercase text-ink sm:text-3xl">
+        <p class="max-w-xl font-display text-2xl font-extrabold uppercase text-ink sm:text-3xl">
           Посмотреть другие форматы
         </p>
       </div>
-      <NuxtLink
+      <AppButton
+        behaviour="link"
         to="/cases"
-        class="inline-flex min-h-12 w-fit items-center gap-3 rounded-full bg-ink px-6 font-display text-xs font-extrabold uppercase text-white transition hover:-translate-y-0.5 hover:bg-accent"
+        class="w-fit text-xs"
       >
         <ArrowLeft class="size-4" aria-hidden="true" />
         Все кейсы
-      </NuxtLink>
+      </AppButton>
     </footer>
   </PageLongScreen>
 </template>

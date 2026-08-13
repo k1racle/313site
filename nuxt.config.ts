@@ -52,11 +52,29 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', href: '/icons/favicon.png' }],
     },
   },
+  routeRules: {
+    '/admin': {
+      headers: {
+        'X-Robots-Tag': 'noindex, nofollow, noarchive',
+      },
+      robots: false,
+    },
+    '/admin/**': {
+      headers: {
+        'X-Robots-Tag': 'noindex, nofollow, noarchive',
+      },
+      robots: false,
+    },
+  },
+  sitemap: {
+    sources: ['/api/__sitemap__/urls'],
+  },
   vite: {
     plugins: [tailwindcss()],
   },
   runtimeConfig: {
     adminPassword: process.env.ADMIN_PASSWORD || '313',
+    adminSessionSecret: process.env.ADMIN_SESSION_SECRET || 'studio313-change-this-secret',
     telegramBotToken: process.env.TELEGRAM_BOT_TOKEN || '',
     telegramAdminChatId: process.env.TELEGRAM_ADMIN_CHAT_ID || '',
     dataDir: process.env.DATA_DIR || '',

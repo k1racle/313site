@@ -3,7 +3,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: studio313:latest
     container_name: studio313
     ports:
       - "${PORT:-3000}:3000"

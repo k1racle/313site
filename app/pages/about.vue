@@ -64,35 +64,46 @@ useSeoMeta({
         :id="section.id"
         :key="section.id"
         data-page-section
-        class="grid min-h-full text-ink desktop:grid-cols-[minmax(0,0.9fr)_minmax(25rem,1.1fr)]"
-        :class="index % 2 ? 'bg-[#eaf4ff]' : 'bg-white'"
+        class="relative isolate flex min-h-full overflow-hidden bg-panel text-ink"
       >
-        <div class="flex min-h-0 flex-col justify-center px-6 pt-10 sm:px-10 desktop:px-page desktop:pt-14">
-          <PageFullscreenContent class="flex flex-col justify-center">
-            <AppHeading
-              :as="index === 0 ? 'h1' : 'h2'"
-              size="inherit"
-              :accent="true"
-              class="max-w-[15ch] leading-[0.9] tracking-[-0.04em] whitespace-pre-line [word-spacing:0.12em]"
-              :class="titleSizeClass(section.title)"
-            >
-              {{ section.title }}
-            </AppHeading>
-            <p class="mt-7 max-w-xl border-t border-ink/15 pt-6 text-[clamp(1rem,1.55vw,1.2rem)] leading-[1.7] text-muted">
-              {{ section.text }}
-            </p>
-          </PageFullscreenContent>
-        </div>
+        <NuxtImg
+          :src="section.image.src"
+          alt=""
+          aria-hidden="true"
+          class="absolute inset-0 -z-20 size-full object-cover"
+          sizes="100vw"
+          :loading="index === 0 ? 'eager' : 'lazy'"
+        />
+        <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,.97)_0%,rgba(245,250,255,.91)_58%,rgba(234,244,255,.8)_100%)] dark:bg-[linear-gradient(90deg,rgba(11,22,39,.97)_0%,rgba(11,22,39,.93)_58%,rgba(19,35,58,.84)_100%)]" />
 
-        <figure class="flex min-h-64 items-center justify-center px-6 py-8 sm:px-10 desktop:min-h-0 desktop:px-page desktop:pt-14 desktop:pb-[calc(var(--page-content-safe-bottom)+1rem)]">
-          <img
-            :src="section.image.src"
-            :alt="section.image.alt"
-            class="aspect-[44/29] w-full max-w-[55rem] object-contain"
-            :loading="index === 0 ? 'eager' : 'lazy'"
-            decoding="async"
-          >
-        </figure>
+        <div class="mx-auto grid min-h-full w-full max-w-[96rem] desktop:grid-cols-[minmax(0,0.9fr)_minmax(25rem,1.1fr)]">
+          <div class="flex min-h-0 flex-col justify-center px-6 pt-10 sm:px-10 desktop:px-page desktop:pt-14">
+            <PageFullscreenContent class="flex flex-col justify-center">
+              <AppHeading
+                :as="index === 0 ? 'h1' : 'h2'"
+                size="inherit"
+                :accent="true"
+                class="max-w-[15ch] leading-[0.9] tracking-[-0.04em] whitespace-pre-line [word-spacing:0.12em]"
+                :class="titleSizeClass(section.title)"
+              >
+                {{ section.title }}
+              </AppHeading>
+              <p class="mt-7 max-w-xl border-t border-ink/15 pt-6 text-[clamp(1rem,1.55vw,1.2rem)] leading-[1.7] text-muted">
+                {{ section.text }}
+              </p>
+            </PageFullscreenContent>
+          </div>
+
+          <figure class="flex min-h-64 items-center justify-center px-6 py-8 sm:px-10 desktop:min-h-0 desktop:px-page desktop:pt-14 desktop:pb-[calc(var(--page-content-safe-bottom)+1rem)]">
+            <img
+              :src="section.image.src"
+              :alt="section.image.alt"
+              class="aspect-[44/29] w-full max-w-[55rem] border-[clamp(.25rem,.7vw,.625rem)] border-accent object-cover shadow-panel"
+              :loading="index === 0 ? 'eager' : 'lazy'"
+              decoding="async"
+            >
+          </figure>
+        </div>
       </section>
 
       <SiteCallToAction

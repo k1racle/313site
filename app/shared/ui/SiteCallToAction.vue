@@ -15,7 +15,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <section class="flex items-center bg-[#eaf4ff] py-[clamp(4rem,9vw,8rem)] text-ink">
+  <section class="flex items-center bg-[#eaf4ff] py-[clamp(4rem,9vw,8rem)] text-ink dark:bg-[#10233d]">
     <div class="mx-auto flex w-[min(calc(100%-3rem),78rem)] flex-col gap-10 sm:w-[min(calc(100%-5rem),78rem)] sm:flex-row sm:items-end sm:justify-between max-[35rem]:w-[min(calc(100%-2rem),78rem)]">
       <div class="max-w-4xl">
         <AppHeading as="h2" size="page" :accent="true" class="m-0 whitespace-pre-line [word-spacing:0.12em]">

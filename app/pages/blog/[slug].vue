@@ -68,7 +68,7 @@ function formatDate(value: string | null) {
       </header>
 
       <figure class="mx-auto max-w-[96rem] px-0 sm:px-10 desktop:px-page">
-        <img :src="post!.cover.src" :alt="post!.cover.alt" class="aspect-[16/9] w-full bg-[#eaf4ff] object-cover" fetchpriority="high">
+        <img :src="post!.cover.src" :alt="post!.cover.alt" class="aspect-[16/9] w-full bg-[#eaf4ff] object-cover dark:bg-[#10233d]" fetchpriority="high">
       </figure>
 
       <div class="mx-auto grid max-w-[78rem] gap-[clamp(3rem,7vw,6rem)] px-6 py-[clamp(4rem,9vw,8rem)] sm:px-10">
@@ -80,12 +80,12 @@ function formatDate(value: string | null) {
             <BlogRichText :node="section.content" />
           </div>
           <figure v-else class="w-full">
-            <img :src="section.image.src" :alt="section.image.alt" class="max-h-[50rem] w-full bg-[#eaf4ff] object-cover" loading="lazy">
+            <img :src="section.image.src" :alt="section.image.alt" class="max-h-[50rem] w-full bg-[#eaf4ff] object-cover dark:bg-[#10233d]" loading="lazy">
             <figcaption v-if="section.caption" class="mt-3 text-sm leading-relaxed text-muted">{{ section.caption }}</figcaption>
           </figure>
         </template>
         <div class="mx-auto flex w-full max-w-[48rem] flex-wrap items-center justify-between gap-5 border-t border-ink/15 pt-7">
-          <NuxtLink to="/blog" class="flex min-h-11 cursor-pointer items-center gap-3 border border-ink/20 bg-white px-4 font-display text-xs font-extrabold text-ink uppercase transition hover:border-accent hover:bg-accent hover:text-white"><ArrowLeft class="size-4" />Вернуться в блог</NuxtLink>
+          <NuxtLink to="/blog" class="flex min-h-11 cursor-pointer items-center gap-3 border border-ink/20 bg-panel px-4 font-display text-xs font-extrabold text-ink uppercase transition hover:border-accent hover:bg-accent hover:text-white"><ArrowLeft class="size-4" />Вернуться в блог</NuxtLink>
           <ShareBlogPost :title="post!.title" :text="post!.excerpt" :url="canonicalUrl" />
         </div>
       </div>

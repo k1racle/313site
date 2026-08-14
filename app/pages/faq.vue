@@ -29,7 +29,7 @@ useSeoMeta({
 <template>
   <PageLongScreen>
     <div class="min-h-[inherit] overflow-clip bg-page text-ink">
-      <header class="border-b border-ink/10 bg-[#eaf4ff]">
+      <header class="border-b border-ink/10 bg-[#eaf4ff] dark:bg-[#10233d]">
         <div class="mx-auto w-[min(calc(100%-3rem),78rem)] sm:w-[min(calc(100%-5rem),78rem)] max-[30rem]:w-[min(calc(100%-2rem),78rem)]">
           <div class="flex items-center gap-2.5 pt-[clamp(2rem,5vw,4rem)] text-xs font-bold tracking-[0.12em] text-muted uppercase">
             <NuxtLink to="/" class="transition hover:text-accent">Studio 313</NuxtLink>

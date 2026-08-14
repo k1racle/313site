@@ -36,7 +36,7 @@ const { socialLinks } = useSiteSocials()
 
         <NuxtLink
           to="/contacts"
-          class="flex min-h-11 cursor-pointer items-center gap-3 border border-white bg-white px-5 font-display text-xs font-extrabold text-ink uppercase transition hover:border-ink hover:bg-ink hover:text-white"
+          class="flex min-h-11 cursor-pointer items-center gap-3 border border-white bg-white px-5 font-display text-xs font-extrabold text-[#07101f] uppercase transition hover:border-accent hover:bg-accent hover:text-white"
         >
           Контакты
           <ArrowUpRight class="size-4" aria-hidden="true" />

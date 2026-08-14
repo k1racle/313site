@@ -24,7 +24,7 @@ function formatDate(value: string | null) {
 <template>
   <PageLongScreen as="main">
     <div class="min-h-[inherit] bg-page text-ink">
-      <header class="border-b border-ink/10 bg-[#eaf4ff] px-6 sm:px-10 desktop:px-page">
+      <header class="border-b border-ink/10 bg-[#eaf4ff] px-6 dark:bg-[#10233d] sm:px-10 desktop:px-page">
         <div class="mx-auto max-w-[96rem] py-[clamp(3rem,8vw,7rem)]">
           <div class="flex items-center gap-2.5 text-xs font-bold tracking-[0.12em] text-muted uppercase">
             <NuxtLink to="/" class="transition hover:text-accent">Studio 313</NuxtLink><ChevronRight class="size-3.5" /><span>Блог</span>
@@ -49,7 +49,7 @@ function formatDate(value: string | null) {
                 <span class="grid size-11 place-items-center border border-ink/15 transition group-hover:border-accent group-hover:bg-accent group-hover:text-white"><ArrowUpRight class="size-5" /></span>
               </div>
             </div>
-            <div class="order-1 overflow-hidden bg-[#eaf4ff] md:order-2 md:my-[clamp(2rem,4vw,3rem)]">
+            <div class="order-1 overflow-hidden bg-[#eaf4ff] dark:bg-[#10233d] md:order-2 md:my-[clamp(2rem,4vw,3rem)]">
               <img :src="post.cover.src" :alt="post.cover.alt" class="aspect-[4/3] size-full object-cover transition duration-500 group-hover:scale-[1.025] md:aspect-auto" loading="lazy">
             </div>
           </article>

@@ -60,10 +60,11 @@ useSeoMeta({
       @active-change="activeSectionIndex = $event"
     >
     <section id="intro" data-page-section class="flex min-h-full flex-col overflow-hidden bg-page text-ink">
-        <div class="grid min-h-0 flex-1 grid-rows-[auto_minmax(12rem,1fr)] desktop:grid-cols-[minmax(0,.9fr)_minmax(25rem,1.1fr)] desktop:grid-rows-1">
+        <div class="mx-auto grid min-h-0 w-full max-w-[96rem] flex-1 grid-rows-[auto_minmax(12rem,1fr)] desktop:grid-cols-[minmax(0,.9fr)_minmax(25rem,1.1fr)] desktop:grid-rows-1">
           <div class="flex min-w-0 flex-col items-start justify-center px-6 py-8 text-left sm:px-10 desktop:px-page desktop:py-12">
             <h1 class="sr-only">Studio 313</h1>
-            <img src="/brand/logo-black.svg" alt="Studio 313" class="h-auto w-[min(68vw,25rem)] desktop:w-[min(30vw,26rem)]">
+            <img src="/brand/logo-black.svg" alt="Studio 313" class="h-auto w-[min(68vw,25rem)] dark:hidden desktop:w-[min(30vw,26rem)]">
+            <img src="/brand/logo-white.svg" alt="" class="hidden h-auto w-[min(68vw,25rem)] dark:block desktop:w-[min(30vw,26rem)]" aria-hidden="true">
             <p class="mt-[clamp(1.5rem,4vh,3rem)] max-w-xl text-base leading-relaxed text-muted sm:text-lg desktop:text-xl">
               {{ home.introText }}
             </p>
@@ -92,7 +93,7 @@ useSeoMeta({
               alt="Съёмочная зона Studio 313 с камерой, светом и микрофонами"
               class="aspect-[44/29] w-full max-w-[55rem] border-[clamp(.25rem,.7vw,.625rem)] border-accent object-cover"
               fetchpriority="high"
-            />
+            >
           </div>
         </div>
 
@@ -109,34 +110,49 @@ useSeoMeta({
         </div>
     </section>
 
-    <section id="studio" data-page-section class="grid min-h-full bg-white text-ink desktop:grid-cols-[minmax(0,0.9fr)_minmax(25rem,1.1fr)]">
-        <div class="flex flex-col justify-center px-6 py-12 sm:px-10 desktop:px-page desktop:py-16">
-          <AppHeading as="h2" size="section" :accent="true" class="max-w-2xl">
-            Всё для сильного разговора
-          </AppHeading>
-          <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-            Несколько выразительных зон, профессиональный свет, камеры 4K и чистый звук. Команда помогает подготовиться и уверенно провести запись.
-          </p>
-          <AppButton
-            behaviour="link"
-            variant="ghost"
-            to="/about"
-            class="mt-8 w-fit"
-          >
-            О студии
-            <ArrowRight class="size-5" aria-hidden="true" />
-          </AppButton>
-        </div>
+    <section id="studio" data-page-section class="relative isolate flex min-h-full overflow-hidden bg-panel text-ink">
         <NuxtImg
           src="/media/photos/studio/tild3738-3939-4665-a136-636165303436__7-7.jpg"
-          alt="Интерьер съёмочного пространства Studio 313"
-          class="h-72 w-full object-cover sm:h-96 desktop:h-full desktop:min-h-full"
-          sizes="100vw xl:55vw"
+          alt=""
+          aria-hidden="true"
+          class="absolute inset-0 -z-20 size-full object-cover"
+          sizes="100vw"
           loading="lazy"
         />
+        <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(255,255,255,.97)_0%,rgba(245,250,255,.9)_58%,rgba(234,244,255,.78)_100%)] dark:bg-[linear-gradient(90deg,rgba(11,22,39,.97)_0%,rgba(11,22,39,.92)_58%,rgba(19,35,58,.82)_100%)]" />
+
+        <div class="mx-auto grid min-h-full w-full max-w-[96rem] desktop:grid-cols-[minmax(0,0.9fr)_minmax(25rem,1.1fr)]">
+          <div class="flex flex-col justify-center px-6 py-12 sm:px-10 desktop:px-page desktop:py-16">
+            <AppHeading as="h2" size="section" :accent="true" class="max-w-2xl">
+              Всё для сильного разговора
+            </AppHeading>
+            <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted">
+              Несколько выразительных зон, профессиональный свет, камеры 4K и чистый звук. Команда помогает подготовиться и уверенно провести запись.
+            </p>
+            <AppButton
+              behaviour="link"
+              variant="ghost"
+              to="/about"
+              class="mt-8 w-fit"
+            >
+              О студии
+              <ArrowRight class="size-5" aria-hidden="true" />
+            </AppButton>
+          </div>
+          <figure class="flex min-h-72 items-center justify-center px-6 py-8 sm:px-10 desktop:min-h-0 desktop:px-page desktop:py-16">
+            <NuxtImg
+              src="/media/photos/studio/tild3738-3939-4665-a136-636165303436__7-7.jpg"
+              alt="Интерьер съёмочного пространства Studio 313"
+              class="aspect-[44/29] w-full max-w-[55rem] border-[clamp(.25rem,.7vw,.625rem)] border-accent object-cover shadow-panel"
+              sizes="100vw xl:48vw"
+              loading="lazy"
+            />
+          </figure>
+        </div>
     </section>
 
-    <section id="production" data-page-section class="flex min-h-full flex-col justify-center bg-[#eaf4ff] px-6 py-12 text-ink sm:px-10 desktop:px-page desktop:py-16">
+    <section id="production" data-page-section class="flex min-h-full flex-col justify-center bg-[#eaf4ff] px-6 py-12 text-ink dark:bg-[#10233d] sm:px-10 desktop:px-page desktop:py-16">
+      <div class="mx-auto w-full max-w-[96rem]">
         <AppHeading as="h2" size="section" :accent="true" class="max-w-4xl">
           Производство под ключ
         </AppHeading>
@@ -174,6 +190,7 @@ useSeoMeta({
             <ArrowUpRight class="size-5" aria-hidden="true" />
           </AppButton>
         </div>
+      </div>
     </section>
     </PageFullscreen>
 

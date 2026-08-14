@@ -28,7 +28,7 @@ useSeoMeta({
 
 <template>
   <PageLongScreen v-if="category" as="main" class="case-category-page bg-page text-copy">
-    <header class="relative overflow-hidden bg-[#eaf4ff] px-5 pt-6 pb-9 text-ink sm:px-8 sm:pt-8 sm:pb-12 desktop:px-page desktop:pt-10 desktop:pb-16">
+    <header class="relative overflow-hidden bg-[#eaf4ff] px-5 pt-6 pb-9 text-ink dark:bg-[#10233d] sm:px-8 sm:pt-8 sm:pb-12 desktop:px-page desktop:pt-10 desktop:pb-16">
       <div class="absolute top-0 right-0 h-px w-1/3 bg-accent" />
 
       <AppButton

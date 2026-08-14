@@ -22,7 +22,7 @@ watch(isMobileOpen, async (open, wasOpen) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-page text-copy">
+  <div class="site-theme min-h-screen bg-page text-copy transition-colors duration-300">
     <DesktopSidebar :collapsed="isCollapsed" @toggle="toggleCollapsed" />
 
     <main

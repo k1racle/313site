@@ -28,7 +28,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <main class="flex min-h-[calc(100dvh-var(--mobile-dock-height))] items-start justify-center bg-white desktop:min-h-dvh">
+  <main class="flex min-h-[calc(100dvh-var(--mobile-dock-height))] items-start justify-center bg-panel desktop:min-h-dvh">
     <iframe
       v-if="settings.bookingWidget && widgetSrc"
       :src="widgetSrc"

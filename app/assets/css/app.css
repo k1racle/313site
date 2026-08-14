@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: "TT Firs ExtraBold";
   src: url("/fonts/TTFirs-ExtraBold.woff") format("woff");
@@ -72,6 +74,21 @@
   --duration-base: 0.28s;
   --duration-slow: 0.42s;
   --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.site-theme {
+  color-scheme: light;
+}
+
+.dark .site-theme {
+  color-scheme: dark;
+  --color-ink: #f4f8ff;
+  --color-copy: #dce7f6;
+  --color-muted: rgb(220 231 246 / 68%);
+  --color-soft: rgb(180 211 255 / 10%);
+  --color-page: #0b1627;
+  --color-panel: #13233a;
+  --shadow-panel: 0 1.5rem 4.375rem rgb(0 0 0 / 28%);
 }
 
 @layer base {

@@ -54,7 +54,7 @@ const { socialLinks } = useSiteSocials()
         </PageFullscreenContent>
       </div>
 
-      <div class="relative flex min-h-0 flex-col justify-between overflow-hidden bg-[#eaf4ff] px-6 pt-8 text-ink sm:px-10 desktop:px-page desktop:pt-14">
+      <div class="relative flex min-h-0 flex-col justify-between overflow-hidden bg-[#eaf4ff] px-6 pt-8 text-ink dark:bg-[#10233d] sm:px-10 desktop:px-page desktop:pt-14">
         <div class="pointer-events-none absolute -right-24 -bottom-28 font-display text-[18rem] leading-none font-extrabold text-accent/[0.06]" aria-hidden="true">
           313
         </div>

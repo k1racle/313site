@@ -41,7 +41,7 @@ watch(() => props.activeIndex, async (index) => {
 
 <template>
   <nav
-    class="section-timeline z-30 border-t border-ink/10 bg-white/95 text-ink shadow-[0_-1rem_3rem_rgba(7,16,31,.08)] backdrop-blur-[1.25rem]"
+    class="section-timeline z-30 border-t border-ink/10 bg-panel/95 text-ink shadow-[0_-1rem_3rem_rgba(7,16,31,.08)] backdrop-blur-[1.25rem]"
     :class="fixed
       ? 'fixed inset-x-0 bottom-[var(--mobile-dock-height)] desktop:bottom-0 desktop:left-[var(--layout-sidebar-width,var(--sidebar-width))] desktop:transition-[left] desktop:duration-[var(--duration-slow)] desktop:ease-studio'
       : 'absolute inset-x-0 bottom-0'"
@@ -52,8 +52,8 @@ watch(() => props.activeIndex, async (index) => {
         v-for="(section, index) in sections"
         :key="section.id"
         type="button"
-        class="grid min-w-0 flex-1 cursor-pointer grid-rows-[auto_1fr] overflow-hidden border-0 border-r border-ink/10 bg-white px-4 pt-[.45rem] pb-[.4rem] text-muted transition-[flex-grow,color,background-color] duration-[var(--duration-slow)] ease-studio last:border-r-0 hover:bg-[#eaf4ff] hover:text-ink"
-        :class="{ '[flex-grow:1.14] bg-[#eaf4ff] !text-accent': index === activeIndex }"
+        class="grid min-w-0 flex-1 cursor-pointer grid-rows-[auto_1fr] overflow-hidden border-0 border-r border-ink/10 bg-panel px-4 pt-[.45rem] pb-[.4rem] text-muted transition-[flex-grow,color,background-color] duration-[var(--duration-slow)] ease-studio last:border-r-0 hover:bg-soft hover:text-ink"
+        :class="{ '[flex-grow:1.14] bg-soft !text-accent': index === activeIndex }"
         :aria-current="index === activeIndex ? 'step' : undefined"
         :aria-label="`Перейти к разделу ${section.label}`"
         @click="selectSection(index)"

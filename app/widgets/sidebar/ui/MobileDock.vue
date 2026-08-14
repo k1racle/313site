@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Menu, X } from 'lucide-vue-next'
 import { contactDetails } from '~/config/contacts'
+import ThemeToggle from '~/features/theme/ui/ThemeToggle.vue'
 
 defineProps<{
   open: boolean
@@ -28,10 +29,11 @@ defineExpose({
         class="flex min-h-12 min-w-0 items-center"
         aria-label="Studio 313, на главную"
       >
-        <img src="/brand/logo-white.svg" alt="Studio 313" class="h-auto w-36 max-w-[52vw]">
+        <img src="/brand/logo-white.svg" alt="Studio 313" class="h-auto w-28 max-w-[38vw] sm:w-36 sm:max-w-[52vw]">
       </NuxtLink>
 
       <div class="flex shrink-0 items-center gap-1">
+        <ThemeToggle class="size-12 border-0" />
         <a
           :href="contactDetails.phone.href"
           class="grid size-12 place-items-center text-white transition hover:bg-white/15"

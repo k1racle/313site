@@ -34,6 +34,10 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: { lang: 'ru' },
       title: siteName,
+      script: [{
+        innerHTML: `(function(){try{var theme=localStorage.getItem('studio313-theme')||'system';var dark=theme==='dark'||(theme==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',dark);document.documentElement.dataset.theme=theme}catch(_){}})()`,
+        tagPosition: 'head',
+      }],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: siteDescription },

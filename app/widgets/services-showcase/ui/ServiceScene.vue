@@ -40,7 +40,7 @@ const titleSizeClass = computed(() => ({
       :preload="index === 0"
       :loading="index === 0 ? 'eager' : 'lazy'"
     />
-    <div class="absolute inset-0 -z-20 size-full bg-[linear-gradient(90deg,rgba(255,255,255,.98)_0%,rgba(245,250,255,.94)_50%,rgba(234,244,255,.72)_100%)]" />
+    <div class="absolute inset-0 -z-20 size-full bg-[linear-gradient(90deg,rgba(255,255,255,.98)_0%,rgba(245,250,255,.94)_50%,rgba(234,244,255,.72)_100%)] dark:bg-[linear-gradient(90deg,rgba(11,22,39,.98)_0%,rgba(11,22,39,.94)_50%,rgba(19,35,58,.8)_100%)]" />
 
     <div
       class="absolute right-[-4vw] bottom-[13%] -z-10 flex h-[17rem] w-[min(42vw,38rem)] skew-x-[-9deg] items-center gap-[clamp(.25rem,.7vw,.75rem)] opacity-[.13]"

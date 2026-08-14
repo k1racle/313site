@@ -14,7 +14,7 @@ defineProps<{
 <template>
   <PageLongScreen as="section">
     <div id="service-pricing" class="min-h-[inherit] bg-page text-copy">
-      <header class="bg-[#eaf4ff] text-ink">
+      <header class="bg-[#eaf4ff] text-ink dark:bg-[#10233d]">
         <div class="mx-auto w-[min(calc(100%-3rem),78rem)] sm:w-[min(calc(100%-5rem),78rem)] max-[35rem]:w-[min(calc(100%-2rem),78rem)]">
           <div class="grid items-end gap-[clamp(2.5rem,7vw,7rem)] py-[clamp(5rem,11vw,9rem)] pb-[clamp(4rem,8vw,7rem)] sm:grid-cols-[minmax(0,1.4fr)_minmax(18rem,.6fr)]">
             <AppHeading as="h2" size="hero" :accent="true" class="m-0 whitespace-pre-line">{{ priceList.title }}</AppHeading>
@@ -54,7 +54,7 @@ defineProps<{
         </div>
       </div>
 
-      <footer class="bg-[#eaf4ff] pb-[5.75rem] text-ink">
+      <footer class="bg-[#eaf4ff] pb-[5.75rem] text-ink dark:bg-[#10233d]">
         <SiteCallToAction
           :title="'Расскажите, что\nхотите записать.'"
           button-label="Связаться с нами"

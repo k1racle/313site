@@ -4,6 +4,7 @@ import { contactItems } from '~/config/contacts'
 import { bookingPage } from '~/config/navigation'
 import { useSiteNavigation } from '~/features/navigation/model/useSiteNavigation'
 import { useSiteSocials } from '~/features/socials/model/useSiteSocials'
+import ThemeToggle from '~/features/theme/ui/ThemeToggle.vue'
 import AppButton from '~/shared/ui/AppButton.vue'
 import AppIconButton from '~/shared/ui/AppIconButton.vue'
 import SocialBrandIcon from '~/shared/ui/SocialBrandIcon.vue'
@@ -130,19 +131,22 @@ const { socialLinks } = useSiteSocials()
           </component>
         </div>
 
-        <div class="mt-3 flex items-center gap-1" aria-label="Социальные сети">
-          <a
-            v-for="social in socialLinks"
-            :key="social.label"
-            :href="social.href"
-            :target="social.href === '#' ? undefined : '_blank'"
-            :rel="social.href === '#' ? undefined : 'noopener noreferrer'"
-            :aria-label="social.label"
-            :title="social.label"
-            class="grid size-10 place-items-center text-white/80 transition hover:bg-white/15 hover:text-white"
-          >
-            <SocialBrandIcon :name="social.icon" class="size-5" aria-hidden="true" />
-          </a>
+        <div class="mt-3 flex items-center justify-between gap-2">
+          <div class="flex items-center gap-1" aria-label="Социальные сети">
+            <a
+              v-for="social in socialLinks"
+              :key="social.label"
+              :href="social.href"
+              :target="social.href === '#' ? undefined : '_blank'"
+              :rel="social.href === '#' ? undefined : 'noopener noreferrer'"
+              :aria-label="social.label"
+              :title="social.label"
+              class="grid size-10 place-items-center text-white/80 transition hover:bg-white/15 hover:text-white"
+            >
+              <SocialBrandIcon :name="social.icon" class="size-5" aria-hidden="true" />
+            </a>
+          </div>
+          <ThemeToggle />
         </div>
 
         <AppButton
@@ -156,15 +160,17 @@ const { socialLinks } = useSiteSocials()
         </AppButton>
       </div>
 
-      <NuxtLink
-        v-else
-        :to="bookingPage.to"
-        :aria-label="bookingPage.label"
-        :title="bookingPage.label"
-        class="mt-4 grid size-13 shrink-0 place-items-center bg-white text-ink shadow-accent transition hover:-translate-y-0.5 hover:text-accent"
-      >
-        <component :is="bookingPage.icon" class="size-6" aria-hidden="true" />
-      </NuxtLink>
+      <template v-else>
+        <ThemeToggle class="mt-4" />
+        <NuxtLink
+          :to="bookingPage.to"
+          :aria-label="bookingPage.label"
+          :title="bookingPage.label"
+          class="mt-2 grid size-13 shrink-0 place-items-center bg-panel text-ink shadow-accent transition hover:-translate-y-0.5 hover:text-accent"
+        >
+          <component :is="bookingPage.icon" class="size-6" aria-hidden="true" />
+        </NuxtLink>
+      </template>
     </div>
   </aside>
 </template>

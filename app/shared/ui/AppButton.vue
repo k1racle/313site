@@ -21,7 +21,7 @@ const props = withDefaults(defineProps<{
 const component = computed(() => props.behaviour === 'link' ? resolveComponent('NuxtLink') : 'button')
 const variantClass = computed(() => ({
   primary: 'border border-accent bg-accent text-white shadow-accent hover:border-accent-600 hover:bg-accent-600',
-  secondary: 'border border-accent bg-white text-ink hover:bg-accent hover:text-white',
+  secondary: 'border border-accent bg-panel text-ink hover:bg-accent hover:text-white',
   ghost: 'border border-ink/20 bg-transparent text-ink hover:border-accent hover:text-accent',
 }[props.variant]))
 </script>

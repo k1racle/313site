@@ -1,7 +1,9 @@
 export interface BookingWidgetDefinition {
   src: string
+  title: string
   width: number
   height: number
+  minHeight: number
 }
 
 export interface SiteSettings {

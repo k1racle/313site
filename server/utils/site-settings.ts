@@ -3,7 +3,8 @@ import type { BookingWidgetDefinition, SiteSettings } from '~~/shared/types/site
 const SETTINGS_ID = 'main'
 const MAX_WIDGET_CODE_LENGTH = 10000
 const DEFAULT_WIDGET_WIDTH = 400
-const DEFAULT_WIDGET_HEIGHT = 500
+const DEFAULT_WIDGET_HEIGHT = 760
+const DEFAULT_WIDGET_TITLE = 'Онлайн-запись Studio 313'
 
 function decodeHtmlAttribute(value: string) {
   return value
@@ -23,8 +24,36 @@ function parseDimension(value: string | undefined, fallback: number) {
   return dimension >= 100 && dimension <= 2000 ? dimension : fallback
 }
 
+function parsePixelDimension(value: string | undefined, fallback: number) {
+  if (!value) return fallback
+
+  const match = value.trim().match(/^(\d{2,4})(?:px)?$/i)
+  if (!match?.[1]) return fallback
+
+  const dimension = Number(match[1])
+  return dimension >= 100 && dimension <= 2000 ? dimension : fallback
+}
+
+function parseInlineStyles(value: string | undefined) {
+  const declarations = new Map<string, string>()
+  if (!value) return declarations
+
+  for (const declaration of value.split(';')) {
+    const separatorIndex = declaration.indexOf(':')
+    if (separatorIndex < 0) continue
+
+    const name = declaration.slice(0, separatorIndex).trim().toLowerCase()
+    const propertyValue = declaration.slice(separatorIndex + 1).trim()
+    if (!name || !propertyValue) continue
+
+    declarations.set(name, decodeHtmlAttribute(propertyValue))
+  }
+
+  return declarations
+}
+
 export function parseBookingWidgetCode(value: string): BookingWidgetDefinition | null {
-  const iframe = value.match(/^\s*<iframe\b([^<>]*)>\s*<\/iframe>\s*$/i)
+  const iframe = value.match(/<iframe\b([\s\S]*?)>\s*<\/iframe>/i)
   if (!iframe?.[1]) return null
 
   const attributes = new Map<string, string>()
@@ -42,15 +71,27 @@ export function parseBookingWidgetCode(value: string): BookingWidgetDefinition |
 
   if (attributeSource.slice(cursor).trim()) return null
 
+  const styles = parseInlineStyles(attributes.get('style'))
   const source = unwrapMarkdownLink(attributes.get('src')?.trim() || '')
+
   try {
     const url = new URL(source)
     if (url.protocol !== 'https:') return null
 
+    const minHeight = parsePixelDimension(
+      styles.get('min-height') ?? styles.get('height'),
+      DEFAULT_WIDGET_HEIGHT,
+    )
+
     return {
       src: url.toString(),
-      width: parseDimension(attributes.get('width'), DEFAULT_WIDGET_WIDTH),
-      height: parseDimension(attributes.get('height'), DEFAULT_WIDGET_HEIGHT),
+      title: attributes.get('title')?.trim() || DEFAULT_WIDGET_TITLE,
+      width: parseDimension(
+        attributes.get('width'),
+        parsePixelDimension(styles.get('max-width') ?? styles.get('width'), DEFAULT_WIDGET_WIDTH),
+      ),
+      height: parseDimension(attributes.get('height'), minHeight),
+      minHeight,
     }
   }
   catch {
@@ -82,7 +123,7 @@ export async function writeSiteSettings(value: unknown): Promise<SiteSettings> {
   if (bookingWidgetCode && !bookingWidget) {
     throw createError({
       statusCode: 400,
-      statusMessage: 'Вставьте корректный iframe с HTTPS-адресом виджета',
+      statusMessage: 'Вставьте корректный код CRM-виджета с iframe и HTTPS-адресом',
     })
   }
 

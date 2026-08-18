@@ -57,7 +57,7 @@ const titleSizeClass = computed(() => ({
     <PageFullscreenContent
       class="service-fullscreen-content flex flex-col px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(1.75rem,4vw,3.75rem)] max-[35rem]:px-5 max-[35rem]:pt-6"
     >
-      <div class="grid flex-1 content-end items-end gap-[clamp(2rem,4vw,4.5rem)] desktop:grid-cols-[minmax(0,0.85fr)_minmax(24rem,1.15fr)] desktop:content-start desktop:items-start max-[35rem]:gap-5">
+      <div class="grid flex-1 content-center items-center gap-[clamp(2rem,4vw,4.5rem)] desktop:grid-cols-[minmax(0,0.85fr)_minmax(24rem,1.15fr)] desktop:content-center desktop:items-center max-[35rem]:gap-5">
         <div class="min-w-0">
           <AppHeading
             :as="headingTag"
@@ -101,7 +101,7 @@ const titleSizeClass = computed(() => ({
           </div>
         </div>
 
-        <div class="w-full self-end border-y border-ink/20 desktop:mt-10 desktop:max-w-2xl desktop:self-start">
+        <div class="w-full self-center border-y border-ink/20 desktop:mt-10 desktop:max-w-2xl desktop:self-center">
           <div class="flex items-center justify-between border-b border-ink/10 py-3 text-[.62rem] font-bold tracking-[.12em] text-muted uppercase max-[35rem]:py-2 max-[35rem]:text-[.56rem]">
             <span>Включено</span>
             <span>{{ String(service.features.length).padStart(2, '0') }} позиций</span>

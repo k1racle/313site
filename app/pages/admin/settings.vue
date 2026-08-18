@@ -54,7 +54,7 @@ async function save() {
 
     <AdminPanel
       title="Виджет CRM"
-      description="Вставьте полный iframe-код, выданный CRM. Поддерживаются виджеты с HTTPS-адресом."
+      description="Вставьте код виджета из CRM целиком: можно iframe, можно div + iframe + script. Сайт возьмёт iframe, растянет его по контейнеру страницы и поддержит авто-высоту через postMessage."
       class="max-w-4xl"
     >
       <label class="grid gap-2">
@@ -65,7 +65,7 @@ async function save() {
           maxlength="10000"
           spellcheck="false"
           class="w-full resize-y border border-ink/15 bg-page px-4 py-3 font-mono text-sm leading-relaxed text-ink outline-none transition placeholder:text-muted/60 focus:border-accent focus:ring-4 focus:ring-accent/10"
-          placeholder='<iframe src="https://crm.ideawinemaker.ru/api/booking/widget/" width="400" height="500"></iframe>'
+          placeholder='<div style="width:100%;max-width:1180px;"><iframe src="https://crm.ideawinemaker.ru/api/booking/widget/" title="Виджет записи Studio 313" style="display:block;width:100%;min-height:760px;border:0;overflow:hidden;"></iframe></div>'
         />
       </label>
       <p class="mt-3 text-xs leading-relaxed text-muted">

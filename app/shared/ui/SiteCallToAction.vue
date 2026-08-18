@@ -7,11 +7,18 @@ import AppHeading from '~/shared/ui/AppHeading.vue'
 withDefaults(defineProps<{
   title: string
   buttonLabel: string
-  to: RouteLocationRaw
+  to?: RouteLocationRaw
+  buttonBehaviour?: 'button' | 'link'
   description?: string
 }>(), {
+  to: undefined,
+  buttonBehaviour: 'link',
   description: '',
 })
+
+defineEmits<{
+  click: [event: MouseEvent]
+}>()
 </script>
 
 <template>
@@ -26,7 +33,12 @@ withDefaults(defineProps<{
         </p>
       </div>
 
-      <AppButton behaviour="link" :to="to" class="min-h-14 w-fit shrink-0 text-xs">
+      <AppButton
+        :behaviour="buttonBehaviour"
+        :to="buttonBehaviour === 'link' ? to : undefined"
+        class="min-h-14 w-fit shrink-0 text-xs"
+        @click="$emit('click', $event)"
+      >
         {{ buttonLabel }}
         <ArrowRight class="size-4.5" aria-hidden="true" />
       </AppButton>

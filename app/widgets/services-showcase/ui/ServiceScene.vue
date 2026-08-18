@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ArrowDown, ArrowUpRight, Check } from 'lucide-vue-next'
+import { useBookingModal } from '~/features/booking/model/useBookingModal'
 import type { FeaturedService } from '~/entities/service/model/types'
 import AppButton from '~/shared/ui/AppButton.vue'
 import AppHeading from '~/shared/ui/AppHeading.vue'
@@ -20,13 +21,15 @@ const titleSizeClass = computed(() => ({
   md: 'text-[clamp(2.25rem,3.7vw,4.3rem)]',
   sm: 'text-[clamp(2rem,3.2vw,3.7rem)]',
 }[getDisplayNameSize(props.service.title)]))
+
+const { openBookingModal } = useBookingModal()
 </script>
 
 <template>
   <section
     :id="service.id"
     data-page-section
-    class="relative isolate min-h-full overflow-hidden bg-page text-ink"
+    class="relative isolate flex min-h-full flex-col overflow-hidden bg-page text-ink"
   >
     <NuxtImg
       :src="service.image"
@@ -55,7 +58,7 @@ const titleSizeClass = computed(() => ({
     </div>
 
     <PageFullscreenContent
-      class="service-fullscreen-content flex flex-col px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(1.75rem,4vw,3.75rem)] max-[35rem]:px-5 max-[35rem]:pt-6"
+      class="service-fullscreen-content flex min-h-full flex-1 flex-col px-[clamp(1.5rem,5vw,5rem)] pt-[clamp(1.75rem,4vw,3.75rem)] max-[35rem]:px-5 max-[35rem]:pt-6"
     >
       <div class="grid flex-1 content-center items-center gap-[clamp(2rem,4vw,4.5rem)] desktop:grid-cols-[minmax(0,0.85fr)_minmax(24rem,1.15fr)] desktop:content-center desktop:items-center max-[35rem]:gap-5">
         <div class="min-w-0">
@@ -81,8 +84,7 @@ const titleSizeClass = computed(() => ({
             </div>
             <div class="flex flex-wrap gap-2.5">
               <AppButton
-                behaviour="link"
-                :to="'/booking?service=' + encodeURIComponent(service.title.replace(/\s+/g, ' ').trim())"
+                @click="openBookingModal(service.title.replace(/\s+/g, ' ').trim())"
                 class="max-[35rem]:min-h-10 max-[35rem]:px-3.5 max-[35rem]:text-[.58rem]"
               >
                 {{ service.actionLabel }}

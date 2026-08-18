@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BookingWidgetModal from '~/features/booking/ui/BookingWidgetModal.vue'
 import { useSidebar } from '~/widgets/sidebar/model/useSidebar'
 import DesktopSidebar from '~/widgets/sidebar/ui/DesktopSidebar.vue'
 import MobileDock from '~/widgets/sidebar/ui/MobileDock.vue'
@@ -35,5 +36,6 @@ watch(isMobileOpen, async (open, wasOpen) => {
 
     <MobileMenu :open="isMobileOpen" @close="closeMobileMenu" />
     <MobileDock ref="mobileDock" :open="isMobileOpen" @toggle="toggleMobileMenu" />
+    <BookingWidgetModal />
   </div>
 </template>

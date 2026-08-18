@@ -2,6 +2,7 @@
 import { ChevronRight, PanelLeftClose, PanelLeftOpen } from 'lucide-vue-next'
 import { contactItems } from '~/config/contacts'
 import { bookingPage } from '~/config/navigation'
+import { useBookingModal } from '~/features/booking/model/useBookingModal'
 import { useSiteNavigation } from '~/features/navigation/model/useSiteNavigation'
 import { useSiteSocials } from '~/features/socials/model/useSiteSocials'
 import ThemeToggle from '~/features/theme/ui/ThemeToggle.vue'
@@ -19,6 +20,7 @@ defineEmits<{
 
 const { isActive, navigationItems } = useSiteNavigation()
 const { socialLinks } = useSiteSocials()
+const { openBookingModal } = useBookingModal()
 </script>
 
 <template>
@@ -150,10 +152,9 @@ const { socialLinks } = useSiteSocials()
         </div>
 
         <AppButton
-          behaviour="link"
           variant="secondary"
-          :to="bookingPage.to"
           class="mt-3 w-full px-4"
+          @click="openBookingModal()"
         >
           <component :is="bookingPage.icon" class="size-5" aria-hidden="true" />
           {{ bookingPage.label }}
@@ -162,14 +163,15 @@ const { socialLinks } = useSiteSocials()
 
       <template v-else>
         <ThemeToggle class="mt-4" />
-        <NuxtLink
-          :to="bookingPage.to"
+        <button
+          type="button"
           :aria-label="bookingPage.label"
           :title="bookingPage.label"
           class="mt-2 grid size-13 shrink-0 place-items-center bg-panel text-ink shadow-accent transition hover:-translate-y-0.5 hover:text-accent"
+          @click="openBookingModal()"
         >
           <component :is="bookingPage.icon" class="size-6" aria-hidden="true" />
-        </NuxtLink>
+        </button>
       </template>
     </div>
   </aside>

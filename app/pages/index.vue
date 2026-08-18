@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ArrowRight, ArrowUpRight, CalendarCheck } from 'lucide-vue-next'
+import { useBookingModal } from '~/features/booking/model/useBookingModal'
 import AppButton from '~/shared/ui/AppButton.vue'
 import AppHeading from '~/shared/ui/AppHeading.vue'
 import PageFullscreen from '~/shared/ui/PageFullscreen.vue'
@@ -31,6 +32,7 @@ const homeSections = [
 ] as const
 
 const activeSectionIndex = ref(0)
+const { openBookingModal } = useBookingModal()
 
 function scrollToSection(index: number) {
   const section = homeSections[index]
@@ -70,8 +72,7 @@ useSeoMeta({
             </p>
             <div class="mt-7 flex flex-wrap gap-3">
               <AppButton
-                behaviour="link"
-                to="/booking"
+                @click="openBookingModal()"
               >
                 <CalendarCheck class="size-5" aria-hidden="true" />
                 Записаться

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useBookingModal } from '~/features/booking/model/useBookingModal'
 import AppHeading from '~/shared/ui/AppHeading.vue'
 import { getDisplayNameSize } from '~/shared/lib/display-name'
 import PageFullscreen from '~/shared/ui/PageFullscreen.vue'
@@ -12,6 +13,7 @@ const { data: about } = await useFetch<AboutContent>('/api/about', {
   default: createEmptyAboutContent,
 })
 const activeSectionIndex = ref(0)
+const { openBookingModal } = useBookingModal()
 const timelineSections = computed(() => [
   ...about.value.sections.map((section, index) => ({
     id: section.id,
@@ -112,8 +114,9 @@ useSeoMeta({
         :title="'Готовы записать\nсвой проект?'"
         description="Расскажите о задаче — мы поможем выбрать формат и подготовиться к записи."
         button-label="Записаться"
-        to="/booking"
+        button-behaviour="button"
         class="min-h-full pb-[calc(var(--page-content-safe-bottom)+clamp(4rem,9vw,8rem))]"
+        @click="openBookingModal()"
       />
     </PageFullscreen>
 

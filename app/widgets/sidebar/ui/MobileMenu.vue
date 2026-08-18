@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { contactItems } from '~/config/contacts'
 import { bookingPage } from '~/config/navigation'
+import { useBookingModal } from '~/features/booking/model/useBookingModal'
 import { useSiteNavigation } from '~/features/navigation/model/useSiteNavigation'
 import { useSiteSocials } from '~/features/socials/model/useSiteSocials'
 import AppButton from '~/shared/ui/AppButton.vue'
@@ -17,6 +18,7 @@ const emit = defineEmits<{
 const { isActive, navigationItems } = useSiteNavigation()
 const { socialLinks } = useSiteSocials()
 const menuRoot = useTemplateRef<HTMLElement>('menuRoot')
+const { openBookingModal } = useBookingModal()
 
 function focusableElements() {
   if (!menuRoot.value) return []
@@ -114,11 +116,9 @@ watch(() => props.open, async (open) => {
       </div>
 
       <AppButton
-        behaviour="link"
         variant="secondary"
-        :to="bookingPage.to"
         class="mt-6 min-h-13"
-        @click="$emit('close')"
+        @click="openBookingModal(); $emit('close')"
       >
         <component :is="bookingPage.icon" class="size-5" aria-hidden="true" />
         {{ bookingPage.label }}

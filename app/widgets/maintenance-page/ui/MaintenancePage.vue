@@ -9,7 +9,7 @@ const { data: contacts } = await useFetch<SiteContacts>('/api/contacts', {
 </script>
 
 <template>
-  <main class="site-theme min-h-screen bg-page text-copy">
+  <main class="min-h-screen bg-page text-copy">
     <div class="mx-auto grid min-h-screen w-full max-w-[90rem] items-stretch lg:grid-cols-[minmax(0,1.1fr)_minmax(24rem,0.9fr)]">
       <section class="flex min-h-[42vh] items-center border-b border-ink/10 bg-white px-6 py-14 sm:px-10 lg:min-h-screen lg:border-r lg:border-b-0 lg:px-[clamp(3rem,7vw,8rem)]">
         <img

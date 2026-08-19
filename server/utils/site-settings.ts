@@ -110,6 +110,7 @@ export async function readSiteSettings(): Promise<SiteSettings> {
   return {
     bookingWidgetCode,
     bookingWidget: parseBookingWidgetCode(bookingWidgetCode),
+    maintenanceModeEnabled: settings?.maintenanceModeEnabled ?? false,
   }
 }
 
@@ -119,6 +120,7 @@ export async function writeSiteSettings(value: unknown): Promise<SiteSettings> {
     : {}
   const bookingWidgetCode = normalizeWidgetCode(source.bookingWidgetCode)
   const bookingWidget = bookingWidgetCode ? parseBookingWidgetCode(bookingWidgetCode) : null
+  const maintenanceModeEnabled = source.maintenanceModeEnabled === true
 
   if (bookingWidgetCode && !bookingWidget) {
     throw createError({
@@ -129,9 +131,9 @@ export async function writeSiteSettings(value: unknown): Promise<SiteSettings> {
 
   await prisma.siteSettings.upsert({
     where: { id: SETTINGS_ID },
-    update: { bookingWidgetCode },
-    create: { id: SETTINGS_ID, bookingWidgetCode },
+    update: { bookingWidgetCode, maintenanceModeEnabled },
+    create: { id: SETTINGS_ID, bookingWidgetCode, maintenanceModeEnabled },
   })
 
-  return { bookingWidgetCode, bookingWidget }
+  return { bookingWidgetCode, bookingWidget, maintenanceModeEnabled }
 }

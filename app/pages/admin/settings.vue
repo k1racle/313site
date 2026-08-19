@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Check } from 'lucide-vue-next'
 import AdminPageHeader from '~/shared/ui/admin/AdminPageHeader.vue'
 import AdminPanel from '~/shared/ui/admin/AdminPanel.vue'
 import AdminSaveBar from '~/shared/ui/admin/AdminSaveBar.vue'
@@ -8,12 +9,15 @@ definePageMeta({ layout: 'admin' })
 useSeoMeta({ title: 'Настройки — Админка Studio 313', robots: 'noindex, nofollow, noarchive' })
 
 const { data } = await useFetch<SiteSettings>('/api/settings', { default: createEmptySiteSettings })
-const draft = reactive({ bookingWidgetCode: data.value.bookingWidgetCode })
+const draft = reactive({
+  bookingWidgetCode: data.value.bookingWidgetCode,
+  maintenanceModeEnabled: data.value.maintenanceModeEnabled,
+})
 const isSaving = ref(false)
 const saved = ref(false)
 const errorMessage = ref('')
 
-watch(() => draft.bookingWidgetCode, () => {
+watch([() => draft.bookingWidgetCode, () => draft.maintenanceModeEnabled], () => {
   saved.value = false
   errorMessage.value = ''
 })
@@ -29,6 +33,7 @@ async function save() {
       body: draft,
     })
     draft.bookingWidgetCode = result.bookingWidgetCode
+    draft.maintenanceModeEnabled = result.maintenanceModeEnabled
     await refreshNuxtData()
     saved.value = true
   }
@@ -49,8 +54,27 @@ async function save() {
     <AdminPageHeader
       eyebrow=""
       title="Настройки"
-      description="Общие интеграции сайта. Изменения виджета применяются на странице записи сразу после сохранения."
+      description="Общие параметры сайта и внешние интеграции. Изменения применяются сразу после сохранения."
     />
+
+    <AdminPanel
+      title="Заглушка сайта"
+      description="Когда режим включён, вместо всех публичных страниц показываются только логотип и актуальные контакты. Админка остаётся доступной."
+      class="max-w-4xl"
+    >
+      <label class="flex cursor-pointer items-center justify-between gap-5 border border-ink/10 bg-page p-4 sm:p-5">
+        <span>
+          <strong class="block text-sm font-bold text-ink">Показывать заглушку</strong>
+          <small class="mt-1 block text-xs leading-relaxed text-muted">После сохранения посетители не увидят основные страницы сайта.</small>
+        </span>
+        <span class="relative shrink-0">
+          <input v-model="draft.maintenanceModeEnabled" type="checkbox" class="peer sr-only">
+          <span class="grid size-8 place-items-center border border-ink/25 bg-white text-transparent transition peer-checked:border-accent peer-checked:bg-accent peer-checked:text-white">
+            <Check class="size-5" aria-hidden="true" />
+          </span>
+        </span>
+      </label>
+    </AdminPanel>
 
     <AdminPanel
       title="Виджет CRM"

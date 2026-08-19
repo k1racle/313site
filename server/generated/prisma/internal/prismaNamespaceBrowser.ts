@@ -150,6 +150,7 @@ export type ContactSettingsScalarFieldEnum = (typeof ContactSettingsScalarFieldE
 export const SiteSettingsScalarFieldEnum = {
   id: 'id',
   bookingWidgetCode: 'bookingWidgetCode',
+  maintenanceModeEnabled: 'maintenanceModeEnabled',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

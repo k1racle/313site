@@ -76,10 +76,11 @@ model ContactSettings {
 }
 
 model SiteSettings {
-  id                String   @id
-  bookingWidgetCode String   @default("")
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  id                     String   @id
+  bookingWidgetCode      String   @default("")
+  maintenanceModeEnabled Boolean  @default(false)
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
 
   @@map("site_settings")
 }

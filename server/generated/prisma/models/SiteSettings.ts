@@ -27,6 +27,7 @@ export type AggregateSiteSettings = {
 export type SiteSettingsMinAggregateOutputType = {
   id: string | null
   bookingWidgetCode: string | null
+  maintenanceModeEnabled: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -34,6 +35,7 @@ export type SiteSettingsMinAggregateOutputType = {
 export type SiteSettingsMaxAggregateOutputType = {
   id: string | null
   bookingWidgetCode: string | null
+  maintenanceModeEnabled: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -41,6 +43,7 @@ export type SiteSettingsMaxAggregateOutputType = {
 export type SiteSettingsCountAggregateOutputType = {
   id: number
   bookingWidgetCode: number
+  maintenanceModeEnabled: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -50,6 +53,7 @@ export type SiteSettingsCountAggregateOutputType = {
 export type SiteSettingsMinAggregateInputType = {
   id?: true
   bookingWidgetCode?: true
+  maintenanceModeEnabled?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -57,6 +61,7 @@ export type SiteSettingsMinAggregateInputType = {
 export type SiteSettingsMaxAggregateInputType = {
   id?: true
   bookingWidgetCode?: true
+  maintenanceModeEnabled?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -64,6 +69,7 @@ export type SiteSettingsMaxAggregateInputType = {
 export type SiteSettingsCountAggregateInputType = {
   id?: true
   bookingWidgetCode?: true
+  maintenanceModeEnabled?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -144,6 +150,7 @@ export type SiteSettingsGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 export type SiteSettingsGroupByOutputType = {
   id: string
   bookingWidgetCode: string
+  maintenanceModeEnabled: boolean
   createdAt: Date
   updatedAt: Date
   _count: SiteSettingsCountAggregateOutputType | null
@@ -172,6 +179,7 @@ export type SiteSettingsWhereInput = {
   NOT?: Prisma.SiteSettingsWhereInput | Prisma.SiteSettingsWhereInput[]
   id?: Prisma.StringFilter<"SiteSettings"> | string
   bookingWidgetCode?: Prisma.StringFilter<"SiteSettings"> | string
+  maintenanceModeEnabled?: Prisma.BoolFilter<"SiteSettings"> | boolean
   createdAt?: Prisma.DateTimeFilter<"SiteSettings"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SiteSettings"> | Date | string
 }
@@ -179,6 +187,7 @@ export type SiteSettingsWhereInput = {
 export type SiteSettingsOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   bookingWidgetCode?: Prisma.SortOrder
+  maintenanceModeEnabled?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -189,6 +198,7 @@ export type SiteSettingsWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.SiteSettingsWhereInput[]
   NOT?: Prisma.SiteSettingsWhereInput | Prisma.SiteSettingsWhereInput[]
   bookingWidgetCode?: Prisma.StringFilter<"SiteSettings"> | string
+  maintenanceModeEnabled?: Prisma.BoolFilter<"SiteSettings"> | boolean
   createdAt?: Prisma.DateTimeFilter<"SiteSettings"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SiteSettings"> | Date | string
 }, "id">
@@ -196,6 +206,7 @@ export type SiteSettingsWhereUniqueInput = Prisma.AtLeast<{
 export type SiteSettingsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   bookingWidgetCode?: Prisma.SortOrder
+  maintenanceModeEnabled?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.SiteSettingsCountOrderByAggregateInput
@@ -209,6 +220,7 @@ export type SiteSettingsScalarWhereWithAggregatesInput = {
   NOT?: Prisma.SiteSettingsScalarWhereWithAggregatesInput | Prisma.SiteSettingsScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"SiteSettings"> | string
   bookingWidgetCode?: Prisma.StringWithAggregatesFilter<"SiteSettings"> | string
+  maintenanceModeEnabled?: Prisma.BoolWithAggregatesFilter<"SiteSettings"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"SiteSettings"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"SiteSettings"> | Date | string
 }
@@ -216,6 +228,7 @@ export type SiteSettingsScalarWhereWithAggregatesInput = {
 export type SiteSettingsCreateInput = {
   id: string
   bookingWidgetCode?: string
+  maintenanceModeEnabled?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -223,6 +236,7 @@ export type SiteSettingsCreateInput = {
 export type SiteSettingsUncheckedCreateInput = {
   id: string
   bookingWidgetCode?: string
+  maintenanceModeEnabled?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -230,6 +244,7 @@ export type SiteSettingsUncheckedCreateInput = {
 export type SiteSettingsUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   bookingWidgetCode?: Prisma.StringFieldUpdateOperationsInput | string
+  maintenanceModeEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -237,6 +252,7 @@ export type SiteSettingsUpdateInput = {
 export type SiteSettingsUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   bookingWidgetCode?: Prisma.StringFieldUpdateOperationsInput | string
+  maintenanceModeEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -244,6 +260,7 @@ export type SiteSettingsUncheckedUpdateInput = {
 export type SiteSettingsCreateManyInput = {
   id: string
   bookingWidgetCode?: string
+  maintenanceModeEnabled?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -251,6 +268,7 @@ export type SiteSettingsCreateManyInput = {
 export type SiteSettingsUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   bookingWidgetCode?: Prisma.StringFieldUpdateOperationsInput | string
+  maintenanceModeEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -258,6 +276,7 @@ export type SiteSettingsUpdateManyMutationInput = {
 export type SiteSettingsUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   bookingWidgetCode?: Prisma.StringFieldUpdateOperationsInput | string
+  maintenanceModeEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -265,6 +284,7 @@ export type SiteSettingsUncheckedUpdateManyInput = {
 export type SiteSettingsCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   bookingWidgetCode?: Prisma.SortOrder
+  maintenanceModeEnabled?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -272,6 +292,7 @@ export type SiteSettingsCountOrderByAggregateInput = {
 export type SiteSettingsMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   bookingWidgetCode?: Prisma.SortOrder
+  maintenanceModeEnabled?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -279,8 +300,13 @@ export type SiteSettingsMaxOrderByAggregateInput = {
 export type SiteSettingsMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   bookingWidgetCode?: Prisma.SortOrder
+  maintenanceModeEnabled?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
 }
 
 
@@ -288,6 +314,7 @@ export type SiteSettingsMinOrderByAggregateInput = {
 export type SiteSettingsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   bookingWidgetCode?: boolean
+  maintenanceModeEnabled?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["siteSettings"]>
@@ -295,6 +322,7 @@ export type SiteSettingsSelect<ExtArgs extends runtime.Types.Extensions.Internal
 export type SiteSettingsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   bookingWidgetCode?: boolean
+  maintenanceModeEnabled?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["siteSettings"]>
@@ -302,6 +330,7 @@ export type SiteSettingsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
 export type SiteSettingsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   bookingWidgetCode?: boolean
+  maintenanceModeEnabled?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["siteSettings"]>
@@ -309,11 +338,12 @@ export type SiteSettingsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
 export type SiteSettingsSelectScalar = {
   id?: boolean
   bookingWidgetCode?: boolean
+  maintenanceModeEnabled?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type SiteSettingsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "bookingWidgetCode" | "createdAt" | "updatedAt", ExtArgs["result"]["siteSettings"]>
+export type SiteSettingsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "bookingWidgetCode" | "maintenanceModeEnabled" | "createdAt" | "updatedAt", ExtArgs["result"]["siteSettings"]>
 
 export type $SiteSettingsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "SiteSettings"
@@ -321,6 +351,7 @@ export type $SiteSettingsPayload<ExtArgs extends runtime.Types.Extensions.Intern
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     bookingWidgetCode: string
+    maintenanceModeEnabled: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["siteSettings"]>
@@ -748,6 +779,7 @@ export interface Prisma__SiteSettingsClient<T, Null = never, ExtArgs extends run
 export interface SiteSettingsFieldRefs {
   readonly id: Prisma.FieldRef<"SiteSettings", 'String'>
   readonly bookingWidgetCode: Prisma.FieldRef<"SiteSettings", 'String'>
+  readonly maintenanceModeEnabled: Prisma.FieldRef<"SiteSettings", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"SiteSettings", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"SiteSettings", 'DateTime'>
 }

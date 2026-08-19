@@ -9,11 +9,13 @@ export interface BookingWidgetDefinition {
 export interface SiteSettings {
   bookingWidgetCode: string
   bookingWidget: BookingWidgetDefinition | null
+  maintenanceModeEnabled: boolean
 }
 
 export function createEmptySiteSettings(): SiteSettings {
   return {
     bookingWidgetCode: '',
     bookingWidget: null,
+    maintenanceModeEnabled: false,
   }
 }
